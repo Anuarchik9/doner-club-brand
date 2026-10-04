@@ -2281,3 +2281,496 @@ body.deck-only .sources .section-heading h2{
     bottom:max(8px,env(safe-area-inset-bottom,0))!important;
   }
 }
+
+
+/* Strategy v14 — robust phone/tablet deck, independent of CSS viewport quirks */
+html.mobile-device,html.mobile-device body{
+  width:100%!important;
+  height:100%!important;
+  overflow:hidden!important;
+  overscroll-behavior:none!important;
+  -webkit-text-size-adjust:100%!important;
+}
+html.mobile-device body.deck-only .page-progress{display:none!important}
+
+/* Portrait / default mobile: one slide at a time, readable, with only the slide content scrolling */
+html.mobile-device body.deck-only .topbar{
+  display:flex!important;
+  height:48px!important;
+  min-height:48px!important;
+  padding:
+    env(safe-area-inset-top,0)
+    max(10px,env(safe-area-inset-right,0))
+    0
+    max(10px,env(safe-area-inset-left,0))!important;
+  align-items:center!important;
+  gap:8px!important;
+  background:rgba(255,255,255,.96)!important;
+  backdrop-filter:blur(14px)!important;
+}
+html.mobile-device body.deck-only .topbar .brand{
+  width:72px!important;
+  flex:0 0 72px!important;
+}
+html.mobile-device body.deck-only .topbar .doc-title,
+html.mobile-device body.deck-only .topbar nav,
+html.mobile-device body.deck-only .topbar .deck-badge{
+  display:none!important;
+}
+html.mobile-device body.deck-only .header-actions{
+  margin-left:auto!important;
+  display:flex!important;
+  align-items:center!important;
+}
+html.mobile-device body.deck-only .outline-btn{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  height:32px!important;
+  min-height:32px!important;
+  padding:0 10px!important;
+  border-radius:11px!important;
+  font-size:10px!important;
+  white-space:nowrap!important;
+}
+
+html.mobile-device body.deck-only main{
+  top:48px!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  width:100%!important;
+  height:calc(100dvh - 48px)!important;
+  overflow:hidden!important;
+}
+html.mobile-device body.deck-only main>.section{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:hidden!important;
+}
+html.mobile-device body.deck-only main>.section.presentation-active{
+  display:block!important;
+}
+html.mobile-device body.deck-only main>.section>.slide-content{
+  width:100%!important;
+  max-width:none!important;
+  height:100%!important;
+  margin:0!important;
+  padding:
+    18px
+    max(15px,env(safe-area-inset-right,0))
+    calc(72px + env(safe-area-inset-bottom,0))
+    max(15px,env(safe-area-inset-left,0))!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  -webkit-overflow-scrolling:touch!important;
+  scrollbar-width:none!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  gap:14px!important;
+  transform:none!important;
+  zoom:1!important;
+}
+html.mobile-device body.deck-only main>.section>.slide-content::-webkit-scrollbar{display:none!important}
+
+/* Mobile headings: strong and clean */
+html.mobile-device body.deck-only .section-heading{
+  display:grid!important;
+  grid-template-columns:32px minmax(0,1fr)!important;
+  grid-template-rows:auto auto!important;
+  gap:7px 9px!important;
+  width:100%!important;
+  margin:0 0 8px!important;
+}
+html.mobile-device body.deck-only .section-heading .section-no{
+  grid-column:1!important;
+  grid-row:1!important;
+  font-size:11px!important;
+  padding-top:7px!important;
+}
+html.mobile-device body.deck-only .section-heading>div{
+  grid-column:2!important;
+  grid-row:1!important;
+}
+html.mobile-device body.deck-only .section-heading>p{
+  grid-column:2!important;
+  grid-row:2!important;
+  margin:0!important;
+  padding:0!important;
+  max-width:none!important;
+  justify-self:stretch!important;
+  font-size:12px!important;
+  line-height:1.4!important;
+}
+html.mobile-device body.deck-only .section-heading .kicker{
+  display:inline-flex!important;
+  width:max-content!important;
+  min-height:22px!important;
+  padding:4px 7px!important;
+  margin:0 0 7px!important;
+  font-size:8.5px!important;
+  letter-spacing:.1em!important;
+}
+html.mobile-device body.deck-only .section-heading h2{
+  font-size:clamp(34px,10.5vw,48px)!important;
+  line-height:.9!important;
+  letter-spacing:-.045em!important;
+  max-width:none!important;
+}
+
+/* Cover */
+html.mobile-device body.deck-only main>.hero>.slide-content{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  align-items:stretch!important;
+  gap:16px!important;
+}
+html.mobile-device body.deck-only .hero-copy{
+  height:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+}
+html.mobile-device body.deck-only .hero .kicker{
+  min-height:22px!important;
+  padding:4px 7px!important;
+  margin:0 0 8px!important;
+  font-size:8.5px!important;
+}
+html.mobile-device body.deck-only .hero h1{
+  font-size:clamp(38px,11vw,55px)!important;
+  line-height:.88!important;
+  letter-spacing:-.05em!important;
+  margin:4px 0 14px!important;
+  max-width:none!important;
+}
+html.mobile-device body.deck-only .hero .lead{
+  font-size:14px!important;
+  line-height:1.45!important;
+  max-width:none!important;
+}
+html.mobile-device body.deck-only .hero-summary{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:7px!important;
+  margin-top:14px!important;
+}
+html.mobile-device body.deck-only .hero-summary div{
+  padding:11px 12px!important;
+  border-radius:14px!important;
+}
+html.mobile-device body.deck-only .hero-summary b{font-size:9px!important}
+html.mobile-device body.deck-only .hero-summary span{font-size:12px!important;line-height:1.3!important}
+html.mobile-device body.deck-only .hero-diagram{
+  flex:0 0 auto!important;
+  height:auto!important;
+  min-height:0!important;
+  padding:9px!important;
+  border-radius:18px!important;
+}
+html.mobile-device body.deck-only .hero-diagram img{
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+}
+
+/* Every desktop grid becomes a readable vertical story in portrait */
+html.mobile-device body.deck-only .simple-cards,
+html.mobile-device body.deck-only .portfolio-grid,
+html.mobile-device body.deck-only .migration-grid,
+html.mobile-device body.deck-only .principles-grid,
+html.mobile-device body.deck-only .flow-steps,
+html.mobile-device body.deck-only .screen-grid,
+html.mobile-device body.deck-only .offline-table,
+html.mobile-device body.deck-only .pros-cons,
+html.mobile-device body.deck-only .risk-grid,
+html.mobile-device body.deck-only .decision-grid,
+html.mobile-device body.deck-only .leadership-outcomes,
+html.mobile-device body.deck-only .glossary-grid,
+html.mobile-device body.deck-only .source-links,
+html.mobile-device body.deck-only .franchise-points,
+html.mobile-device body.deck-only .starter-plan,
+html.mobile-device body.deck-only #roadmap .roadmap-cards{
+  grid-template-columns:1fr!important;
+}
+html.mobile-device body.deck-only .simple-cards article,
+html.mobile-device body.deck-only .portfolio-grid article,
+html.mobile-device body.deck-only .migration-card,
+html.mobile-device body.deck-only .principles-grid article,
+html.mobile-device body.deck-only .flow-steps article,
+html.mobile-device body.deck-only .risk-grid article,
+html.mobile-device body.deck-only .glossary-grid article,
+html.mobile-device body.deck-only .roadmap-cards article,
+html.mobile-device body.deck-only .franchise-points article,
+html.mobile-device body.deck-only .pros-cons>div,
+html.mobile-device body.deck-only .payment-flow article,
+html.mobile-device body.deck-only .offline-table div,
+html.mobile-device body.deck-only .starter-flow article,
+html.mobile-device body.deck-only .starter-plan>div,
+html.mobile-device body.deck-only .decision-grid article,
+html.mobile-device body.deck-only #decision .leadership-outcomes article{
+  min-height:0!important;
+  height:auto!important;
+  padding:15px!important;
+}
+html.mobile-device body.deck-only .ownership-banner{
+  grid-template-columns:1fr!important;
+  gap:9px!important;
+}
+html.mobile-device body.deck-only .ownership-pills{justify-content:flex-start!important}
+
+/* Special mobile flows */
+html.mobile-device body.deck-only #starter .starter-flow{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:8px!important;
+}
+html.mobile-device body.deck-only #starter .starter-arrow{
+  height:30px!important;
+  flex-direction:row!important;
+  gap:8px!important;
+}
+html.mobile-device body.deck-only #starter .starter-arrow i{
+  transform:rotate(90deg)!important;
+  margin:0!important;
+  font-size:22px!important;
+}
+html.mobile-device body.deck-only #starter .starter-experience{grid-template-columns:1fr!important}
+
+html.mobile-device body.deck-only #target .architecture{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:8px!important;
+}
+html.mobile-device body.deck-only #target .arch-side,
+html.mobile-device body.deck-only #target .arch-core{
+  min-height:0!important;
+  height:auto!important;
+}
+html.mobile-device body.deck-only #target .arch-arrow{
+  height:28px!important;
+  transform:rotate(90deg)!important;
+}
+
+html.mobile-device body.deck-only .pos-layout,
+html.mobile-device body.deck-only .kds-layout{
+  grid-template-columns:1fr!important;
+  min-height:0!important;
+}
+html.mobile-device body.deck-only .pos-layout aside{
+  display:grid!important;
+  grid-template-columns:repeat(2,1fr)!important;
+}
+
+html.mobile-device body.deck-only #aggregators .connector-stage{
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:0!important;
+  padding:13px!important;
+  gap:11px!important;
+}
+html.mobile-device body.deck-only #aggregators .connector-sources{width:100%!important}
+html.mobile-device body.deck-only #aggregators .connector-lines{display:none!important}
+html.mobile-device body.deck-only #aggregators .connector-hub{
+  width:200px!important;
+  height:200px!important;
+  min-height:200px!important;
+  align-self:center!important;
+}
+html.mobile-device body.deck-only #aggregators .connector-main-arrow{height:30px!important}
+html.mobile-device body.deck-only #aggregators .connector-main-arrow span{
+  transform:rotate(90deg)!important;
+  width:36px!important;height:36px!important;
+}
+html.mobile-device body.deck-only #aggregators .connector-os,
+html.mobile-device body.deck-only #aggregators .connector-point{width:100%!important}
+html.mobile-device body.deck-only #aggregators .connector-summary{grid-template-columns:1fr!important}
+
+html.mobile-device body.deck-only #payments .payment-flow{grid-template-columns:1fr!important}
+html.mobile-device body.deck-only #payments .payment-flow>i{
+  transform:rotate(90deg)!important;
+  min-height:26px!important;
+}
+html.mobile-device body.deck-only #erp .effort-matrix article{
+  grid-template-columns:1fr!important;
+  gap:5px!important;
+}
+html.mobile-device body.deck-only #franchise .franchise-flow{grid-template-columns:1fr!important}
+html.mobile-device body.deck-only #franchise .franchise-arrow{
+  height:30px!important;
+  transform:rotate(90deg)!important;
+}
+html.mobile-device body.deck-only #decision .decision-copy h2{
+  font-size:clamp(38px,10.5vw,54px)!important;
+}
+
+/* Controls */
+html.mobile-device body.deck-only .presentation-home{
+  left:max(10px,env(safe-area-inset-left,0))!important;
+  bottom:calc(9px + env(safe-area-inset-bottom,0))!important;
+  width:44px!important;height:44px!important;
+  border-radius:14px!important;
+  font-size:24px!important;
+}
+html.mobile-device body.deck-only .presentation-controls{
+  right:max(10px,env(safe-area-inset-right,0))!important;
+  left:auto!important;
+  bottom:calc(9px + env(safe-area-inset-bottom,0))!important;
+  padding:6px!important;
+  gap:5px!important;
+  border-radius:14px!important;
+}
+html.mobile-device body.deck-only .presentation-controls button{
+  width:42px!important;min-width:42px!important;height:42px!important;border-radius:11px!important;
+}
+html.mobile-device body.deck-only .presentation-controls span{
+  min-width:52px!important;font-size:11px!important;
+}
+
+/* Landscape phone/tablet: real 16:9 full-screen canvas */
+@media(orientation:landscape){
+  html.mobile-device body.deck-only .topbar{display:none!important}
+  html.mobile-device body.deck-only main{
+    top:0!important;
+    height:100dvh!important;
+  }
+  html.mobile-device body.deck-only main>.section.presentation-active{
+    display:grid!important;
+    place-items:center!important;
+  }
+  html.mobile-device body.deck-only main>.section>.slide-content{
+    width:1280px!important;
+    height:720px!important;
+    min-width:1280px!important;
+    min-height:720px!important;
+    padding:28px 42px 62px!important;
+    margin:0!important;
+    overflow:hidden!important;
+    transform:scale(var(--phone-slide-scale,1))!important;
+    transform-origin:center center!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:space-between!important;
+    gap:10px!important;
+  }
+  html.mobile-device body.deck-only .section-heading{
+    display:grid!important;
+    grid-template-columns:40px minmax(0,1.5fr) minmax(250px,.65fr)!important;
+    grid-template-rows:auto!important;
+    gap:14px!important;
+    margin:0!important;
+  }
+  html.mobile-device body.deck-only .section-heading .section-no{
+    grid-column:1!important;grid-row:1!important;font-size:11px!important;
+  }
+  html.mobile-device body.deck-only .section-heading>div{
+    grid-column:2!important;grid-row:1!important;
+  }
+  html.mobile-device body.deck-only .section-heading>p{
+    grid-column:3!important;grid-row:1!important;
+    padding-top:22px!important;
+    font-size:11px!important;
+    line-height:1.35!important;
+  }
+  html.mobile-device body.deck-only .section-heading .kicker{
+    min-height:22px!important;padding:4px 8px!important;margin-bottom:6px!important;font-size:8px!important;
+  }
+  html.mobile-device body.deck-only .section-heading h2{
+    font-size:52px!important;
+    line-height:.88!important;
+  }
+
+  html.mobile-device body.deck-only main>.hero>.slide-content{
+    display:grid!important;
+    grid-template-columns:.92fr 1.08fr!important;
+    grid-template-rows:1fr!important;
+    gap:32px!important;
+    align-items:center!important;
+  }
+  html.mobile-device body.deck-only .hero h1{
+    font-size:66px!important;
+    line-height:.84!important;
+    margin:7px 0 14px!important;
+  }
+  html.mobile-device body.deck-only .hero .lead{font-size:14px!important}
+  html.mobile-device body.deck-only .hero-summary{
+    grid-template-columns:repeat(3,1fr)!important;
+    gap:7px!important;
+    margin-top:16px!important;
+  }
+  html.mobile-device body.deck-only .hero-diagram{
+    height:590px!important;
+    padding:12px!important;
+  }
+  html.mobile-device body.deck-only .hero-diagram img{
+    width:100%!important;height:100%!important;object-fit:contain!important;
+  }
+
+  html.mobile-device body.deck-only .simple-cards{grid-template-columns:repeat(3,1fr)!important}
+  html.mobile-device body.deck-only .portfolio-grid{grid-template-columns:repeat(3,1fr)!important}
+  html.mobile-device body.deck-only .migration-grid{grid-template-columns:repeat(4,1fr)!important}
+  html.mobile-device body.deck-only .principles-grid{grid-template-columns:repeat(4,1fr)!important}
+  html.mobile-device body.deck-only .flow-steps{grid-template-columns:repeat(5,1fr)!important}
+  html.mobile-device body.deck-only .screen-grid{grid-template-columns:1fr 1fr!important}
+  html.mobile-device body.deck-only .offline-table{grid-template-columns:repeat(3,1fr)!important}
+  html.mobile-device body.deck-only .pros-cons{grid-template-columns:1fr 1fr!important}
+  html.mobile-device body.deck-only .risk-grid{grid-template-columns:repeat(3,1fr)!important}
+  html.mobile-device body.deck-only .glossary-grid{grid-template-columns:repeat(4,1fr)!important}
+  html.mobile-device body.deck-only #roadmap .roadmap-cards{grid-template-columns:repeat(4,1fr)!important}
+  html.mobile-device body.deck-only #decision .leadership-outcomes{grid-template-columns:repeat(4,1fr)!important}
+  html.mobile-device body.deck-only .evidence-slide .source-links{grid-template-columns:repeat(5,1fr)!important}
+
+  html.mobile-device body.deck-only #starter .starter-flow{
+    grid-template-columns:1fr 70px 1fr 70px 1fr!important;
+  }
+  html.mobile-device body.deck-only #starter .starter-arrow{
+    height:auto!important;flex-direction:column!important;
+  }
+  html.mobile-device body.deck-only #starter .starter-arrow i{transform:none!important}
+  html.mobile-device body.deck-only #starter .starter-plan{grid-template-columns:repeat(6,1fr)!important}
+
+  html.mobile-device body.deck-only #target .architecture{
+    display:grid!important;
+    grid-template-columns:1fr 44px 1.25fr 44px 1fr!important;
+  }
+  html.mobile-device body.deck-only #target .arch-arrow{transform:none!important;height:auto!important}
+
+  html.mobile-device body.deck-only #aggregators .connector-stage{
+    display:grid!important;
+    grid-template-columns:175px 50px 175px 42px 175px 42px 140px!important;
+    min-height:0!important;
+    padding:10px!important;
+    gap:5px!important;
+  }
+  html.mobile-device body.deck-only #aggregators .connector-lines{display:grid!important}
+  html.mobile-device body.deck-only #aggregators .connector-hub{
+    width:auto!important;height:auto!important;min-height:165px!important;
+  }
+  html.mobile-device body.deck-only #aggregators .connector-main-arrow{height:auto!important}
+  html.mobile-device body.deck-only #aggregators .connector-main-arrow span{transform:none!important}
+  html.mobile-device body.deck-only #aggregators .connector-summary{grid-template-columns:repeat(5,1fr)!important}
+
+  html.mobile-device body.deck-only #payments .payment-flow{
+    grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr!important;
+  }
+  html.mobile-device body.deck-only #payments .payment-flow>i{transform:none!important}
+
+  html.mobile-device body.deck-only #franchise .franchise-flow{
+    grid-template-columns:.8fr 46px 1.5fr!important;
+  }
+  html.mobile-device body.deck-only #franchise .franchise-arrow{transform:none!important;height:auto!important}
+
+  html.mobile-device body.deck-only .presentation-home{
+    left:max(8px,env(safe-area-inset-left,0))!important;
+    bottom:max(8px,env(safe-area-inset-bottom,0))!important;
+  }
+  html.mobile-device body.deck-only .presentation-controls{
+    right:max(8px,env(safe-area-inset-right,0))!important;
+    bottom:max(8px,env(safe-area-inset-bottom,0))!important;
+  }
+}

@@ -3,12 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script>
+    (function(){
+      var ua=navigator.userAgent||'';
+      var touch=(navigator.maxTouchPoints||0)>0;
+      var mobileUA=/iPhone|iPod|Android|Mobile/i.test(ua);
+      var tabletTouch=touch && Math.min(screen.width||9999,screen.height||9999)<=1024;
+      if(mobileUA||tabletTouch){document.documentElement.classList.add('mobile-device');}
+    })();
+  </script>
   <meta name="theme-color" content="#0B1623">
   <meta name="description" content="Стратегия создания собственной цифровой экосистемы Doner Club — DC OS.">
   <title>Doner Club — стратегия собственной экосистемы</title>
   <link rel="shortcut icon" href="../favicon.ico?v=strategy-2" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png?v=strategy-2">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
   <div class="page-progress"><span id="progressBar"></span></div>
@@ -607,6 +619,6 @@
   </aside>
   <div class="backdrop" id="backdrop"></div>
   <div class="tooltip" id="tooltip" role="tooltip"></div>
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>
