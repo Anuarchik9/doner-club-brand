@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360">
+<rect width="1200" height="360" fill="#ffffff"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#55748c"/></marker></defs>
+<g font-family="Arial">
+<text x="40" y="44" font-size="16" font-weight="700" fill="#0b1623">CALL CENTRE → ТОЧКА → ГОСТЬ</text>
+<text x="40" y="70" font-size="12" fill="#6d7d89">Заказ вводится один раз и дальше двигается автоматически</text>
+<g>
+<rect x="40" y="120" width="165" height="125" rx="12" fill="#eef4f8" stroke="#ccd9e2"/><text x="64" y="150" font-size="12" font-weight="700" fill="#567186">1 · КЛИЕНТ</text><text x="64" y="190" font-size="28">☎</text><text x="104" y="190" font-size="17" font-weight="700" fill="#0b1623">Звонок</text>
+<line x1="215" y1="182" x2="275" y2="182" stroke="#55748c" stroke-width="3" marker-end="url(#a)"/>
+<rect x="290" y="120" width="180" height="125" rx="12" fill="#eef4f8" stroke="#ccd9e2"/><text x="314" y="150" font-size="12" font-weight="700" fill="#567186">2 · ОПЕРАТОР</text><text x="314" y="190" font-size="17" font-weight="700" fill="#0b1623">CRM + корзина</text><text x="314" y="216" font-size="12" fill="#667784">адрес · история · меню</text>
+<line x1="480" y1="182" x2="540" y2="182" stroke="#55748c" stroke-width="3" marker-end="url(#a)"/>
+<rect x="555" y="96" width="220" height="175" rx="14" fill="#0b1623"/><text x="580" y="130" font-size="12" font-weight="700" fill="#8eadc2">3 · ЕДИНОЕ ЯДРО</text><text x="580" y="178" font-size="27" font-weight="800" fill="#fff">DONER ORDER HUB</text><text x="580" y="210" font-size="12" fill="#b7c6d0">создаёт заказ один раз</text><text x="580" y="234" font-size="12" fill="#b7c6d0">source = CALL CENTRE</text>
+<line x1="785" y1="182" x2="845" y2="182" stroke="#55748c" stroke-width="3" marker-end="url(#a)"/>
+<rect x="860" y="120" width="135" height="125" rx="12" fill="#10243a"/><text x="883" y="150" font-size="12" font-weight="700" fill="#8eadc2">4 · ТОЧКА</text><text x="883" y="190" font-size="18" font-weight="800" fill="#fff">POS + KDS</text><text x="883" y="216" font-size="12" fill="#bdcad4">без дубля</text>
+<line x1="1005" y1="182" x2="1060" y2="182" stroke="#55748c" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1075" y="120" width="90" height="125" rx="12" fill="#dce8f0" stroke="#bfd0dc"/><text x="1090" y="150" font-size="12" font-weight="700" fill="#567186">5</text><text x="1090" y="184" font-size="25">✓</text><text x="1090" y="214" font-size="12" font-weight="700" fill="#0b1623">«Готов»</text>
+</g>
+<line x1="1120" y1="258" x2="1120" y2="302" stroke="#55748c" stroke-width="2" marker-end="url(#a)"/>
+<rect x="900" y="305" width="265" height="34" rx="7" fill="#eef4f8" stroke="#ccd9e2"/><text x="919" y="327" font-size="12" font-weight="700" fill="#335b78">Telegram / App: «Заказ готов»</text>
+</g></svg>
