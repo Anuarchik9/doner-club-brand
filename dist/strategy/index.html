@@ -8,7 +8,7 @@
   <title>Doner Club — стратегия собственной экосистемы</title>
   <link rel="shortcut icon" href="../favicon.ico?v=strategy-2" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png?v=strategy-2">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
   <div class="page-progress"><span id="progressBar"></span></div>
@@ -80,7 +80,7 @@
       </div>
     </section>
 
-    <section class="section dark">
+    <section class="section dark portfolio-slide">
       <div class="section-heading invert">
         <span class="section-no">02</span>
         <div><p class="kicker">ЧТО УЖЕ ЕСТЬ</p><h2>Мы начинаем не с нуля</h2></div>
@@ -267,7 +267,7 @@
       </div>
     </section>
 
-    <section class="section dark">
+    <section class="section dark poskds-slide">
       <div class="section-heading invert">
         <span class="section-no">07</span>
         <div><p class="kicker">POS + KDS</p><h2>Свой кассовый и кухонный контур</h2></div>
@@ -311,6 +311,7 @@
           <article class="source-pill wolt-card"><span>W</span><div><b>Wolt</b><small>официальный POS / middleware API</small></div></article>
           <article class="source-pill yandex-card"><span>Я</span><div><b>Яндекс Еда</b><small>меню · заказ · статус · курьер</small></div></article>
           <article class="source-pill glovo-card"><span>G</span><div><b>Glovo</b><small>подключаем после production-доступа</small></div></article>
+          <article class="source-pill choco-card"><span>CF</span><div><b>Chocofood / Freedom Food</b><small>отдельный connector после подтверждения доступа</small></div></article>
         </div>
 
         <div class="connector-lines" aria-hidden="true">
@@ -346,6 +347,7 @@
         <article><span class="status-dot green"></span><div><b>Wolt</b><p>забирать напрямую после onboarding и pilot</p></div></article>
         <article><span class="status-dot green"></span><div><b>Яндекс Еда</b><p>забирать напрямую после production-доступа</p></div></article>
         <article><span class="status-dot amber"></span><div><b>Glovo</b><p>Kwaaka оставить до подтверждения прямого доступа</p></div></article>
+        <article><span class="status-dot amber"></span><div><b>Chocofood / Freedom Food</b><p>подключать после получения технического доступа</p></div></article>
         <article class="connector-why"><b>Что берём под контроль</b><div><span>retry</span><span>антидубли</span><span>отмены</span><span>стоп-лист</span><span>логи</span></div></article>
       </div>
     </section>
@@ -454,7 +456,7 @@
       </div>
     </section>
 
-    <section class="section blue">
+    <section class="section blue tradeoff-slide">
       <div class="section-heading invert">
         <span class="section-no">14</span>
         <div><p class="kicker">ПЛЮСЫ И МИНУСЫ</p><h2>Цена независимости</h2></div>
@@ -509,7 +511,7 @@
       <div class="decision-copy">
         <p class="kicker">РЕКОМЕНДАЦИЯ ДЛЯ РУКОВОДСТВА</p>
         <h2>Не строить «копию iiko». Строить Doner OS.</h2>
-        <p>Первый стратегический продукт: <strong>Doner Site/App + Order Hub + POS + KDS + Call Centre + Webkassa + Doner Edge.</strong> Клиентский слой у нас уже начат, поэтому переход от Starter можно провести постепенно и без риска, одновременно забирая под контроль основную операционную работу.</p>
+        <p><strong>Предлагаемое решение:</strong> поэтапно сделать Doner OS операционным ядром сети. Сначала — Site/App, Order Hub, POS, KDS, Call Centre, Webkassa и Doner Edge; складской ERP переносить последним. Так мы получаем независимость без риска одномоментно отключить работающую инфраструктуру.</p>
       </div>
 
       <div class="decision-grid">
@@ -518,11 +520,11 @@
         <article class="primary"><small>СДЕЛАТЬ ЯДРОМ</small><b>DONER OS</b><p>Заказы, точки, статусы, клиенты и операционная логика.</p></article>
       </div>
 
-      <div class="targets">
-        <div><b>1</b><span>единый источник меню и статусов</span></div>
-        <div><b>24/7</b><span>операционная готовность точки</span></div>
-        <div><b>0</b><span>целевая терпимость к потерянным заказам</span></div>
-        <div><b>100%</b><span>контроль собственных данных</span></div>
+      <div class="leadership-outcomes">
+        <article><small>ПЕРЕХОД</small><b>Без резкого отключения</b><p>iiko и Starter остаются резервом, пока наши модули не подтвердят стабильность.</p></article>
+        <article><small>ПОД НАС</small><b>Наши процессы — базовые</b><p>Самообслуживание, единая выдача, 24/7, Call Centre и наши правила кухни заложены в ядро.</p></article>
+        <article><small>НЕЗАВИСИМОСТЬ</small><b>Меняем систему сами</b><p>Не ждём чужой roadmap, тариф или ограничение API, чтобы внедрить нужную бизнесу функцию.</p></article>
+        <article><small>МАСШТАБ</small><b>Основа для франшизы</b><p>Новая точка получает готовую цифровую операционную модель Doner Club.</p></article>
       </div>
     </section>
 
@@ -549,7 +551,7 @@
       </div>
     </section>
 
-    <section class="section sources">
+    <section class="section sources evidence-slide">
       <div class="section-heading">
         <span class="section-no">17</span>
         <div><p class="kicker dark">ОСНОВАНИЕ СТРАТЕГИИ</p><h2>Что подтверждено уже сейчас</h2></div>
@@ -559,7 +561,7 @@
         <a href="https://developer.wolt.com/docs/getting-started/restaurant" target="_blank" rel="noopener"><b>Wolt for Developers</b><span>POS / Middleware интеграции ↗</span></a>
         <a href="https://yandex.ru/dev/eda-vendor/doc/ru/ref/" target="_blank" rel="noopener"><b>Яндекс Еда API</b><span>Меню, заказы, статусы ↗</span></a>
         <a href="https://webkassa.kz/" target="_blank" rel="noopener"><b>Webkassa</b><span>API для POS / ERP ↗</span></a>
-        <div class="source-card source-choco"><b>Chocofood (Freedom food)</b><span>Канал доставки / будущий connector</span></div>
+        <div class="source-card source-choco"><b>Chocofood / Freedom Food</b><span>Канал доставки / будущий connector</span></div>
         <a href="../index.html"><b>Doner Club Visual Guide</b><span>Основной бренд-сайт →</span></a>
       </div>
     </section>
@@ -605,6 +607,6 @@
   </aside>
   <div class="backdrop" id="backdrop"></div>
   <div class="tooltip" id="tooltip" role="tooltip"></div>
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>

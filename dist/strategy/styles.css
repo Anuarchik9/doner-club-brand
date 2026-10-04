@@ -1273,3 +1273,310 @@ body.deck-only .sources .source-choco b{color:#164f38!important}
   body.deck-only .sources .source-card b{font-size:19px!important}
   body.deck-only #offline .wide-figure img{max-height:360px!important}
 }
+
+
+/* Strategy v11 — executive clarity + full-deck visual audit */
+
+/* Global anti-bug rules for all 20 slides */
+body.deck-only .slide-content,
+body.deck-only .slide-content>*,
+body.deck-only article,
+body.deck-only div{min-width:0}
+body.deck-only img,body.deck-only svg{max-width:100%}
+body.deck-only h1,body.deck-only h2,body.deck-only h3{
+  text-wrap:balance;
+  overflow-wrap:normal;
+}
+body.deck-only p,body.deck-only span,body.deck-only b,body.deck-only strong{
+  overflow-wrap:break-word;
+}
+body.deck-only .section-heading{
+  width:100%!important;
+}
+body.deck-only .section-heading>div{min-width:0}
+body.deck-only .section-heading h2{
+  max-width:1100px!important;
+}
+body.deck-only .section-heading>p{
+  justify-self:end!important;
+}
+body.deck-only .kicker{
+  color:#2b5f84!important;
+  font-weight:900!important;
+  opacity:1!important;
+}
+body.deck-only .dark .kicker,
+body.deck-only .blue .kicker,
+body.deck-only .decision .kicker,
+body.deck-only .franchise .kicker{
+  color:#9fc3d8!important;
+}
+body.deck-only .section-no{
+  align-self:start!important;
+  padding-top:3px!important;
+}
+
+/* Don't let bottom controls cover slide content */
+body.deck-only main>.section>.slide-content{
+  padding-bottom:86px!important;
+}
+
+/* Slide 3 — keep portfolio cards balanced */
+body.deck-only .portfolio-slide .portfolio-grid{
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:10px!important;
+}
+body.deck-only .portfolio-slide .portfolio-grid article{
+  display:flex!important;
+  flex-direction:column!important;
+}
+body.deck-only .portfolio-slide .portfolio-grid em{margin-top:auto!important}
+
+/* Slide 5 — starter transition gets equal cards and no floating gaps */
+body.deck-only #starter .starter-flow{
+  grid-template-columns:1fr 92px 1fr 92px 1fr!important;
+  align-items:stretch!important;
+}
+body.deck-only #starter .starter-plan{
+  grid-template-columns:repeat(6,1fr)!important;
+}
+body.deck-only #starter .starter-plan>div{
+  display:flex!important;
+  flex-direction:column!important;
+}
+body.deck-only #starter .starter-plan p{margin-top:auto!important}
+
+/* Slide 6 — architecture keeps equal visual weight */
+body.deck-only #target .architecture{
+  align-items:stretch!important;
+}
+body.deck-only #target .arch-side,
+body.deck-only #target .arch-core{
+  height:100%!important;
+}
+
+/* Slide 7 — call centre figure and steps use the stage width */
+body.deck-only #callcenter .wide-figure{
+  width:100%!important;
+}
+body.deck-only #callcenter .flow-steps{
+  grid-template-columns:repeat(5,1fr)!important;
+  align-items:stretch!important;
+}
+
+/* Slide 8 — POS/KDS screens align to same height */
+body.deck-only .poskds-slide .screen-grid{
+  align-items:stretch!important;
+}
+body.deck-only .poskds-slide .screen{
+  height:100%!important;
+}
+
+/* Slide 9 — 4 sources + 5 summary cards without collisions */
+body.deck-only #aggregators .connector-stage{
+  grid-template-columns:250px 90px 260px 64px 260px 64px 185px!important;
+  min-height:390px!important;
+}
+body.deck-only #aggregators .connector-sources{gap:8px!important}
+body.deck-only #aggregators .source-pill{padding:11px 13px!important}
+body.deck-only #aggregators .source-pill>span{
+  width:36px!important;height:36px!important;font-size:12px!important;
+}
+body.deck-only #aggregators .source-pill b{font-size:13px!important}
+body.deck-only #aggregators .source-pill small{font-size:7.7px!important}
+body.deck-only #aggregators .choco-card>span{
+  background:#e8e3f4!important;color:#4f3d73!important;
+}
+body.deck-only #aggregators .connector-lines{gap:32px!important}
+body.deck-only #aggregators .connector-summary{
+  grid-template-columns:repeat(5,1fr)!important;
+  gap:7px!important;
+}
+body.deck-only #aggregators .connector-summary article{
+  min-height:64px!important;
+}
+body.deck-only #aggregators .connector-why{
+  grid-column:auto!important;
+}
+
+/* Slide 10 — no mysterious white shell around Doner Edge */
+body.deck-only #offline .wide-figure,
+body.deck-only #offline .blue-figure{
+  background:transparent!important;
+  border:0!important;
+  padding:0!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+body.deck-only #offline .wide-figure img{
+  display:block!important;
+  width:100%!important;
+  max-height:440px!important;
+  object-fit:contain!important;
+  border-radius:28px!important;
+  box-shadow:0 18px 46px rgba(0,0,0,.18)!important;
+}
+body.deck-only #offline .offline-table{
+  grid-template-columns:repeat(3,1fr)!important;
+}
+
+/* Slide 11 — payment flow arrows stay centered */
+body.deck-only #payments .payment-flow{
+  align-items:stretch!important;
+}
+body.deck-only #payments .payment-flow>i{
+  align-self:center!important;
+}
+
+/* Slide 12 — effort matrix labels never collide */
+body.deck-only #erp .effort-matrix article{
+  grid-template-columns:180px minmax(0,1fr) auto!important;
+}
+
+/* Slide 13 — road map uses all width evenly */
+body.deck-only #roadmap .roadmap-cards{
+  grid-template-columns:repeat(4,1fr)!important;
+  align-items:stretch!important;
+}
+body.deck-only #roadmap .roadmap-cards article{
+  height:100%!important;
+}
+
+/* Slide 14 — franchise right-side cards stay equal */
+body.deck-only #franchise .franchise-points{
+  grid-template-columns:repeat(3,1fr)!important;
+  align-items:stretch!important;
+}
+body.deck-only #franchise .franchise-points article{height:100%!important}
+
+/* Slide 15 — plus/minus is a true two-column comparison */
+body.deck-only .tradeoff-slide .pros-cons{
+  grid-template-columns:1fr 1fr!important;
+  align-items:stretch!important;
+}
+body.deck-only .tradeoff-slide .pros-cons>div{height:100%!important}
+
+/* Slide 16 — risk cards aligned 3 x 2 */
+body.deck-only #risk .risk-grid{
+  grid-template-columns:repeat(3,1fr)!important;
+  align-items:stretch!important;
+}
+body.deck-only #risk .risk-grid article{height:100%!important}
+
+/* Slide 17 — leadership slide: remove opaque numerical KPI block */
+body.deck-only #decision .decision-copy{
+  max-width:1320px!important;
+}
+body.deck-only #decision .decision-copy>p:last-child{
+  max-width:1180px!important;
+  line-height:1.45!important;
+}
+body.deck-only #decision .decision-grid{
+  grid-template-columns:1fr 1fr 1.2fr!important;
+  align-items:stretch!important;
+}
+body.deck-only #decision .leadership-outcomes{
+  display:grid!important;
+  grid-template-columns:repeat(4,1fr)!important;
+  gap:9px!important;
+  flex:0 0 auto!important;
+}
+body.deck-only #decision .leadership-outcomes article{
+  min-height:130px!important;
+  padding:17px 18px!important;
+  border-radius:18px!important;
+  background:#102437!important;
+  border:1px solid #2b4962!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.14)!important;
+  color:#fff!important;
+}
+body.deck-only #decision .leadership-outcomes article:nth-child(4){
+  background:linear-gradient(145deg,#174f39,#247a55)!important;
+  border-color:#3f8e69!important;
+}
+body.deck-only #decision .leadership-outcomes small{
+  display:block!important;
+  font-size:9px!important;
+  font-weight:900!important;
+  letter-spacing:.12em!important;
+  color:#91b4c9!important;
+}
+body.deck-only #decision .leadership-outcomes article:nth-child(4) small{color:#c6ead5!important}
+body.deck-only #decision .leadership-outcomes b{
+  display:block!important;
+  margin:23px 0 7px!important;
+  font-size:19px!important;
+  line-height:1.1!important;
+}
+body.deck-only #decision .leadership-outcomes p{
+  margin:0!important;
+  font-size:10.5px!important;
+  line-height:1.35!important;
+  color:#bac8d3!important;
+}
+body.deck-only #decision .leadership-outcomes article:nth-child(4) p{color:#dcece3!important}
+
+/* Slide 18 — glossary cards use the full stage */
+body.deck-only #glossary .glossary-grid{
+  grid-template-columns:repeat(4,1fr)!important;
+  align-content:stretch!important;
+}
+body.deck-only #glossary .glossary-grid article{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+
+/* Slide 19 — source cards sit directly under the topic, no giant dead zone */
+body.deck-only .evidence-slide .slide-content{
+  justify-content:flex-start!important;
+}
+body.deck-only .evidence-slide .section-heading{
+  margin-bottom:40px!important;
+}
+body.deck-only .evidence-slide .source-links{
+  grid-template-columns:repeat(5,1fr)!important;
+  gap:10px!important;
+  margin-top:18px!important;
+  align-content:start!important;
+}
+body.deck-only .evidence-slide .source-links>a,
+body.deck-only .evidence-slide .source-card{
+  min-height:180px!important;
+  height:100%!important;
+  justify-content:center!important;
+}
+body.deck-only .evidence-slide .source-links b,
+body.deck-only .evidence-slide .source-card b{
+  font-size:21px!important;
+}
+
+/* Slide 20 — closing page occupies the canvas, not the middle only */
+body.deck-only .closing>.slide-content{
+  min-height:100%!important;
+}
+body.deck-only .closing h2{
+  font-size:clamp(78px,7vw,128px)!important;
+  line-height:.84!important;
+}
+body.deck-only .closing>p{font-size:18px!important}
+
+/* 1366–1600 px wide screens: prevent any horizontal overrun */
+@media(max-width:1600px){
+  body.deck-only #aggregators .connector-stage{
+    grid-template-columns:220px 70px 220px 50px 220px 50px 160px!important;
+  }
+  body.deck-only #aggregators .connector-os strong{font-size:29px!important}
+  body.deck-only #aggregators .connector-hub strong{font-size:27px!important}
+  body.deck-only .evidence-slide .source-links b,
+  body.deck-only .evidence-slide .source-card b{font-size:18px!important}
+}
+
+/* Shorter laptop screens */
+@media(max-height:850px){
+  body.deck-only #decision .leadership-outcomes article{min-height:105px!important;padding:13px 15px!important}
+  body.deck-only #decision .leadership-outcomes b{margin:15px 0 5px!important;font-size:17px!important}
+  body.deck-only .evidence-slide .source-links>a,
+  body.deck-only .evidence-slide .source-card{min-height:120px!important}
+  body.deck-only .evidence-slide .section-heading{margin-bottom:20px!important}
+}
