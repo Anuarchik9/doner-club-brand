@@ -20,7 +20,7 @@
   <title>Doner Club — стратегия собственной экосистемы</title>
   <link rel="shortcut icon" href="../favicon.ico?v=strategy-2" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png?v=strategy-2">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=18">
 <style id="critical-deck-v15">
 html,body{margin:0;width:100%;height:100%;overflow:hidden}
 body.deck-only{overflow:hidden}
@@ -79,359 +79,343 @@ body.deck-only .presentation-home{display:grid!important}
 }
 </style>
 
-<style id="mobile-current-design-v17">
-/* MOBILE = CURRENT DESKTOP DESIGN, NOT THE OLD ORANGE CONCEPT */
-html.mobile-device,html.mobile-device body{
-  margin:0!important;
-  width:100%!important;
-  height:100%!important;
-  overflow:hidden!important;
-  background:#f8fbfc!important;
-  color:#10161d!important;
-  -webkit-text-size-adjust:100%!important;
+<style id="mobile-current-design-v18">
+/* Base mobile shell */
+html.mobile-device,html.landscape-device,html.mobile-device body,html.landscape-device body{
+  margin:0!important;width:100%!important;height:100%!important;overflow:hidden!important;
+  -webkit-text-size-adjust:100%!important;background:#f8fbfc!important;
 }
-html.mobile-device body.deck-only .topbar{
-  position:fixed!important;
-  z-index:100!important;
-  top:0!important;left:0!important;right:0!important;
-  height:48px!important;min-height:48px!important;
-  display:flex!important;align-items:center!important;
-  padding:0 10px!important;
-  background:rgba(255,255,255,.97)!important;
-  border-bottom:1px solid #dce5ea!important;
-  backdrop-filter:blur(12px)!important;
+html.mobile-device body.deck-only .topbar,
+html.landscape-device body.deck-only .topbar{overflow:hidden!important}
+html.mobile-device body.deck-only .topbar .brand,
+html.landscape-device body.deck-only .topbar .brand{
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  height:32px!important;min-height:32px!important;max-height:32px!important;
 }
-html.mobile-device body.deck-only .topbar .brand{
-  display:block!important;
-  width:72px!important;height:auto!important;
-  flex:0 0 72px!important;
-}
-html.mobile-device body.deck-only .topbar .doc-title,
-html.mobile-device body.deck-only .topbar nav,
-html.mobile-device body.deck-only .topbar .deck-badge{
-  display:none!important;
-}
-html.mobile-device body.deck-only .header-actions{
-  display:flex!important;align-items:center!important;
-  margin-left:auto!important;
-}
-html.mobile-device body.deck-only .outline-btn{
-  display:inline-flex!important;align-items:center!important;justify-content:center!important;
-  height:32px!important;
-  padding:0 11px!important;
-  border:1px solid #142434!important;
-  border-radius:12px!important;
-  background:#fff!important;
-  color:#10161d!important;
-  font-size:10px!important;
-  font-weight:800!important;
-  white-space:nowrap!important;
+html.mobile-device body.deck-only .topbar .brand img,
+html.landscape-device body.deck-only .topbar .brand img{
+  display:block!important;width:auto!important;height:100%!important;max-height:32px!important;object-fit:contain!important;
 }
 
-/* one slide at a time */
-html.mobile-device body.deck-only main{
-  position:fixed!important;
-  top:48px!important;left:0!important;right:0!important;bottom:0!important;
-  height:calc(var(--vvh,100dvh) - 48px)!important;
-  overflow:hidden!important;
+/* PORTRAIT — current desktop design adapted to phone */
+html.mobile-device:not(.landscape-device) body.deck-only .topbar{
+  position:fixed!important;z-index:100!important;top:0!important;left:0!important;right:0!important;
+  height:48px!important;min-height:48px!important;padding:0 10px!important;
+  display:flex!important;align-items:center!important;background:rgba(255,255,255,.98)!important;
+  border-bottom:1px solid #dce5ea!important;backdrop-filter:blur(12px)!important;
 }
-html.mobile-device body.deck-only main>.section{
-  display:none!important;
-  position:absolute!important;inset:0!important;
-  width:100%!important;height:100%!important;
-  overflow:hidden!important;
+html.mobile-device:not(.landscape-device) body.deck-only .topbar .brand{width:72px!important;flex:0 0 72px!important}
+html.mobile-device:not(.landscape-device) body.deck-only .topbar .doc-title,
+html.mobile-device:not(.landscape-device) body.deck-only .topbar nav,
+html.mobile-device:not(.landscape-device) body.deck-only .topbar .deck-badge{display:none!important}
+html.mobile-device:not(.landscape-device) body.deck-only .header-actions{margin-left:auto!important;display:flex!important}
+html.mobile-device:not(.landscape-device) body.deck-only .outline-btn{
+  height:32px!important;padding:0 11px!important;border-radius:12px!important;font-size:10px!important;white-space:nowrap!important;
 }
-html.mobile-device body.deck-only main>.section.presentation-active{
-  display:block!important;
+html.mobile-device:not(.landscape-device) body.deck-only main{
+  position:fixed!important;top:48px!important;left:0!important;right:0!important;bottom:0!important;
+  height:calc(var(--vvh,100dvh) - 48px)!important;overflow:hidden!important;
 }
-html.mobile-device body.deck-only main>.section>.slide-content{
-  box-sizing:border-box!important;
-  width:100%!important;max-width:none!important;height:100%!important;
-  margin:0!important;
-  padding:16px 14px calc(68px + env(safe-area-inset-bottom,0))!important;
-  overflow-y:auto!important;overflow-x:hidden!important;
-  -webkit-overflow-scrolling:touch!important;
-  scrollbar-width:none!important;
-  transform:none!important;zoom:1!important;
-  display:flex!important;flex-direction:column!important;
-  justify-content:flex-start!important;
-  gap:12px!important;
+html.mobile-device:not(.landscape-device) body.deck-only main>.section{
+  display:none!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important;
 }
-html.mobile-device body.deck-only main>.section>.slide-content::-webkit-scrollbar{display:none!important}
+html.mobile-device:not(.landscape-device) body.deck-only main>.section.presentation-active{display:block!important}
+html.mobile-device:not(.landscape-device) body.deck-only main>.section>.slide-content{
+  box-sizing:border-box!important;width:100%!important;max-width:none!important;height:100%!important;margin:0!important;
+  padding:16px 14px calc(70px + env(safe-area-inset-bottom,0))!important;
+  overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch!important;
+  transform:none!important;zoom:1!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;gap:12px!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only main>.section>.slide-content::-webkit-scrollbar{display:none!important}
 
-/* current light design */
-html.mobile-device body.deck-only .hero,
-html.mobile-device body.deck-only .light,
-html.mobile-device body.deck-only .starter-transition,
-html.mobile-device body.deck-only .sources{
-  background:
-    radial-gradient(circle at 92% 8%,rgba(36,122,85,.08),transparent 24%),
-    radial-gradient(circle at 8% 92%,rgba(60,125,163,.055),transparent 22%),
-    #fbfdfe!important;
+/* portrait color/style = current desktop deck */
+html.mobile-device:not(.landscape-device) body.deck-only .hero,
+html.mobile-device:not(.landscape-device) body.deck-only .light,
+html.mobile-device:not(.landscape-device) body.deck-only .starter-transition,
+html.mobile-device:not(.landscape-device) body.deck-only .sources{
+  background:radial-gradient(circle at 92% 8%,rgba(36,122,85,.08),transparent 24%),
+             radial-gradient(circle at 8% 92%,rgba(60,125,163,.055),transparent 22%),#fbfdfe!important;
   color:#10161d!important;
 }
-html.mobile-device body.deck-only .hero::before{display:none!important}
-html.mobile-device body.deck-only .hero-copy{height:auto!important;color:#10161d!important}
-html.mobile-device body.deck-only .hero .kicker,
-html.mobile-device body.deck-only .section-heading .kicker{
-  display:inline-flex!important;
-  width:max-content!important;
-  align-items:center!important;
-  min-height:22px!important;
-  padding:4px 7px!important;
-  margin:0 0 7px!important;
-  border-radius:999px!important;
-  background:#e8f1f6!important;
-  color:#275b7a!important;
-  font-size:8px!important;
-  line-height:1!important;
-  letter-spacing:.1em!important;
-  font-weight:900!important;
-}
-html.mobile-device body.deck-only .hero h1{
-  color:#10161d!important;
-  font-size:clamp(38px,10.7vw,50px)!important;
-  line-height:.88!important;
-  letter-spacing:-.052em!important;
-  margin:4px 0 13px!important;
-  max-width:none!important;
-}
-html.mobile-device body.deck-only .hero .lead{
-  color:#536574!important;
-  font-size:12.5px!important;
-  line-height:1.42!important;
-  max-width:none!important;
-  margin:0!important;
-}
-html.mobile-device body.deck-only .hero-summary{
-  display:grid!important;
-  grid-template-columns:1fr!important;
-  gap:6px!important;
-  margin-top:14px!important;
-  border:0!important;
-}
-html.mobile-device body.deck-only .hero-summary div{
-  display:grid!important;
-  grid-template-columns:88px 1fr!important;
-  gap:7px!important;
-  align-items:start!important;
-  padding:9px 10px!important;
-  border:1px solid #dce6ec!important;
-  border-radius:13px!important;
-  background:rgba(255,255,255,.92)!important;
-  box-shadow:0 7px 20px rgba(15,43,64,.05)!important;
-}
-html.mobile-device body.deck-only .hero-summary b{
-  color:#2b5f84!important;
-  font-size:8px!important;
-  text-transform:uppercase!important;
-  letter-spacing:.08em!important;
-}
-html.mobile-device body.deck-only .hero-summary span{
-  color:#15202a!important;
-  font-size:10px!important;
-  line-height:1.28!important;
-  margin:0!important;
-  font-weight:700!important;
-}
-html.mobile-device body.deck-only .hero-diagram{
-  flex:0 0 auto!important;
-  height:auto!important;
-  min-height:0!important;
-  margin:2px 0 0!important;
-  padding:8px!important;
-  border:1px solid #dce6ec!important;
-  border-radius:20px!important;
-  background:#fff!important;
-  box-shadow:0 14px 40px rgba(15,43,64,.08)!important;
-}
-html.mobile-device body.deck-only .hero-diagram img,
-html.mobile-device body.deck-only .hero-diagram svg{
-  display:block!important;
-  width:100%!important;
-  height:auto!important;
-  max-height:none!important;
-  object-fit:contain!important;
-}
-
-/* headings on all slides */
-html.mobile-device body.deck-only .section-heading{
-  display:grid!important;
-  grid-template-columns:28px minmax(0,1fr)!important;
-  grid-template-rows:auto auto!important;
-  gap:6px 8px!important;
-  width:100%!important;
-  margin:0 0 9px!important;
-}
-html.mobile-device body.deck-only .section-heading .section-no{
-  grid-column:1!important;grid-row:1!important;
-  color:#2b5f84!important;
-  font-size:10px!important;
-  padding-top:6px!important;
-}
-html.mobile-device body.deck-only .section-heading>div{
-  grid-column:2!important;grid-row:1!important;
-}
-html.mobile-device body.deck-only .section-heading>p{
-  grid-column:2!important;grid-row:2!important;
-  margin:0!important;padding:0!important;
-  max-width:none!important;
-  color:#5b6c79!important;
-  font-size:10.5px!important;
-  line-height:1.38!important;
-}
-html.mobile-device body.deck-only .section-heading h2{
-  color:inherit!important;
-  font-size:clamp(34px,9.8vw,46px)!important;
-  line-height:.9!important;
-  letter-spacing:-.045em!important;
-  max-width:none!important;
-}
-
-/* dark slides stay dark, but use current DC style */
-html.mobile-device body.deck-only .dark,
-html.mobile-device body.deck-only .blue,
-html.mobile-device body.deck-only .decision{
-  background:
-    radial-gradient(circle at 90% 12%,rgba(57,148,102,.16),transparent 24%),
-    radial-gradient(circle at 8% 88%,rgba(58,104,145,.15),transparent 28%),
-    #0b1a28!important;
+html.mobile-device:not(.landscape-device) body.deck-only .dark,
+html.mobile-device:not(.landscape-device) body.deck-only .blue,
+html.mobile-device:not(.landscape-device) body.deck-only .decision{
+  background:radial-gradient(circle at 90% 12%,rgba(57,148,102,.16),transparent 24%),
+             radial-gradient(circle at 8% 88%,rgba(58,104,145,.15),transparent 28%),#0b1a28!important;
   color:#fff!important;
 }
-html.mobile-device body.deck-only .dark .section-heading .kicker,
-html.mobile-device body.deck-only .blue .section-heading .kicker,
-html.mobile-device body.deck-only .decision .section-heading .kicker,
-html.mobile-device body.deck-only .franchise .section-heading .kicker{
-  background:rgba(255,255,255,.10)!important;
-  color:#b9d6e7!important;
+html.mobile-device:not(.landscape-device) body.deck-only .hero-copy{height:auto!important;color:#10161d!important}
+html.mobile-device:not(.landscape-device) body.deck-only .hero h1{
+  color:#10161d!important;font-size:clamp(38px,10.7vw,50px)!important;line-height:.88!important;
+  letter-spacing:-.052em!important;margin:4px 0 13px!important;max-width:none!important;
 }
-html.mobile-device body.deck-only .dark .section-heading>p,
-html.mobile-device body.deck-only .blue .section-heading>p,
-html.mobile-device body.deck-only .decision .section-heading>p{
-  color:#bfd0dc!important;
+html.mobile-device:not(.landscape-device) body.deck-only .hero .lead{
+  color:#536574!important;font-size:12.5px!important;line-height:1.42!important;max-width:none!important;margin:0!important;
 }
-
-/* responsive cards */
-html.mobile-device body.deck-only .simple-cards,
-html.mobile-device body.deck-only .portfolio-grid,
-html.mobile-device body.deck-only .migration-grid,
-html.mobile-device body.deck-only .principles-grid,
-html.mobile-device body.deck-only .flow-steps,
-html.mobile-device body.deck-only .screen-grid,
-html.mobile-device body.deck-only .offline-table,
-html.mobile-device body.deck-only .pros-cons,
-html.mobile-device body.deck-only .risk-grid,
-html.mobile-device body.deck-only .decision-grid,
-html.mobile-device body.deck-only .leadership-outcomes,
-html.mobile-device body.deck-only .glossary-grid,
-html.mobile-device body.deck-only .source-links,
-html.mobile-device body.deck-only .franchise-points,
-html.mobile-device body.deck-only .starter-plan,
-html.mobile-device body.deck-only #roadmap .roadmap-cards{
-  grid-template-columns:1fr!important;
-  gap:7px!important;
+html.mobile-device:not(.landscape-device) body.deck-only .hero .kicker,
+html.mobile-device:not(.landscape-device) body.deck-only .section-heading .kicker{
+  display:inline-flex!important;width:max-content!important;align-items:center!important;min-height:22px!important;
+  padding:4px 7px!important;margin:0 0 7px!important;border-radius:999px!important;background:#e8f1f6!important;
+  color:#275b7a!important;font-size:8px!important;line-height:1!important;letter-spacing:.1em!important;font-weight:900!important;
 }
-html.mobile-device body.deck-only .simple-cards article,
-html.mobile-device body.deck-only .portfolio-grid article,
-html.mobile-device body.deck-only .migration-card,
-html.mobile-device body.deck-only .principles-grid article,
-html.mobile-device body.deck-only .flow-steps article,
-html.mobile-device body.deck-only .risk-grid article,
-html.mobile-device body.deck-only .glossary-grid article,
-html.mobile-device body.deck-only .roadmap-cards article,
-html.mobile-device body.deck-only .franchise-points article,
-html.mobile-device body.deck-only .pros-cons>div,
-html.mobile-device body.deck-only .payment-flow article,
-html.mobile-device body.deck-only .offline-table div,
-html.mobile-device body.deck-only .starter-flow article,
-html.mobile-device body.deck-only .starter-plan>div,
-html.mobile-device body.deck-only .decision-grid article,
-html.mobile-device body.deck-only #decision .leadership-outcomes article{
-  min-height:0!important;height:auto!important;
-  padding:14px!important;
-  border-radius:16px!important;
+html.mobile-device:not(.landscape-device) body.deck-only .dark .section-heading .kicker,
+html.mobile-device:not(.landscape-device) body.deck-only .blue .section-heading .kicker,
+html.mobile-device:not(.landscape-device) body.deck-only .decision .section-heading .kicker{
+  background:rgba(255,255,255,.1)!important;color:#b9d6e7!important;
 }
-html.mobile-device body.deck-only .simple-cards h3,
-html.mobile-device body.deck-only .portfolio-grid b,
-html.mobile-device body.deck-only .principles-grid h3,
-html.mobile-device body.deck-only .flow-steps b,
-html.mobile-device body.deck-only .risk-grid b,
-html.mobile-device body.deck-only .glossary-grid b{
-  margin:12px 0 5px!important;
-  font-size:16px!important;
+html.mobile-device:not(.landscape-device) body.deck-only .section-heading{
+  display:grid!important;grid-template-columns:28px minmax(0,1fr)!important;grid-template-rows:auto auto!important;
+  gap:6px 8px!important;width:100%!important;margin:0 0 9px!important;overflow:visible!important;
 }
-html.mobile-device body.deck-only .simple-cards p,
-html.mobile-device body.deck-only .portfolio-grid p,
-html.mobile-device body.deck-only .principles-grid p,
-html.mobile-device body.deck-only .flow-steps p,
-html.mobile-device body.deck-only .risk-grid p,
-html.mobile-device body.deck-only .glossary-grid p{
-  font-size:10.5px!important;
-  line-height:1.35!important;
+html.mobile-device:not(.landscape-device) body.deck-only .section-heading .section-no{
+  grid-column:1!important;grid-row:1!important;color:#2b5f84!important;font-size:10px!important;padding-top:6px!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only .section-heading>div{grid-column:2!important;grid-row:1!important;overflow:visible!important}
+html.mobile-device:not(.landscape-device) body.deck-only .section-heading>p{
+  grid-column:2!important;grid-row:2!important;margin:0!important;padding:0!important;max-width:none!important;
+  color:#5b6c79!important;font-size:10.5px!important;line-height:1.38!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only .dark .section-heading>p,
+html.mobile-device:not(.landscape-device) body.deck-only .blue .section-heading>p,
+html.mobile-device:not(.landscape-device) body.deck-only .decision .section-heading>p{color:#bfd0dc!important}
+html.mobile-device:not(.landscape-device) body.deck-only .section-heading h2{
+  color:inherit!important;font-size:clamp(34px,9.8vw,46px)!important;line-height:.9!important;
+  letter-spacing:-.045em!important;max-width:none!important;overflow:visible!important;
 }
 
-/* special flows stack cleanly */
-html.mobile-device body.deck-only #starter .starter-flow,
-html.mobile-device body.deck-only #target .architecture,
-html.mobile-device body.deck-only #aggregators .connector-stage,
-html.mobile-device body.deck-only #franchise .franchise-flow{
+/* cover portrait */
+html.mobile-device:not(.landscape-device) body.deck-only main>.hero>.slide-content{display:flex!important;flex-direction:column!important;gap:12px!important}
+html.mobile-device:not(.landscape-device) body.deck-only .hero-summary{
+  display:grid!important;grid-template-columns:1fr!important;gap:6px!important;margin-top:14px!important;border:0!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only .hero-summary div{
+  display:grid!important;grid-template-columns:88px 1fr!important;gap:7px!important;align-items:start!important;
+  padding:9px 10px!important;border:1px solid #dce6ec!important;border-radius:13px!important;background:#fff!important;
+  box-shadow:0 7px 20px rgba(15,43,64,.05)!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only .hero-summary b{color:#2b5f84!important;font-size:8px!important}
+html.mobile-device:not(.landscape-device) body.deck-only .hero-summary span{color:#15202a!important;font-size:10px!important;line-height:1.28!important;margin:0!important}
+html.mobile-device:not(.landscape-device) body.deck-only .hero-diagram{
+  height:auto!important;min-height:0!important;margin:2px 0 0!important;padding:8px!important;
+  border:1px solid #dce6ec!important;border-radius:20px!important;background:#fff!important;box-shadow:0 14px 40px rgba(15,43,64,.08)!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only .hero-diagram img,
+html.mobile-device:not(.landscape-device) body.deck-only .hero-diagram svg{display:block!important;width:100%!important;height:auto!important;max-height:none!important}
+
+/* portrait grids */
+html.mobile-device:not(.landscape-device) body.deck-only .simple-cards,
+html.mobile-device:not(.landscape-device) body.deck-only .portfolio-grid,
+html.mobile-device:not(.landscape-device) body.deck-only .migration-grid,
+html.mobile-device:not(.landscape-device) body.deck-only .principles-grid,
+html.mobile-device:not(.landscape-device) body.deck-only .flow-steps,
+html.mobile-device:not(.landscape-device) body.deck-only .screen-grid,
+html.mobile-device:not(.landscape-device) body.deck-only .offline-table,
+html.mobile-device:not(.landscape-device) body.deck-only .pros-cons,
+html.mobile-device:not(.landscape-device) body.deck-only .risk-grid,
+html.mobile-device:not(.landscape-device) body.deck-only .decision-grid,
+html.mobile-device:not(.landscape-device) body.deck-only .leadership-outcomes,
+html.mobile-device:not(.landscape-device) body.deck-only .glossary-grid,
+html.mobile-device:not(.landscape-device) body.deck-only .source-links,
+html.mobile-device:not(.landscape-device) body.deck-only .franchise-points,
+html.mobile-device:not(.landscape-device) body.deck-only .starter-plan,
+html.mobile-device:not(.landscape-device) body.deck-only #roadmap .roadmap-cards{grid-template-columns:1fr!important;gap:7px!important}
+
+html.mobile-device:not(.landscape-device) body.deck-only .simple-cards article,
+html.mobile-device:not(.landscape-device) body.deck-only .portfolio-grid article,
+html.mobile-device:not(.landscape-device) body.deck-only .migration-card,
+html.mobile-device:not(.landscape-device) body.deck-only .principles-grid article,
+html.mobile-device:not(.landscape-device) body.deck-only .flow-steps article,
+html.mobile-device:not(.landscape-device) body.deck-only .risk-grid article,
+html.mobile-device:not(.landscape-device) body.deck-only .glossary-grid article,
+html.mobile-device:not(.landscape-device) body.deck-only .roadmap-cards article,
+html.mobile-device:not(.landscape-device) body.deck-only .franchise-points article,
+html.mobile-device:not(.landscape-device) body.deck-only .pros-cons>div,
+html.mobile-device:not(.landscape-device) body.deck-only .payment-flow article,
+html.mobile-device:not(.landscape-device) body.deck-only .offline-table div,
+html.mobile-device:not(.landscape-device) body.deck-only .starter-flow article,
+html.mobile-device:not(.landscape-device) body.deck-only .starter-plan>div,
+html.mobile-device:not(.landscape-device) body.deck-only .decision-grid article,
+html.mobile-device:not(.landscape-device) body.deck-only #decision .leadership-outcomes article{
+  min-height:0!important;height:auto!important;padding:14px!important;border-radius:16px!important;
+}
+
+/* architecture portrait — fix concatenated labels */
+html.mobile-device:not(.landscape-device) body.deck-only #target .architecture{
+  display:flex!important;flex-direction:column!important;gap:7px!important;min-height:0!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only #target .arch-side,
+html.mobile-device:not(.landscape-device) body.deck-only #target .arch-core{
+  min-height:0!important;height:auto!important;padding:14px!important;border-radius:18px!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only #target .arch-side{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only #target .arch-side small{grid-column:1/-1!important;margin-bottom:2px!important}
+html.mobile-device:not(.landscape-device) body.deck-only #target .arch-side span{
+  display:block!important;padding:7px 8px!important;border-radius:10px!important;background:rgba(255,255,255,.08)!important;
+  border:1px solid rgba(255,255,255,.10)!important;font-size:11px!important;line-height:1.2!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only #target .arch-core div{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important;margin-top:12px!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only #target .arch-core div span{
+  display:block!important;padding:7px!important;border-radius:9px!important;text-align:center!important;font-size:10px!important;
+}
+html.mobile-device:not(.landscape-device) body.deck-only #target .arch-arrow{height:22px!important;transform:rotate(90deg)!important}
+html.mobile-device:not(.landscape-device) body.deck-only #target .principles-grid{grid-template-columns:1fr!important}
+
+/* other portrait special flows */
+html.mobile-device:not(.landscape-device) body.deck-only #starter .starter-flow,
+html.mobile-device:not(.landscape-device) body.deck-only #aggregators .connector-stage,
+html.mobile-device:not(.landscape-device) body.deck-only #franchise .franchise-flow{
   display:flex!important;flex-direction:column!important;gap:7px!important;
 }
-html.mobile-device body.deck-only #starter .starter-arrow,
-html.mobile-device body.deck-only #target .arch-arrow,
-html.mobile-device body.deck-only #franchise .franchise-arrow{
-  height:24px!important;transform:rotate(90deg)!important;
-}
-html.mobile-device body.deck-only #aggregators .connector-lines{display:none!important}
-html.mobile-device body.deck-only #aggregators .connector-hub{
+html.mobile-device:not(.landscape-device) body.deck-only #starter .starter-arrow,
+html.mobile-device:not(.landscape-device) body.deck-only #franchise .franchise-arrow{height:22px!important;transform:rotate(90deg)!important}
+html.mobile-device:not(.landscape-device) body.deck-only #aggregators .connector-lines{display:none!important}
+html.mobile-device:not(.landscape-device) body.deck-only #aggregators .connector-hub{
   width:170px!important;height:170px!important;min-height:170px!important;align-self:center!important;
 }
-html.mobile-device body.deck-only #aggregators .connector-main-arrow span{transform:rotate(90deg)!important}
-html.mobile-device body.deck-only #aggregators .connector-summary{grid-template-columns:1fr!important}
-html.mobile-device body.deck-only #payments .payment-flow{grid-template-columns:1fr!important}
-html.mobile-device body.deck-only #payments .payment-flow>i{transform:rotate(90deg)!important}
-html.mobile-device body.deck-only #erp .effort-matrix article{grid-template-columns:1fr!important}
+html.mobile-device:not(.landscape-device) body.deck-only #aggregators .connector-summary{grid-template-columns:1fr!important}
+html.mobile-device:not(.landscape-device) body.deck-only #payments .payment-flow{grid-template-columns:1fr!important}
+html.mobile-device:not(.landscape-device) body.deck-only #payments .payment-flow>i{transform:rotate(90deg)!important}
 
-/* navigation remains presentation-style */
-html.mobile-device body.deck-only .presentation-home{
-  position:fixed!important;z-index:200!important;
-  left:10px!important;
-  bottom:calc(9px + env(safe-area-inset-bottom,0))!important;
-  width:42px!important;height:42px!important;
-  border-radius:13px!important;
-  background:#08131e!important;color:#fff!important;
+/* portrait navigation */
+html.mobile-device:not(.landscape-device) body.deck-only .presentation-home{
+  position:fixed!important;z-index:200!important;left:10px!important;bottom:calc(9px + env(safe-area-inset-bottom,0))!important;
+  width:42px!important;height:42px!important;border-radius:13px!important;background:#08131e!important;color:#fff!important;
 }
-html.mobile-device body.deck-only .presentation-controls{
-  position:fixed!important;z-index:200!important;
-  right:10px!important;left:auto!important;
-  bottom:calc(9px + env(safe-area-inset-bottom,0))!important;
-  display:flex!important;
-  padding:5px!important;gap:4px!important;
-  border-radius:13px!important;
-  background:#08131e!important;
+html.mobile-device:not(.landscape-device) body.deck-only .presentation-controls{
+  position:fixed!important;z-index:200!important;right:10px!important;left:auto!important;
+  bottom:calc(9px + env(safe-area-inset-bottom,0))!important;display:flex!important;padding:5px!important;gap:4px!important;
+  border-radius:13px!important;background:#08131e!important;
 }
-html.mobile-device body.deck-only .presentation-controls button{
-  width:38px!important;min-width:38px!important;height:38px!important;border-radius:10px!important;
+html.mobile-device:not(.landscape-device) body.deck-only .presentation-controls button{width:38px!important;min-width:38px!important;height:38px!important;border-radius:10px!important}
+html.mobile-device:not(.landscape-device) body.deck-only .presentation-controls span{min-width:48px!important;font-size:10px!important}
+
+/* LANDSCAPE — use desktop composition on a 1280x720 canvas */
+html.landscape-device body.deck-only .topbar{display:none!important}
+html.landscape-device body.deck-only main{
+  position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;
+  height:var(--vvh,100dvh)!important;overflow:hidden!important;
 }
-html.mobile-device body.deck-only .presentation-controls span{
-  min-width:48px!important;font-size:10px!important;
+html.landscape-device body.deck-only main>.section{
+  display:none!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important;
+}
+html.landscape-device body.deck-only main>.section.presentation-active{display:grid!important;place-items:center!important}
+html.landscape-device body.deck-only main>.section>.slide-content{
+  box-sizing:border-box!important;width:1280px!important;min-width:1280px!important;height:720px!important;min-height:720px!important;
+  max-width:none!important;margin:0!important;padding:30px 42px 62px!important;overflow:hidden!important;
+  transform-origin:center center!important;zoom:1!important;display:flex!important;flex-direction:column!important;
+  justify-content:space-between!important;gap:10px!important;
 }
 
-/* Landscape: current desktop slide fills the screen */
-html.mobile-device.landscape-device body.deck-only .topbar{display:none!important}
-html.mobile-device.landscape-device body.deck-only main{
-  top:0!important;height:var(--vvh,100dvh)!important;
+/* landscape heading */
+html.landscape-device body.deck-only .section-heading{
+  display:grid!important;grid-template-columns:42px minmax(0,1.45fr) minmax(300px,.65fr)!important;grid-template-rows:auto!important;
+  gap:18px!important;width:100%!important;margin:0 0 10px!important;align-items:start!important;
 }
-html.mobile-device.landscape-device body.deck-only main>.section.presentation-active{
-  display:grid!important;place-items:center!important;
+html.landscape-device body.deck-only .section-heading .section-no{grid-column:1!important;grid-row:1!important;font-size:11px!important;padding-top:8px!important}
+html.landscape-device body.deck-only .section-heading>div{grid-column:2!important;grid-row:1!important}
+html.landscape-device body.deck-only .section-heading>p{
+  grid-column:3!important;grid-row:1!important;margin:0!important;padding-top:22px!important;max-width:none!important;
+  font-size:11px!important;line-height:1.35!important;
 }
-html.mobile-device.landscape-device body.deck-only main>.section>.slide-content{
-  width:1280px!important;min-width:1280px!important;
-  height:720px!important;min-height:720px!important;
-  padding:28px 42px 60px!important;
-  overflow:hidden!important;
-  transform-origin:center center!important;
+html.landscape-device body.deck-only .section-heading .kicker{
+  display:inline-flex!important;width:max-content!important;min-height:22px!important;padding:4px 8px!important;
+  margin:0 0 7px!important;border-radius:999px!important;font-size:8px!important;letter-spacing:.11em!important;
 }
+html.landscape-device body.deck-only .section-heading h2{
+  font-size:52px!important;line-height:.88!important;letter-spacing:-.05em!important;max-width:none!important;
+}
+
+/* landscape cover = current desktop look */
+html.landscape-device body.deck-only main>.hero>.slide-content{
+  display:grid!important;grid-template-columns:.92fr 1.08fr!important;grid-template-rows:1fr!important;
+  gap:34px!important;align-items:center!important;
+}
+html.landscape-device body.deck-only .hero h1{font-size:67px!important;line-height:.84!important;margin:6px 0 16px!important}
+html.landscape-device body.deck-only .hero .lead{font-size:14px!important;line-height:1.4!important}
+html.landscape-device body.deck-only .hero-summary{grid-template-columns:repeat(3,1fr)!important;gap:7px!important;margin-top:16px!important}
+html.landscape-device body.deck-only .hero-summary div{padding:10px!important}
+html.landscape-device body.deck-only .hero-diagram{height:590px!important;padding:12px!important}
+html.landscape-device body.deck-only .hero-diagram img,
+html.landscape-device body.deck-only .hero-diagram svg{width:100%!important;height:100%!important;object-fit:contain!important}
+
+/* restore desktop grids in landscape */
+html.landscape-device body.deck-only .simple-cards{grid-template-columns:repeat(3,1fr)!important}
+html.landscape-device body.deck-only .portfolio-grid{grid-template-columns:repeat(3,1fr)!important}
+html.landscape-device body.deck-only .migration-grid{grid-template-columns:repeat(4,1fr)!important}
+html.landscape-device body.deck-only .principles-grid{grid-template-columns:repeat(4,1fr)!important}
+html.landscape-device body.deck-only .flow-steps{grid-template-columns:repeat(5,1fr)!important}
+html.landscape-device body.deck-only .screen-grid{grid-template-columns:1fr 1fr!important}
+html.landscape-device body.deck-only .offline-table{grid-template-columns:repeat(3,1fr)!important}
+html.landscape-device body.deck-only .pros-cons{grid-template-columns:1fr 1fr!important}
+html.landscape-device body.deck-only .risk-grid{grid-template-columns:repeat(3,1fr)!important}
+html.landscape-device body.deck-only .glossary-grid{grid-template-columns:repeat(4,1fr)!important}
+html.landscape-device body.deck-only #roadmap .roadmap-cards{grid-template-columns:repeat(4,1fr)!important}
+html.landscape-device body.deck-only #decision .decision-grid{grid-template-columns:1fr 1fr 1.2fr!important}
+html.landscape-device body.deck-only #decision .leadership-outcomes{grid-template-columns:repeat(4,1fr)!important}
+html.landscape-device body.deck-only .evidence-slide .source-links{grid-template-columns:repeat(5,1fr)!important}
+
+/* restore special desktop layouts */
+html.landscape-device body.deck-only #starter .starter-flow{
+  display:grid!important;grid-template-columns:1fr 70px 1fr 70px 1fr!important;gap:8px!important;align-items:stretch!important;
+}
+html.landscape-device body.deck-only #starter .starter-arrow{height:auto!important;transform:none!important}
+html.landscape-device body.deck-only #starter .starter-plan{grid-template-columns:repeat(6,1fr)!important;gap:6px!important}
+html.landscape-device body.deck-only #starter .starter-experience{grid-template-columns:1fr 1.25fr!important}
+html.landscape-device body.deck-only #target .architecture{
+  display:grid!important;grid-template-columns:1fr 44px 1.25fr 44px 1fr!important;gap:8px!important;min-height:0!important;align-items:stretch!important;
+}
+html.landscape-device body.deck-only #target .arch-arrow{height:auto!important;transform:none!important}
+html.landscape-device body.deck-only #target .arch-side,
+html.landscape-device body.deck-only #target .arch-core{min-height:0!important;height:auto!important}
+html.landscape-device body.deck-only #payments .payment-flow{
+  grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr!important;align-items:stretch!important;
+}
+html.landscape-device body.deck-only #payments .payment-flow>i{transform:none!important}
+html.landscape-device body.deck-only #franchise .franchise-flow{
+  display:grid!important;grid-template-columns:.8fr 46px 1.5fr!important;gap:8px!important;
+}
+html.landscape-device body.deck-only #franchise .franchise-arrow{height:auto!important;transform:none!important}
+html.landscape-device body.deck-only #aggregators .connector-stage{
+  display:grid!important;grid-template-columns:175px 50px 175px 42px 175px 42px 140px!important;
+  min-height:0!important;padding:10px!important;gap:5px!important;
+}
+html.landscape-device body.deck-only #aggregators .connector-lines{display:grid!important}
+html.landscape-device body.deck-only #aggregators .connector-hub{width:auto!important;height:auto!important;min-height:165px!important}
+html.landscape-device body.deck-only #aggregators .connector-summary{grid-template-columns:repeat(5,1fr)!important}
+
+/* landscape compact sizing so every slide stays inside 16:9 */
+html.landscape-device body.deck-only .simple-cards article,
+html.landscape-device body.deck-only .portfolio-grid article,
+html.landscape-device body.deck-only .migration-card,
+html.landscape-device body.deck-only .principles-grid article,
+html.landscape-device body.deck-only .flow-steps article,
+html.landscape-device body.deck-only .risk-grid article,
+html.landscape-device body.deck-only .glossary-grid article,
+html.landscape-device body.deck-only .roadmap-cards article,
+html.landscape-device body.deck-only .pros-cons>div,
+html.landscape-device body.deck-only #decision .leadership-outcomes article{
+  min-height:0!important;height:auto!important;padding:12px!important;
+}
+html.landscape-device body.deck-only .wide-figure img{max-height:390px!important;object-fit:contain!important}
+html.landscape-device body.deck-only .business-rule,
+html.landscape-device body.deck-only .statement,
+html.landscape-device body.deck-only .starter-experience,
+html.landscape-device body.deck-only .starter-principle,
+html.landscape-device body.deck-only .ownership-banner{padding:12px 16px!important}
+
+/* landscape controls */
+html.landscape-device body.deck-only .presentation-home{
+  position:fixed!important;z-index:200!important;left:8px!important;bottom:8px!important;width:38px!important;height:38px!important;border-radius:11px!important;
+}
+html.landscape-device body.deck-only .presentation-controls{
+  position:fixed!important;z-index:200!important;right:8px!important;left:auto!important;bottom:8px!important;padding:5px!important;gap:4px!important;border-radius:12px!important;
+}
+html.landscape-device body.deck-only .presentation-controls button{width:38px!important;min-width:38px!important;height:38px!important}
+html.landscape-device body.deck-only .presentation-controls span{min-width:46px!important;font-size:10px!important}
 </style>
 </head>
 <body class="presentation-mode deck-only">
@@ -1111,7 +1095,7 @@ html.mobile-device.landscape-device body.deck-only main>.section>.slide-content{
   </aside>
   <div class="backdrop" id="backdrop"></div>
   <div class="tooltip" id="tooltip" role="tooltip"></div>
-  <script id="deck-script-v17">
+  <script id="deck-script-v18">
 const progress=document.getElementById('progressBar');
 const drawer=document.getElementById('drawer');
 const backdrop=document.getElementById('backdrop');
@@ -1170,6 +1154,7 @@ function updateMobileViewport(){
   document.documentElement.style.setProperty('--vvh',box.height+'px');
   const landscape=box.width>box.height;
   document.documentElement.classList.toggle('landscape-device',landscape);
+  document.documentElement.classList.toggle('mobile-device',!landscape);
   const hiddenBottom=Math.max(0,window.innerHeight-(box.height+box.top));
   document.documentElement.style.setProperty('--mobile-bottom',(hiddenBottom+8)+'px');
 }
@@ -1192,17 +1177,14 @@ function fitSlide(){
     const scale=Math.min((box.width-8)/1280,(box.height-8)/720,1);
     content.style.width='1280px';
     content.style.height='720px';
-    content.style.transform='scale('+Math.max(.32,scale)+')';
+    content.style.transform='scale('+Math.max(.30,scale)+')';
     return;
   }
 
-  // Portrait: measure the natural 390px presentation canvas, then fit the whole slide to one screen.
-  content.style.width='390px';
-  content.style.height='auto';
-  const naturalHeight=Math.max(760,content.scrollHeight);
-  const availableHeight=Math.max(420,box.height-54);
-  const scale=Math.min((box.width-12)/390,availableHeight/naturalHeight,1);
-  content.style.transform='scale('+Math.max(.58,scale)+')';
+  // Portrait uses native responsive CSS; no shrinking the whole slide.
+  content.style.transform='none';
+  content.style.width='';
+  content.style.height='';
 }
 
 function scheduleFit(){
@@ -1308,6 +1290,6 @@ showSlide(slideIndexFromHash(),false);
 window.addEventListener('load',scheduleFit);
 
 </script>
-<div id="buildVersion" hidden>strategy-v17</div>
+<div id="buildVersion" hidden>strategy-v18</div>
 </body>
 </html>

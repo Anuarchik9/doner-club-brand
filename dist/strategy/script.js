@@ -56,6 +56,7 @@ function updateMobileViewport(){
   document.documentElement.style.setProperty('--vvh',box.height+'px');
   const landscape=box.width>box.height;
   document.documentElement.classList.toggle('landscape-device',landscape);
+  document.documentElement.classList.toggle('mobile-device',!landscape);
   const hiddenBottom=Math.max(0,window.innerHeight-(box.height+box.top));
   document.documentElement.style.setProperty('--mobile-bottom',(hiddenBottom+8)+'px');
 }
@@ -78,17 +79,14 @@ function fitSlide(){
     const scale=Math.min((box.width-8)/1280,(box.height-8)/720,1);
     content.style.width='1280px';
     content.style.height='720px';
-    content.style.transform='scale('+Math.max(.32,scale)+')';
+    content.style.transform='scale('+Math.max(.30,scale)+')';
     return;
   }
 
-  // Portrait: measure the natural 390px presentation canvas, then fit the whole slide to one screen.
-  content.style.width='390px';
-  content.style.height='auto';
-  const naturalHeight=Math.max(760,content.scrollHeight);
-  const availableHeight=Math.max(420,box.height-54);
-  const scale=Math.min((box.width-12)/390,availableHeight/naturalHeight,1);
-  content.style.transform='scale('+Math.max(.58,scale)+')';
+  // Portrait uses native responsive CSS; no shrinking the whole slide.
+  content.style.transform='none';
+  content.style.width='';
+  content.style.height='';
 }
 
 function scheduleFit(){
