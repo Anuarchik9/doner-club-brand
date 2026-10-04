@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#F2612C">
+  <meta name="description" content="Стратегия создания собственной цифровой экосистемы Doner Club: Doner OS, POS, KDS, Call Centre, агрегаторы, фискализация и поэтапный выход из зависимости от iiko и middleware.">
+  <title>Doner Club — стратегия собственной экосистемы</title>
+  <link rel="shortcut icon" href="../favicon.ico?v=strategy-1" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png?v=strategy-1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon-180x180.png?v=strategy-1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Doner Club — начало">
+      <img src="../assets/doner-club-logo-orange.png" alt="Doner Club">
+    </a>
+    <nav aria-label="Разделы стратегии">
+      <a href="#simple">Просто</a>
+      <a href="#today">Сегодня</a>
+      <a href="#target">Doner OS</a>
+      <a href="#roadmap">План</a>
+      <a href="#decision">Решение</a>
+    </nav>
+    <div class="top-actions">
+      <button class="glossary-btn" id="glossaryBtn" type="button">Словарь</button>
+      <button class="present-btn" id="presentBtn" type="button">Режим презентации</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero chapter">
+      <div class="hero-copy">
+        <p class="eyebrow">DONER CLUB · DIGITAL STRATEGY / 2026</p>
+        <h1>Стратегия создания собственной экосистемы Doner Club</h1>
+        <p class="hero-lead">От набора внешних сервисов — к собственной операционной системе сети: заказы, касса, кухня, сайт, приложение, Call Centre, агрегаторы, оплата, фискализация, CRM и аналитика в одном контуре.</p>
+        <div class="hero-actions">
+          <a class="pill dark" href="#simple">Объяснить за 2 минуты ↓</a>
+          <span class="hero-note">Цель: не «переписать iiko», а построить Doner OS ровно под процессы Doner Club.</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Схема перехода к собственной экосистеме">
+        <img src="../assets/gallery/pavilions/arai-08.webp" alt="Точка Doner Club Арай ночью">
+        <div class="hero-overlay">
+          <span>СЕЙЧАС</span>
+          <b>Много систем</b>
+          <em>→</em>
+          <span>ЦЕЛЬ</span>
+          <b>Одна Doner OS</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="simple chapter" id="simple">
+      <div class="section-head">
+        <span>01</span>
+        <h2>Объяснение<br>как пятилетнему</h2>
+        <p>Сегодня заказ проходит через несколько чужих «переводчиков» и систем. Мы предлагаем постепенно сделать собственный центр, куда приходит любой заказ и откуда он уходит прямо на кассу и кухню.</p>
+      </div>
+
+      <div class="analogy">
+        <article class="analogy-card orange">
+          <span>iiko</span>
+          <h3>Это «мозг ресторана», который мы сейчас арендуем</h3>
+          <p>Он знает меню, заказ, кассу, кухню, склад и отчёты. Если отключить его сегодня — часть процессов остановится.</p>
+        </article>
+        <article class="analogy-card gold">
+          <span>Kwaaka</span>
+          <h3>Это «переводчик» между доставками и кассой</h3>
+          <p>Wolt, Яндекс и другие площадки говорят каждая на своём языке. Kwaaka переводит их заказы в формат ресторанной системы.</p>
+        </article>
+        <article class="analogy-card green">
+          <span>Doner OS</span>
+          <h3>Это наш собственный диспетчерский центр</h3>
+          <p>Все каналы говорят уже с Doner Club напрямую. Дальше наша система сама решает, куда отправить заказ, как показать его кухне и как сообщить гостю.</p>
+        </article>
+      </div>
+
+      <div class="plain-flow">
+        <div class="flow-source"><b>Гость</b><span>киоск · сайт · приложение · Call Centre · Wolt · Яндекс</span></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-core"><small>ЕДИНЫЙ ЦЕНТР</small><strong>DONER OS</strong><span>меню · заказ · клиент · оплата · статусы</span></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-dest"><b>Точка</b><span>касса → кухня → готово → выдача</span></div>
+      </div>
+
+      <p class="hint">Наведите на подчёркнутые термины — появится простое объяснение. Например: <button class="term" type="button" data-term="API" data-tip="API — это договор между двумя программами: какие данные одна может попросить у другой и в каком формате получить ответ.">API</button>, <button class="term" type="button" data-term="KDS" data-tip="KDS — Kitchen Display System, кухонный экран с заказами: новый, готовится, готов, выдан.">KDS</button>, <button class="term" type="button" data-term="Webhook" data-tip="Webhook — автоматический звонок одной системы другой: «в заказе что-то изменилось, вот новые данные».">webhook</button>.</p>
+    </section>
+
+    <section class="today chapter" id="today">
+      <div class="section-head invert">
+        <span>02</span>
+        <h2>Что есть<br>уже сегодня</h2>
+        <p>Мы начинаем не с нуля. За последние этапы вокруг iiko уже вырос собственный цифровой контур Doner Club.</p>
+      </div>
+
+      <div class="built-grid">
+        <article>
+          <span class="status live">РАБОТАЕТ</span>
+          <b>Kiosk</b>
+          <p>Собственный интерфейс, меню, модификаторы, стоп-лист, выбор точки, CRM, локальный Kaspi Smart POS bridge.</p>
+        </article>
+        <article>
+          <span class="status live">РАБОТАЕТ</span>
+          <b>CRM + PostgreSQL</b>
+          <p>Клиенты, история заказов, точки, API, авторизация, база для сайта, киоска и будущего приложения.</p>
+        </article>
+        <article>
+          <span class="status live">РАБОТАЕТ</span>
+          <b>Analytics</b>
+          <p>Собственная аналитика продаж, каналов, персонала, ревизий и Telegram-отчётов.</p>
+        </article>
+        <article>
+          <span class="status active">РАЗВИВАЕТСЯ</span>
+          <b>Site</b>
+          <p>Собственное меню, профиль, корзина, точки, модификаторы и стоп-лист. Онлайн-оплата и реальный checkout — следующий слой.</p>
+        </article>
+        <article>
+          <span class="status active">ПОДКЛЮЧЕНО</span>
+          <b>iiko Webhooks</b>
+          <p>Мы уже принимаем изменения кухонных статусов Арай и Республики в собственный backend.</p>
+        </article>
+        <article>
+          <span class="status active">ГОТОВИМ</span>
+          <b>Telegram Status</b>
+          <p>Следующий шаг — связать заказ, телефон и Telegram, чтобы гость подходил к кассе только после «Готов».</p>
+        </article>
+      </div>
+
+      <div class="reframe">
+        <small>КЛЮЧЕВАЯ МЫСЛЬ</small>
+        <h3>Мы уже строим Doner OS. Сейчас просто iiko всё ещё остаётся центральным двигателем исполнения.</h3>
+      </div>
+    </section>
+
+    <section class="architecture chapter" id="target">
+      <div class="section-head">
+        <span>03</span>
+        <h2>Как должна<br>выглядеть цель</h2>
+        <p>Один формат заказа внутри Doner Club, независимо от того, где заказ появился.</p>
+      </div>
+
+      <div class="view-toggle" role="tablist" aria-label="Сравнение архитектур">
+        <button class="active" type="button" data-view="current">Сейчас</button>
+        <button type="button" data-view="target">Целевая модель</button>
+      </div>
+
+      <div class="architecture-board current" id="architectureBoard">
+        <div class="arch-col channels">
+          <span>КАНАЛЫ</span>
+          <b>Kiosk</b><b>Site / App</b><b>Call Centre</b><b>Wolt</b><b>Яндекс</b><b>Glovo</b>
+        </div>
+        <div class="arch-connector">→</div>
+        <div class="arch-col middle" data-current="true">
+          <span>ЧУЖОЙ СЛОЙ</span>
+          <b>Kwaaka</b>
+          <b>iikoCloud</b>
+          <small>внешняя логика и ограничения API</small>
+        </div>
+        <div class="arch-col middle target-core" data-target="true">
+          <span>НАШЕ ЯДРО</span>
+          <strong>DONER<br>ORDER HUB</strong>
+          <small>единый формат заказа, каталог, клиент, оплата, статусы</small>
+        </div>
+        <div class="arch-connector">→</div>
+        <div class="arch-col point">
+          <span>ТОЧКА</span>
+          <b>Doner POS</b>
+          <b>Doner KDS</b>
+          <b>Webkassa</b>
+          <b>Payments</b>
+          <small>Арай · Республика · новые точки</small>
+        </div>
+      </div>
+
+      <div class="layers">
+        <article><span>СЛОЙ 1</span><h3>Doner Experience</h3><p>Kiosk, сайт, приложение, Call Centre — интерфейсы для гостя и сотрудника.</p></article>
+        <article><span>СЛОЙ 2</span><h3>Doner Core</h3><p>Каталог, цены, модификаторы, стоп-лист, заказы, клиенты, платежи, статусы.</p></article>
+        <article><span>СЛОЙ 3</span><h3>Doner Edge</h3><p>Локальный сервис на точке, который держит POS и KDS живыми даже при проблемах с интернетом.</p></article>
+        <article><span>СЛОЙ 4</span><h3>Connectors</h3><p>Адаптеры к Wolt, Яндекс, Glovo, Webkassa, банкам и другим внешним системам.</p></article>
+      </div>
+    </section>
+
+    <section class="callcenter chapter" id="callcenter">
+      <div class="section-head invert">
+        <span>04</span>
+        <h2>Call Centre<br>без ручного дубля</h2>
+        <p>Оператор собирает заказ один раз. Doner OS сама отправляет его на нужную точку и кухонный экран.</p>
+      </div>
+
+      <div class="scenario">
+        <article><em>01</em><b>Клиент звонит</b><p>CRM узнаёт номер, показывает имя, адреса и историю.</p></article>
+        <article><em>02</em><b>Оператор собирает корзину</b><p>Видит только актуальное меню и стоп-лист конкретной точки.</p></article>
+        <article><em>03</em><b>Нажимает «Отправить»</b><p>Заказ создаётся в едином Order Hub с источником CALL CENTRE.</p></article>
+        <article><em>04</em><b>POS и KDS получают заказ</b><p>Кассир ничего не перепечатывает. Кухня видит его рядом с киоском и агрегаторами.</p></article>
+        <article><em>05</em><b>Кухня меняет статус</b><p>«Готовится» → «Готов» → «Выдан» возвращается в Doner OS.</p></article>
+        <article><em>06</em><b>Гость получает уведомление</b><p>Telegram, сайт или приложение сообщают: «Ваш заказ готов — можно подойти к кассе».</p></article>
+      </div>
+
+      <div class="screen-mock">
+        <div class="mock-top"><b>DONER CLUB · CALL CENTRE</b><span>Республика · 24/7</span></div>
+        <div class="mock-grid">
+          <div class="mock-profile"><small>КЛИЕНТ</small><strong>+7 7•• ••• •• ••</strong><span>2 сохранённых адреса</span><span>6 прошлых заказов</span></div>
+          <div class="mock-menu"><small>ЗАКАЗ</small><b>Донер Куриный · Стандарт</b><b>Pepsi 0,5</b><b>Соус чесночный</b></div>
+          <div class="mock-total"><small>ИТОГО</small><strong>4 800 ₸</strong><button type="button">ОТПРАВИТЬ НА РЕСПУБЛИКУ →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="aggregators chapter" id="aggregators">
+      <div class="section-head">
+        <span>05</span>
+        <h2>Можем ли мы<br>заменить Kwaaka?</h2>
+        <p>Да — поэтапно. Технически это набор адаптеров. Организационно нужны официальные доступы и сертификация у каждого агрегатора.</p>
+      </div>
+
+      <div class="aggregator-grid">
+        <article class="wolt">
+          <span>WOLT</span>
+          <h3>Высокая реализуемость</h3>
+          <p>Wolt официально поддерживает POS и Middleware Provider интеграции: заказы, меню, availability, статусы и onboarding через тестовую среду.</p>
+          <ul><li>Webhook заказов</li><li>Accept / Reject</li><li>Mark ready</li><li>Menu & inventory</li></ul>
+          <a href="https://developer.wolt.com/docs/getting-started/restaurant" target="_blank" rel="noopener">Официальная документация ↗</a>
+        </article>
+        <article class="yandex">
+          <span>ЯНДЕКС ЕДА</span>
+          <h3>Высокая реализуемость</h3>
+          <p>У Яндекс Еды есть официальный API для ресторанных систем: меню, стопы, создание и изменение заказа, статусы и курьер.</p>
+          <ul><li>Меню</li><li>Stocks</li><li>POST /order</li><li>Status / courier</li></ul>
+          <a href="https://yandex.ru/dev/eda-vendor/doc/ru/ref/" target="_blank" rel="noopener">Официальная документация ↗</a>
+        </article>
+        <article class="glovo">
+          <span>GLOVO</span>
+          <h3>Реализуемо после согласования</h3>
+          <p>Архитектурно адаптер такой же. Перед разработкой нужно подтвердить доступ Doner Club к production API / POS-интеграции для Казахстана.</p>
+          <ul><li>Не отключать Kwaaka заранее</li><li>Получить credentials</li><li>Провести pilot</li><li>Только потом переключать трафик</li></ul>
+        </article>
+      </div>
+
+      <div class="middleware-explainer">
+        <div><small>ЧТО ДЕЛАЕТ MIDDLEWARE?</small><h3>Не просто «перекидывает заказ»</h3></div>
+        <div class="middleware-list">
+          <span>повторяет запрос при сбое</span><span>защищает от дублей</span><span>сводит разные форматы меню</span><span>передаёт отмены</span><span>синхронизирует стоп-лист</span><span>следит за версиями API</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pos-kds chapter" id="pos">
+      <div class="section-head invert">
+        <span>06</span>
+        <h2>Свой POS<br>и свой KDS</h2>
+        <p>Для Doner Club задача проще, чем для универсальной ресторанной системы: у нас самообслуживание и единая выдача заказа целиком.</p>
+      </div>
+
+      <div class="pos-layout">
+        <div class="pos-card">
+          <small>DONER POS</small>
+          <h3>Касса для сотрудника</h3>
+          <div class="pos-ui">
+            <div class="pos-menu"><span>Донеры</span><span>Батоны</span><span>Комбо</span><span>Напитки</span></div>
+            <div class="pos-products"><i>Куриный</i><i>Говяжий</i><i>Ассорти</i><i>Фри</i><i>Pepsi</i><i>Соусы</i></div>
+            <div class="pos-check"><b>Заказ №431</b><span>Донер + Pepsi</span><strong>4 800 ₸</strong></div>
+          </div>
+        </div>
+        <div class="kds-card">
+          <small>DONER KDS</small>
+          <h3>Кухонный экран</h3>
+          <div class="kds-ui">
+            <div><b>НОВЫЕ</b><span>№431 · 00:42</span><span>№432 · 00:17</span></div>
+            <div><b>ГОТОВЯТСЯ</b><span>№428 · 06:21</span><span>№429 · 04:55</span></div>
+            <div><b>ГОТОВЫ</b><span>№426 · 01:08</span><span>№427 · 00:33</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="self-service-note">
+        <b>Важная особенность Doner Club</b>
+        <p>У нас нет отдельной стадии «сборщик заказа». Донер, Pepsi и соусы находятся в одном чеке и выдаются гостю одновременно. Поэтому статус «Готов» определяется по заказу целиком — после этого гость сам подходит к кассе.</p>
+      </div>
+    </section>
+
+    <section class="offline chapter" id="offline">
+      <div class="section-head">
+        <span>07</span>
+        <h2>24/7 значит:<br>работать без облака</h2>
+        <p>Если полностью уйти от iiko, точка не должна зависеть от одного интернет-соединения или одного облачного сервиса.</p>
+      </div>
+
+      <div class="edge-diagram">
+        <div class="cloud"><small>ОБЛАКО</small><b>Doner Cloud</b><span>CRM · Analytics · Order Hub</span></div>
+        <div class="edge-line"><span>интернет есть</span><i>↕</i><span>интернет пропал</span></div>
+        <div class="edge"><small>НА ТОЧКЕ</small><b>Doner Edge</b><span>локальный кэш · очередь событий · синхронизация</span></div>
+        <div class="lan">
+          <span>POS</span><span>KDS</span><span>Принтер</span><span>Smart POS</span>
+        </div>
+      </div>
+
+      <div class="edge-rule"><strong>Правило:</strong> если интернет пропал, касса и кухня продолжают работать. После восстановления Doner Edge досылает накопленные события в облако.</div>
+    </section>
+
+    <section class="fiscal chapter" id="fiscal">
+      <div class="section-head invert">
+        <span>08</span>
+        <h2>Оплата и<br>фискализация</h2>
+        <p>iiko не обязана оставаться посредником между оплатой и фискальным чеком.</p>
+      </div>
+
+      <div class="fiscal-flow">
+        <article><span>1</span><b>Doner POS / Site / Kiosk</b><p>Формирует заказ и итоговую сумму.</p></article>
+        <i>→</i>
+        <article><span>2</span><b>Эквайринг</b><p>Kaspi Smart POS, Forte или онлайн-карта подтверждают оплату.</p></article>
+        <i>→</i>
+        <article><span>3</span><b>Webkassa API</b><p>Получает состав заказа и создаёт фискальный чек.</p></article>
+        <i>→</i>
+        <article><span>4</span><b>Электронный чек</b><p>Ссылка / QR сохраняются в заказе и доступны гостю.</p></article>
+      </div>
+      <p class="source-note">Webkassa публично заявляет поддержку интеграции с кастомными ERP/POS и собственным API. Перед боевым запуском финансовые и фискальные сценарии проходят отдельное тестирование и согласование. <a href="https://webkassa.kz/" target="_blank" rel="noopener">Источник ↗</a></p>
+    </section>
+
+    <section class="hard-part chapter" id="erp">
+      <div class="section-head">
+        <span>09</span>
+        <h2>Что самое<br>трудное</h2>
+        <p>Не касса и не красивый интерфейс. Настоящая сложность iiko скрыта в учёте, корректировках и надёжности.</p>
+      </div>
+
+      <div class="complexity">
+        <article class="easy"><span>ПРОЩЕ</span><b>Kiosk / Site / Profile</b><em>●●○○○</em></article>
+        <article class="medium"><span>СРЕДНЕ</span><b>POS / KDS / Call Centre</b><em>●●●○○</em></article>
+        <article class="medium"><span>СРЕДНЕ</span><b>Wolt / Yandex connectors</b><em>●●●○○</em></article>
+        <article class="hard"><span>СЛОЖНО</span><b>Offline / payments / refunds</b><em>●●●●○</em></article>
+        <article class="hardest"><span>САМОЕ СЛОЖНОЕ</span><b>Склад / техкарты / себестоимость / ревизии</b><em>●●●●●</em></article>
+      </div>
+
+      <div class="erp-list">
+        <span>приходы</span><span>списания</span><span>техкарты</span><span>себестоимость</span><span>перемещения</span><span>инвентаризации</span><span>возвраты</span><span>кассовые смены</span><span>права доступа</span><span>аудит действий</span>
+      </div>
+
+      <div class="recommendation">
+        <small>ПОЭТОМУ</small>
+        <h3>Не начинаем со склада. Сначала забираем под себя операционное ядро заказов.</h3>
+      </div>
+    </section>
+
+    <section class="roadmap chapter" id="roadmap">
+      <div class="section-head invert">
+        <span>10</span>
+        <h2>Поэтапный<br>план перехода</h2>
+        <p>Никакого «выключить iiko в пятницу и проверить в субботу». Каждый слой сначала работает параллельно и только после стабильного пилота становится основным.</p>
+      </div>
+
+      <div class="timeline">
+        <article><em>0</em><div><span>СЕЙЧАС · 0–1 мес.</span><h3>Order Hub foundation</h3><p>Единая модель заказа, статусы, связь с CRM, webhook, журнал событий, idempotency.</p></div></article>
+        <article><em>1</em><div><span>1–3 мес.</span><h3>Doner POS + KDS</h3><p>Сначала на одной точке. iiko остаётся рядом как страховка и источник сверки.</p></div></article>
+        <article><em>2</em><div><span>2–4 мес.</span><h3>Call Centre + Webkassa</h3><p>Оператор отправляет заказ прямо в Doner OS; фискализация выводится из iiko.</p></div></article>
+        <article><em>3</em><div><span>3–6 мес.</span><h3>Doner Edge / offline</h3><p>Точка продолжает принимать и готовить заказы при потере интернета.</p></div></article>
+        <article><em>4</em><div><span>4–9 мес.</span><h3>Wolt + Яндекс напрямую</h3><p>Сертификация, sandbox, pilot. Kwaaka остаётся на каналах, которые ещё не перенесены.</p></div></article>
+        <article><em>5</em><div><span>6–12 мес.</span><h3>Масштабирование сети</h3><p>Арай, Республика и следующие точки работают в одном контуре.</p></div></article>
+        <article><em>6</em><div><span>9–18+ мес.</span><h3>Doner ERP</h3><p>Склад, закупки, техкарты, себестоимость, ревизии. После этого iiko можно убрать полностью.</p></div></article>
+      </div>
+
+      <p class="estimate-note">Сроки — ориентир для планирования, а не обещанный календарь. Они зависят от команды, доступа агрегаторов, платёжных и фискальных согласований и глубины ERP.</p>
+    </section>
+
+    <section class="proscons chapter" id="proscons">
+      <div class="section-head">
+        <span>11</span>
+        <h2>Что мы<br>получаем</h2>
+        <p>Собственная система даёт контроль, но вместе с контролем Doner Club забирает на себя ответственность за бесперебойную работу.</p>
+      </div>
+
+      <div class="split">
+        <div class="pros">
+          <small>ПЛЮСЫ</small>
+          <h3>Мы управляем продуктом</h3>
+          <ul>
+            <li>один каталог, одна цена, один стоп-лист;</li>
+            <li>все данные о госте принадлежат Doner Club;</li>
+            <li>сайт, приложение, киоск и Call Centre работают одинаково;</li>
+            <li>не ждём чужую разработку для новой функции;</li>
+            <li>можно масштабировать сеть и франчайзи;</li>
+            <li>аналитика строится вокруг бизнеса, а не возможностей API;</li>
+            <li>постепенно снижаются зависимости и интеграционные платежи.</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <small>МИНУСЫ</small>
+          <h3>Мы отвечаем за всё</h3>
+          <ul>
+            <li>потерянные и задублированные заказы;</li>
+            <li>возвраты и зависшие оплаты;</li>
+            <li>резервные копии и безопасность;</li>
+            <li>обновления API агрегаторов;</li>
+            <li>24/7 мониторинг POS/KDS;</li>
+            <li>offline и восстановление после сбоев;</li>
+            <li>поддержка каждой точки.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="risk chapter" id="risk">
+      <div class="section-head invert">
+        <span>12</span>
+        <h2>Как не<br>сломать ресторан</h2>
+        <p>Главный принцип — переносить ответственность только после того, как новый модуль доказал стабильность в реальной точке.</p>
+      </div>
+
+      <div class="risk-grid">
+        <article><span>01</span><b>Shadow mode</b><p>Новый модуль считает и принимает события параллельно, но не управляет бизнесом.</p></article>
+        <article><span>02</span><b>Pilot</b><p>Одна точка и ограниченный поток. Сверяем каждую продажу и каждый чек.</p></article>
+        <article><span>03</span><b>Idempotency</b><p>Повторный запрос не создаёт второй заказ или вторую оплату.</p></article>
+        <article><span>04</span><b>Audit log</b><p>Каждое изменение заказа имеет время, источник и пользователя.</p></article>
+        <article><span>05</span><b>Fallback</b><p>Если новый канал недоступен, есть понятный резервный сценарий.</p></article>
+        <article><span>06</span><b>Backups</b><p>База, конфигурации и критические данные восстанавливаются из резервной копии.</p></article>
+      </div>
+    </section>
+
+    <section class="decision chapter" id="decision">
+      <div class="decision-copy">
+        <p class="eyebrow">РЕКОМЕНДАЦИЯ ДЛЯ РУКОВОДСТВА</p>
+        <h2>Не строить «ещё одну iiko». Строить Doner OS.</h2>
+        <p>Первый стратегический продукт — <strong>Doner OS 1.0: Order Hub + POS + KDS + Call Centre + Webkassa + Offline Edge.</strong> Это выводит из-под iiko основную операционную работу, но не заставляет одновременно переписывать склад и бухгалтерскую логику.</p>
+      </div>
+
+      <div class="decision-board">
+        <article><small>ОСТАВИТЬ ВРЕМЕННО</small><b>iiko</b><p>склад и сверка на переходном этапе</p></article>
+        <article><small>УБИРАТЬ ПОЭТАПНО</small><b>Kwaaka</b><p>по мере прямых коннекторов Wolt / Яндекс / Glovo</p></article>
+        <article class="center"><small>СДЕЛАТЬ ЯДРОМ</small><strong>DONER OS</strong><p>единая система управления заказом и точкой</p></article>
+      </div>
+
+      <div class="targets">
+        <div><b>0</b><span>потерянных заказов — целевой принцип</span></div>
+        <div><b>24/7</b><span>операционная готовность точек</span></div>
+        <div><b>1</b><span>единый источник меню и статусов</span></div>
+        <div><b>100%</b><span>контроль собственных данных</span></div>
+      </div>
+    </section>
+
+    <section class="faq chapter" id="faq">
+      <div class="section-head">
+        <span>13</span>
+        <h2>Вопросы,<br>которые зададут</h2>
+        <p>Короткие ответы для обсуждения стратегии с операционной, финансовой и IT-командой.</p>
+      </div>
+
+      <div class="faq-list">
+        <details><summary>Мы сможем работать, если интернет пропадёт?</summary><p>Да, но только после внедрения Doner Edge. Он хранит локально меню и активные заказы, а затем синхронизирует события с облаком.</p></details>
+        <details><summary>Нужно ли сразу отключать iiko?</summary><p>Нет. Сначала iiko остаётся параллельным контуром и источником сверки. Отключение каждого модуля происходит только после пилота.</p></details>
+        <details><summary>Можно ли оставить Kwaaka только для одного агрегатора?</summary><p>Да. Мы можем забирать каналы постепенно: например, Wolt и Яндекс напрямую, а Glovo временно продолжает идти через Kwaaka.</p></details>
+        <details><summary>Кто будет звать гостя, когда заказ готов?</summary><p>Никто. KDS меняет статус заказа, Doner OS отправляет Telegram/push, и гость сам подходит к кассе.</p></details>
+        <details><summary>Кто выдаёт заказ?</summary><p>Как и сейчас: самообслуживание. Кассир выдаёт весь чек целиком; отдельного сборщика не требуется.</p></details>
+        <details><summary>Что с фискальным чеком?</summary><p>Doner OS передаёт состав оплаченного заказа в Webkassa API. Боевой сценарий отдельно тестируется с Webkassa до отключения текущей схемы.</p></details>
+        <details><summary>Почему не переписать сразу склад?</summary><p>Потому что это самый глубокий и рискованный слой. Операционный контур заказов даёт большую независимость быстрее и с меньшим риском.</p></details>
+        <details><summary>Это можно потом использовать для франшизы?</summary><p>Да. Архитектура строится мульти-точечной: филиал, меню, цены, роли, отчёты и каналы задаются конфигурацией, а не отдельным кодом под каждую точку.</p></details>
+      </div>
+    </section>
+
+    <section class="glossary chapter" id="glossary">
+      <div class="section-head invert">
+        <span>14</span>
+        <h2>Словарь<br>без IT-языка</h2>
+        <p>Нужен, чтобы стратегию можно было обсуждать не только с разработчиками.</p>
+      </div>
+      <div class="glossary-grid">
+        <article><b>POS</b><p>Программа кассира: собрать заказ, принять оплату, оформить возврат.</p></article>
+        <article><b>KDS</b><p>Экран кухни с очередью заказов и статусами приготовления.</p></article>
+        <article><b>API</b><p>Правила, по которым две программы обмениваются данными.</p></article>
+        <article><b>Webhook</b><p>Автоматическое сообщение: «у меня изменился заказ — вот новые данные».</p></article>
+        <article><b>Middleware</b><p>Посредник-переводчик между агрегатором и ресторанной системой. Сейчас эту роль выполняет Kwaaka.</p></article>
+        <article><b>Order Hub</b><p>Наш центральный диспетчер всех заказов независимо от источника.</p></article>
+        <article><b>ERP</b><p>Внутренний хозяйственный учёт: склад, закупки, себестоимость, ревизии и движение товара.</p></article>
+        <article><b>Doner Edge</b><p>Локальный мини-сервер точки, чтобы POS и KDS не зависели от облака каждую секунду.</p></article>
+        <article><b>Idempotency</b><p>Защита от дубля: один и тот же повторный запрос не создаст второй заказ.</p></article>
+        <article><b>Shadow mode</b><p>Новая система работает рядом со старой и сравнивает результат, но пока не управляет операцией.</p></article>
+        <article><b>Connector / Adapter</b><p>Небольшой модуль, который переводит формат Wolt, Яндекс или другого сервиса в единый формат Doner OS.</p></article>
+        <article><b>Webkassa</b><p>Сервис фискализации: формирует официальный кассовый чек и передаёт данные по правилам онлайн-кассы.</p></article>
+      </div>
+    </section>
+
+    <section class="sources chapter" id="sources">
+      <div class="section-head">
+        <span>15</span>
+        <h2>На чём<br>основана стратегия</h2>
+        <p>Внутренняя часть — на уже работающих проектах Doner Club. Возможность прямых интеграций — на публичной документации самих платформ.</p>
+      </div>
+      <div class="sources-grid">
+        <a href="https://developer.wolt.com/docs/getting-started/restaurant" target="_blank" rel="noopener"><b>Wolt for Developers</b><span>POS / Middleware onboarding, Order, Menu, Venue APIs ↗</span></a>
+        <a href="https://developer.wolt.com/integration-partners" target="_blank" rel="noopener"><b>Wolt Integration Partners</b><span>Kwaaka как пример middleware, возможность build own integration ↗</span></a>
+        <a href="https://yandex.ru/dev/eda-vendor/doc/ru/ref/" target="_blank" rel="noopener"><b>Яндекс Еда API</b><span>Меню, заказы, рестораны, график, статусы ↗</span></a>
+        <a href="https://webkassa.kz/" target="_blank" rel="noopener"><b>Webkassa</b><span>API для кастомной ERP/POS и e-commerce ↗</span></a>
+        <a href="../index.html"><b>Doner Club Visual Guide</b><span>Фирменная система и визуальный язык проекта →</span></a>
+      </div>
+    </section>
+
+    <section class="closing chapter">
+      <img src="../assets/doner-club-logo-orange.png" alt="Doner Club">
+      <div>
+        <small>СТРАТЕГИЧЕСКОЕ НАПРАВЛЕНИЕ</small>
+        <h2>Одна сеть.<br>Одна система.<br>Свои данные.</h2>
+      </div>
+      <p>Doner OS — не IT-проект ради IT. Это способ сделать скорость развития, качество сервиса и масштабирование сети внутренней компетенцией Doner Club.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>DONER CLUB · STRATEGY / 2026</span>
+    <span>Внутренняя презентация для руководства</span>
+    <a href="../index.html">Вернуться в Visual Guide ↗</a>
+  </footer>
+
+  <aside class="glossary-drawer" id="glossaryDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><small>БЫСТРЫЙ СЛОВАРЬ</small><h2>IT → обычный язык</h2></div>
+      <button id="glossaryClose" type="button" aria-label="Закрыть">×</button>
+    </div>
+    <div class="drawer-list">
+      <button type="button" data-jump="glossary"><b>iiko</b><span>арендованный «мозг ресторана»</span></button>
+      <button type="button" data-jump="glossary"><b>Kwaaka</b><span>переводчик между агрегаторами и POS</span></button>
+      <button type="button" data-jump="glossary"><b>POS</b><span>экран кассира</span></button>
+      <button type="button" data-jump="glossary"><b>KDS</b><span>экран кухни</span></button>
+      <button type="button" data-jump="glossary"><b>API</b><span>правила общения программ</span></button>
+      <button type="button" data-jump="glossary"><b>Webhook</b><span>автоматическое уведомление системы</span></button>
+      <button type="button" data-jump="glossary"><b>ERP</b><span>склад и внутренний хозяйственный учёт</span></button>
+      <button type="button" data-jump="glossary"><b>Edge</b><span>локальная страховка точки от проблем с интернетом</span></button>
+    </div>
+  </aside>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <div class="tooltip" id="tooltip" role="tooltip"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
