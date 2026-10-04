@@ -8,6 +8,7 @@ const presentationControls=document.getElementById('presentationControls');
 const presentationPrev=document.getElementById('presentationPrev');
 const presentationNext=document.getElementById('presentationNext');
 const presentationCounter=document.getElementById('presentationCounter');
+const presentationHome=document.getElementById('presentationHome');
 
 const slides=[...document.querySelectorAll('main > .section')];
 let presentationIndex=0;
@@ -104,6 +105,7 @@ glossaryBtn.addEventListener('click',openDrawer);
 drawerClose.addEventListener('click',closeDrawer);
 backdrop.addEventListener('click',closeDrawer);
 
+presentationHome.addEventListener('click',()=>showSlide(0));
 presentationPrev.addEventListener('click',()=>showSlide(presentationIndex-1));
 presentationNext.addEventListener('click',()=>showSlide(presentationIndex+1));
 
