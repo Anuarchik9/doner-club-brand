@@ -8,7 +8,7 @@
   <title>Doner Club — стратегия собственной экосистемы</title>
   <link rel="shortcut icon" href="../favicon.ico?v=strategy-2" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png?v=strategy-2">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <div class="page-progress"><span id="progressBar"></span></div>
@@ -91,7 +91,7 @@
         <article><span>01</span><b>Kiosk</b><p>Собственный интерфейс, меню, модификаторы, стоп-лист, CRM, Smart POS bridge.</p><em>Работает</em></article>
         <article><span>02</span><b>CRM</b><p>Клиенты, история заказов, точки, API и PostgreSQL.</p><em>Работает</em></article>
         <article><span>03</span><b>Analytics</b><p>Продажи, персонал, ревизии, каналы, отчёты и Telegram.</p><em>Работает</em></article>
-        <article><span>04</span><b>Site</b><p>Меню, профиль, корзина, точки, стоп-лист, модификаторы.</p><em>Развивается</em></article>
+        <article><span>04</span><b>Site</b><p>Костяк и визуальная часть собственного сайта уже готовы. Сейчас роль боевого сайта и приложения всё ещё выполняет Starter.</p><em>Готовим переход</em></article>
         <article><span>05</span><b>iiko Webhooks</b><p>Кухонные статусы Арай и Республики уже принимаются нашим backend.</p><em>Подключено</em></article>
         <article><span>06</span><b>Telegram Status</b><p>Основа готова для уведомлений «принят / готовится / готов / выдан».</p><em>Следующий шаг</em></article>
       </div>
@@ -119,6 +119,7 @@
             <tr><td>Агрегаторы</td><td>Kwaaka</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Прямые connectors</strong></td><td>Меньше посредников и внешней зависимости</td></tr>
             <tr><td>Клиент</td><td>Данные разрознены</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner CRM</strong></td><td>Единая история гостя в одном месте</td></tr>
             <tr><td>Уведомления</td><td>Ручной вызов гостя</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Telegram / Push</strong></td><td>Гость подходит только когда заказ готов</td></tr>
+            <tr><td>Сайт и приложение</td><td>Starter</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner Site + App</strong></td><td>Свой клиентский канал, свои данные и своя логика продукта</td></tr>
             <tr><td>Аналитика</td><td>Несколько источников</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner Analytics</strong></td><td>Свой единый слой данных и отчётности</td></tr>
           </tbody>
         </table>
@@ -135,9 +136,56 @@
       </div>
     </section>
 
+    <section class="section starter-transition" id="starter">
+      <div class="section-heading">
+        <span class="section-no">04</span>
+        <div><p class="kicker dark">STARTER → DONER SITE + APP</p><h2>Переход без резкого отключения</h2></div>
+        <p>Сегодня Starter продолжает выполнять роль действующего сайта и приложения. Мы не отключаем его заранее: сначала доводим собственный продукт до боевой готовности и только после этого расторгаем договор.</p>
+      </div>
+
+      <div class="starter-flow">
+        <article class="starter-current">
+          <small>СЕЙЧАС</small>
+          <b>Starter</b>
+          <p>Рабочий сайт и приложение, через которые Doner Club уже получил реальный опыт онлайн-заказов, клиентского кабинета и поведения гостей.</p>
+        </article>
+        <div class="starter-arrow"><span>плавный переход</span><i>→</i></div>
+        <article class="starter-build">
+          <small>УЖЕ СДЕЛАНО</small>
+          <b>Doner Site</b>
+          <p>Готовы костяк, визуал, меню, корзина, профиль, точки, модификаторы и стоп-лист. Это уже не идея — собственный клиентский продукт существует.</p>
+        </article>
+        <div class="starter-arrow"><span>доводим до боевого</span><i>→</i></div>
+        <article class="starter-target">
+          <small>ФИНАЛЬНАЯ ЦЕЛЬ</small>
+          <b>Doner Site + App</b>
+          <p>Подключаем онлайн-оплату, создаём мобильное приложение, проводим полноценный тест и только после этого выводим Starter из контура.</p>
+        </article>
+      </div>
+
+      <div class="starter-plan">
+        <div><span>01</span><b>Собственный Site</b><p>Костяк и дизайн уже готовы.</p></div>
+        <div><span>02</span><b>Метод оплаты</b><p>Подключить настоящий checkout и проверить успешную оплату, возвраты и ошибки.</p></div>
+        <div><span>03</span><b>Мобильное приложение</b><p>Перенести тот же аккаунт, корзину, историю и статусы заказа в App.</p></div>
+        <div><span>04</span><b>Параллельный период</b><p>Starter и Doner Site/App работают рядом, пока мы сравниваем стабильность и клиентский путь.</p></div>
+        <div><span>05</span><b>Миграция</b><p>Переводим основной трафик на собственные каналы.</p></div>
+        <div><span>06</span><b>Расторжение Starter</b><p>Только после того, как собственные Site и App доказали боевую стабильность.</p></div>
+      </div>
+
+      <div class="starter-experience">
+        <div><small>ВАЖНЫЙ АКТИВ</small><h3>Starter дал Doner Club не только сервис, но и опыт.</h3></div>
+        <p>Мы уже увидели на живом продукте, какие функции нужны гостю, что удобно сотрудникам, где возникают ограничения и от чего отталкиваться. Поэтому собственную экосистему мы строим не вслепую — у нас есть накопленный практический ориентир и понимание, что сохранить, что упростить и что сделать лучше.</p>
+      </div>
+
+      <div class="starter-principle">
+        <strong>Принцип перехода:</strong>
+        <span>не «отключить Starter и надеяться», а сначала создать лучшее своё решение → проверить → перевести гостей → только потом отказаться от старого.</span>
+      </div>
+    </section>
+
     <section class="section blue" id="target">
       <div class="section-heading invert">
-        <span class="section-no">04</span>
+        <span class="section-no">05</span>
         <div><p class="kicker">ЦЕЛЕВАЯ АРХИТЕКТУРА</p><h2>Одна Doner OS для всех каналов</h2></div>
         <p>Внутри сети заказ должен выглядеть одинаково, независимо от того, пришёл он с киоска, сайта, Call Centre или агрегатора.</p>
       </div>
@@ -170,7 +218,7 @@
 
     <section class="section light" id="callcenter">
       <div class="section-heading">
-        <span class="section-no">05</span>
+        <span class="section-no">06</span>
         <div><p class="kicker dark">CALL CENTRE</p><h2>Как оператор отправит заказ прямо на точку</h2></div>
         <p>Оператор не должен звонить на ресторан или просить кассира вводить заказ повторно.</p>
       </div>
@@ -190,7 +238,7 @@
 
     <section class="section dark">
       <div class="section-heading invert">
-        <span class="section-no">06</span>
+        <span class="section-no">07</span>
         <div><p class="kicker">POS + KDS</p><h2>Свой кассовый и кухонный контур</h2></div>
         <p>Для Doner Club задача легче, чем для универсального ресторана: самообслуживание, один чек, единая выдача.</p>
       </div>
@@ -222,7 +270,7 @@
 
     <section class="section light" id="aggregators">
       <div class="section-heading">
-        <span class="section-no">07</span>
+        <span class="section-no">08</span>
         <div><p class="kicker dark">ЗАМЕНА KWAAKA</p><h2>Что делает посредник и как забрать эту роль себе</h2></div>
         <p>Сложность не в «получить JSON». Нужно безопасно обрабатывать повторы, отмены, ошибки, стоп-листы и изменения API.</p>
       </div>
@@ -250,7 +298,7 @@
 
     <section class="section blue" id="offline">
       <div class="section-heading invert">
-        <span class="section-no">08</span>
+        <span class="section-no">09</span>
         <div><p class="kicker">24/7 И OFFLINE</p><h2>Точка не должна останавливаться из-за облака</h2></div>
         <p>После отказа от iiko Doner Club сам отвечает за устойчивость. Поэтому нужен локальный Doner Edge.</p>
       </div>
@@ -268,7 +316,7 @@
 
     <section class="section light" id="payments">
       <div class="section-heading">
-        <span class="section-no">09</span>
+        <span class="section-no">10</span>
         <div><p class="kicker dark">ОПЛАТА И ФИСКАЛИЗАЦИЯ</p><h2>iiko не обязана стоять между оплатой и чеком</h2></div>
         <p>Платёжный слой можно вынести в собственную систему, а фискальный чек создавать через Webkassa API.</p>
       </div>
@@ -288,7 +336,7 @@
 
     <section class="section dark" id="erp">
       <div class="section-heading invert">
-        <span class="section-no">10</span>
+        <span class="section-no">11</span>
         <div><p class="kicker">ГДЕ НАСТОЯЩАЯ СЛОЖНОСТЬ</p><h2>Самое трудное — не касса</h2></div>
         <p>Настоящая ERP начинается там, где надо точно объяснить каждый килограмм сырья и каждую финансовую корректировку.</p>
       </div>
@@ -313,12 +361,12 @@
 
     <section class="section light" id="roadmap">
       <div class="section-heading">
-        <span class="section-no">11</span>
+        <span class="section-no">12</span>
         <div><p class="kicker dark">ROADMAP</p><h2>Переход шаг за шагом</h2></div>
         <p>Без календарных обещаний: следующий шаг начинается только после того, как предыдущий стабильно работает на реальной точке.</p>
       </div>
 
-      <div class="roadmap roadmap-cards">
+      <div class="roadmap-parallel"><b>Параллельный трек уже идёт:</b><span>Doner Site готов по костяку и визуалу → подключаем оплату → создаём App → тестируем параллельно со Starter → только затем расторгаем договор.</span></div>\n      <div class="roadmap roadmap-cards">
         <article><span>ШАГ 1</span><b>Единое ядро заказов</b><p>Единая модель заказа, события, защита от дублей, журнал действий и связь с CRM.</p><em>01</em></article>
         <article><span>ШАГ 2</span><b>Doner POS + KDS</b><p>Собственная касса и кухня сначала работают на одной точке параллельно с iiko.</p><em>02</em></article>
         <article><span>ШАГ 3</span><b>Call Centre + уведомления</b><p>Оператор отправляет заказ прямо на точку, а гость получает автоматический статус готовности.</p><em>03</em></article>
@@ -332,7 +380,7 @@
 
     <section class="section franchise" id="franchise">
       <div class="section-heading invert">
-        <span class="section-no">12</span>
+        <span class="section-no">13</span>
         <div><p class="kicker">МАСШТАБИРОВАНИЕ</p><h2>Doner OS как часть франшизы</h2></div>
         <p>В будущем франчайзи сможет получать не только бренд и рецептуры, но и готовую цифровую операционную систему сети.</p>
       </div>
@@ -354,7 +402,7 @@
 
     <section class="section blue">
       <div class="section-heading invert">
-        <span class="section-no">13</span>
+        <span class="section-no">14</span>
         <div><p class="kicker">ПЛЮСЫ И МИНУСЫ</p><h2>Цена независимости</h2></div>
         <p>Контроль над системой автоматически означает ответственность за её доступность.</p>
       </div>
@@ -389,7 +437,7 @@
 
     <section class="section light" id="risk">
       <div class="section-heading">
-        <span class="section-no">14</span>
+        <span class="section-no">15</span>
         <div><p class="kicker dark">КОНТРОЛЬ РИСКА</p><h2>Шесть правил безопасного перехода</h2></div>
         <p>Новая система получает ответственность только после того, как докажет стабильность на реальных заказах.</p>
       </div>
@@ -407,7 +455,7 @@
       <div class="decision-copy">
         <p class="kicker">РЕКОМЕНДАЦИЯ ДЛЯ РУКОВОДСТВА</p>
         <h2>Не строить «копию iiko». Строить Doner OS.</h2>
-        <p>Первый стратегический продукт: <strong>Order Hub + POS + KDS + Call Centre + Webkassa + Doner Edge.</strong> Это забирает под контроль основную операционную работу, не заставляя одновременно переписывать склад и весь ERP.</p>
+        <p>Первый стратегический продукт: <strong>Doner Site/App + Order Hub + POS + KDS + Call Centre + Webkassa + Doner Edge.</strong> Клиентский слой у нас уже начат, поэтому переход от Starter можно провести постепенно и без риска, одновременно забирая под контроль основную операционную работу.</p>
       </div>
 
       <div class="decision-grid">
@@ -426,7 +474,7 @@
 
     <section class="section light" id="glossary">
       <div class="section-heading">
-        <span class="section-no">15</span>
+        <span class="section-no">16</span>
         <div><p class="kicker dark">СЛОВАРЬ</p><h2>IT-язык без IT-языка</h2></div>
         <p>Чтобы стратегию одинаково понимали операционный директор, управляющий, кассир и разработчик.</p>
       </div>
@@ -449,7 +497,7 @@
 
     <section class="section sources">
       <div class="section-heading">
-        <span class="section-no">16</span>
+        <span class="section-no">17</span>
         <div><p class="kicker dark">ОСНОВАНИЕ СТРАТЕГИИ</p><h2>Что подтверждено уже сейчас</h2></div>
         <p>Внутренняя часть основана на уже работающих проектах Doner Club. Внешние интеграции — на публичных документациях платформ.</p>
       </div>
@@ -501,6 +549,6 @@
   </aside>
   <div class="backdrop" id="backdrop"></div>
   <div class="tooltip" id="tooltip" role="tooltip"></div>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
