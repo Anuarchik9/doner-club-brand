@@ -4,26 +4,88 @@ const backdrop=document.getElementById('backdrop');
 const glossaryBtn=document.getElementById('glossaryBtn');
 const drawerClose=document.getElementById('drawerClose');
 const tooltip=document.getElementById('tooltip');
-
-const presentationBtn=document.getElementById('presentationBtn');
 const presentationControls=document.getElementById('presentationControls');
 const presentationPrev=document.getElementById('presentationPrev');
 const presentationNext=document.getElementById('presentationNext');
-const presentationExit=document.getElementById('presentationExit');
 const presentationCounter=document.getElementById('presentationCounter');
+
 const slides=[...document.querySelectorAll('main > .section')];
 let presentationIndex=0;
-let scrollBeforePresentation=0;
 let fitTimer=null;
 
-function updateProgress(){
-  if(document.body.classList.contains('presentation-mode')) return;
-  const max=document.documentElement.scrollHeight-window.innerHeight;
-  const pct=max>0?(window.scrollY/max)*100:0;
-  progress.style.width=Math.max(0,Math.min(100,pct))+'%';
+// Convert the page into a real slide deck: every section gets one centered canvas.
+slides.forEach(slide=>{
+  if(slide.querySelector(':scope > .slide-content')) return;
+  const wrapper=document.createElement('div');
+  wrapper.className='slide-content';
+  while(slide.firstChild) wrapper.appendChild(slide.firstChild);
+  slide.appendChild(wrapper);
+});
+
+function slideIndexFromHash(){
+  const id=(location.hash||'').replace('#','');
+  if(!id || id==='top') return 0;
+  const index=slides.findIndex(slide=>slide.id===id);
+  return index>=0?index:0;
 }
-window.addEventListener('scroll',updateProgress,{passive:true});
-updateProgress();
+
+function resetFit(slide){
+  if(!slide) return;
+  const content=slide.querySelector('.slide-content');
+  if(!content) return;
+  content.style.zoom='';
+  content.style.width='';
+}
+
+function fitSlide(){
+  const slide=slides[presentationIndex];
+  if(!slide) return;
+  const content=slide.querySelector('.slide-content');
+  if(!content) return;
+
+  resetFit(slide);
+  const header=document.querySelector('.topbar');
+  const headerHeight=header?header.getBoundingClientRect().height:64;
+  const controlsHeight=presentationControls?presentationControls.getBoundingClientRect().height:48;
+  const availableHeight=Math.max(420,window.innerHeight-headerHeight-controlsHeight-36);
+  const availableWidth=Math.max(640,window.innerWidth-64);
+
+  content.style.width='min(1680px, 92vw)';
+  content.style.zoom='1';
+
+  const rect=content.getBoundingClientRect();
+  const naturalHeight=content.scrollHeight;
+  const naturalWidth=Math.max(content.scrollWidth,rect.width);
+  const scale=Math.min(1,availableHeight/Math.max(naturalHeight,1),availableWidth/Math.max(naturalWidth,1));
+
+  if(scale<0.995){
+    const safe=Math.max(.68,scale);
+    content.style.zoom=String(safe);
+    content.style.width=(Math.min(1680,window.innerWidth*.92)/safe)+'px';
+  }
+}
+
+function scheduleFit(){
+  clearTimeout(fitTimer);
+  fitTimer=setTimeout(()=>requestAnimationFrame(fitSlide),30);
+}
+
+function showSlide(index,updateHash=true){
+  presentationIndex=Math.max(0,Math.min(slides.length-1,index));
+  slides.forEach((slide,i)=>{
+    slide.classList.toggle('presentation-active',i===presentationIndex);
+  });
+  presentationCounter.textContent=(presentationIndex+1)+' / '+slides.length;
+  presentationPrev.disabled=presentationIndex===0;
+  presentationNext.disabled=presentationIndex===slides.length-1;
+
+  const active=slides[presentationIndex];
+  if(updateHash){
+    const hash=active.id?'#'+active.id:(presentationIndex===0?'#top':'#slide-'+(presentationIndex+1));
+    history.replaceState(null,'',hash);
+  }
+  requestAnimationFrame(()=>requestAnimationFrame(fitSlide));
+}
 
 function openDrawer(){
   drawer.classList.add('open');
@@ -39,122 +101,35 @@ glossaryBtn.addEventListener('click',openDrawer);
 drawerClose.addEventListener('click',closeDrawer);
 backdrop.addEventListener('click',closeDrawer);
 
-function nearestSlideIndex(){
-  const y=window.scrollY+window.innerHeight*.35;
-  let idx=0;
-  slides.forEach((slide,i)=>{if(slide.offsetTop<=y) idx=i;});
-  return idx;
-}
-
-function resetSlideFit(slide){
-  if(!slide) return;
-  slide.classList.remove('slide-fit');
-  slide.style.zoom='';
-  slide.style.width='';
-  slide.style.height='';
-}
-
-function fitActiveSlide(){
-  if(!document.body.classList.contains('presentation-mode')) return;
-  const slide=slides[presentationIndex];
-  if(!slide) return;
-  resetSlideFit(slide);
-
-  const header=document.querySelector('.topbar');
-  const headerHeight=header ? header.getBoundingClientRect().height : 64;
-  const availableHeight=Math.max(420,window.innerHeight-headerHeight);
-  const availableWidth=window.innerWidth;
-
-  // Presentation CSS first makes the layout compact. Only if a slide is still
-  // taller than the viewport do we scale that slide as one 16:9-style canvas.
-  slide.style.height='auto';
-  slide.style.width='100%';
-  slide.style.zoom='1';
-
-  let scale=1;
-  for(let pass=0;pass<4;pass++){
-    slide.style.width=(100/scale)+'%';
-    slide.style.height='auto';
-    const naturalHeight=slide.scrollHeight;
-    const naturalWidth=slide.scrollWidth;
-    const byHeight=availableHeight/Math.max(naturalHeight,1);
-    const byWidth=availableWidth/Math.max(naturalWidth*scale,1);
-    const next=Math.min(1,scale*byHeight,scale*byWidth);
-    if(Math.abs(next-scale)<0.005){scale=next;break;}
-    scale=Math.max(.62,next);
-  }
-
-  scale=Math.min(1,Math.max(.62,scale));
-  slide.style.zoom=String(scale);
-  slide.style.width=(100/scale)+'%';
-  slide.style.height=(availableHeight/scale)+'px';
-  slide.classList.add('slide-fit');
-  slide.scrollTop=0;
-}
-
-function scheduleFit(){
-  clearTimeout(fitTimer);
-  fitTimer=setTimeout(fitActiveSlide,30);
-}
-
-function showSlide(index){
-  resetSlideFit(slides[presentationIndex]);
-  presentationIndex=Math.max(0,Math.min(slides.length-1,index));
-  slides.forEach((slide,i)=>{
-    slide.classList.toggle('presentation-active',i===presentationIndex);
-    if(i===presentationIndex) slide.scrollTop=0;
-  });
-  presentationCounter.textContent=(presentationIndex+1)+' / '+slides.length;
-  presentationPrev.disabled=presentationIndex===0;
-  presentationNext.disabled=presentationIndex===slides.length-1;
-  requestAnimationFrame(()=>requestAnimationFrame(fitActiveSlide));
-}
-
-function enterPresentation(){
-  scrollBeforePresentation=window.scrollY;
-  presentationIndex=nearestSlideIndex();
-  document.body.classList.add('presentation-mode');
-  presentationControls.setAttribute('aria-hidden','false');
-  presentationBtn.textContent='Режим презентации включён';
-  window.scrollTo(0,0);
-  showSlide(presentationIndex);
-}
-
-function exitPresentation(){
-  document.body.classList.remove('presentation-mode');
-  slides.forEach(s=>{
-    s.classList.remove('presentation-active');
-    resetSlideFit(s);
-  });
-  presentationControls.setAttribute('aria-hidden','true');
-  presentationBtn.textContent='Войти в режим презентации';
-  requestAnimationFrame(()=>window.scrollTo(0,scrollBeforePresentation));
-  updateProgress();
-}
-
-presentationBtn.addEventListener('click',()=>{
-  if(document.body.classList.contains('presentation-mode')) exitPresentation();
-  else enterPresentation();
-});
 presentationPrev.addEventListener('click',()=>showSlide(presentationIndex-1));
 presentationNext.addEventListener('click',()=>showSlide(presentationIndex+1));
-presentationExit.addEventListener('click',exitPresentation);
 
-window.addEventListener('resize',()=>{
-  updateProgress();
-  if(document.body.classList.contains('presentation-mode')) scheduleFit();
+document.querySelectorAll('.topbar a[href^="#"]').forEach(link=>{
+  link.addEventListener('click',e=>{
+    const hash=link.getAttribute('href');
+    if(!hash) return;
+    const id=hash.replace('#','');
+    const targetIndex=id==='top'?0:slides.findIndex(slide=>slide.id===id);
+    if(targetIndex>=0){
+      e.preventDefault();
+      showSlide(targetIndex);
+    }
+  });
 });
 
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    if(drawer.classList.contains('open')) closeDrawer();
-    else if(document.body.classList.contains('presentation-mode')) exitPresentation();
+  if(e.key==='Escape' && drawer.classList.contains('open')){
+    closeDrawer();
     return;
   }
-  if(!document.body.classList.contains('presentation-mode')) return;
+  if(drawer.classList.contains('open')) return;
   if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();showSlide(presentationIndex+1);}
   if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();showSlide(presentationIndex-1);}
+  if(e.key==='Home'){e.preventDefault();showSlide(0);}
+  if(e.key==='End'){e.preventDefault();showSlide(slides.length-1);}
 });
+
+window.addEventListener('resize',scheduleFit);
 
 function showTip(el){
   const text=el.dataset.tip;
@@ -180,6 +155,7 @@ document.querySelectorAll('.term').forEach(el=>{
   el.addEventListener('click',()=>tooltip.classList.contains('show')?hideTip():showTip(el));
 });
 
-window.addEventListener('load',()=>{
-  if(document.body.classList.contains('presentation-mode')) scheduleFit();
-});
+document.body.classList.add('presentation-mode','deck-only');
+progress.style.display='none';
+showSlide(slideIndexFromHash(),false);
+window.addEventListener('load',scheduleFit);
