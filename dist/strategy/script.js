@@ -43,27 +43,9 @@ function fitSlide(){
   if(!slide) return;
   const content=slide.querySelector('.slide-content');
   if(!content) return;
-
   resetFit(slide);
-  const header=document.querySelector('.topbar');
-  const headerHeight=header?header.getBoundingClientRect().height:64;
-  const controlsHeight=presentationControls?presentationControls.getBoundingClientRect().height:48;
-  const availableHeight=Math.max(420,window.innerHeight-headerHeight-controlsHeight-36);
-  const availableWidth=Math.max(640,window.innerWidth-64);
-
-  content.style.width='min(1680px, 92vw)';
-  content.style.zoom='1';
-
-  const rect=content.getBoundingClientRect();
-  const naturalHeight=content.scrollHeight;
-  const naturalWidth=Math.max(content.scrollWidth,rect.width);
-  const scale=Math.min(1,availableHeight/Math.max(naturalHeight,1),availableWidth/Math.max(naturalWidth,1));
-
-  if(scale<0.995){
-    const safe=Math.max(.68,scale);
-    content.style.zoom=String(safe);
-    content.style.width=(Math.min(1680,window.innerWidth*.92)/safe)+'px';
-  }
+  content.style.width='';
+  content.style.zoom='';
 }
 
 function scheduleFit(){

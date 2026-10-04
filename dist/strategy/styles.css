@@ -895,3 +895,286 @@ body.deck-only .presentation-home:active{transform:translateY(0) scale(.96)}
 @media(max-width:700px){
   body.deck-only .presentation-home{left:12px;bottom:12px;width:44px;height:44px}
 }
+
+
+/* Strategy v9 — true 16:9 presentation composition */
+body.deck-only main>.section.presentation-active{
+  display:block!important;
+}
+body.deck-only main>.section>.slide-content{
+  width:min(1760px,94vw)!important;
+  height:100%!important;
+  margin:0 auto!important;
+  padding:32px 0 74px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:space-between!important;
+  gap:14px!important;
+  overflow:hidden!important;
+  zoom:1!important;
+}
+body.deck-only main>.hero>.slide-content{
+  display:grid!important;
+  grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr)!important;
+  grid-template-rows:1fr!important;
+  gap:46px!important;
+  align-items:center!important;
+  padding-top:34px!important;
+  padding-bottom:68px!important;
+}
+body.deck-only main>.closing>.slide-content{
+  display:grid!important;
+  grid-template-columns:1.15fr .85fr!important;
+  align-items:center!important;
+  gap:56px!important;
+}
+body.deck-only .section-heading{
+  flex:0 0 auto!important;
+  margin:0!important;
+  align-items:start!important;
+}
+body.deck-only .section-heading h2{
+  font-size:clamp(40px,3.4vw,64px)!important;
+  line-height:.94!important;
+}
+body.deck-only .section-heading>p{
+  font-size:15px!important;
+  line-height:1.4!important;
+  color:#586a78!important;
+  max-width:620px!important;
+}
+body.deck-only .invert.section-heading>p,
+body.deck-only .section-heading.invert>p{color:#b8c8d4!important}
+
+/* Hero now uses the whole slide instead of sitting in a small middle island */
+body.deck-only .hero-copy{
+  height:100%!important;
+  padding:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+body.deck-only .hero h1{
+  max-width:780px!important;
+  font-size:clamp(54px,4.8vw,86px)!important;
+  line-height:.9!important;
+  margin:18px 0 24px!important;
+  letter-spacing:-.055em!important;
+}
+body.deck-only .hero .lead{
+  max-width:760px!important;
+  font-size:18px!important;
+  line-height:1.46!important;
+}
+body.deck-only .hero-summary{
+  margin-top:34px!important;
+  border-top:0!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:9px!important;
+}
+body.deck-only .hero-summary div{
+  padding:16px!important;
+  border-radius:16px!important;
+  background:rgba(255,255,255,.78)!important;
+  border:1px solid #dce6ec!important;
+  box-shadow:0 8px 24px rgba(15,43,64,.05)!important;
+}
+body.deck-only .hero-summary b{font-size:10px!important}
+body.deck-only .hero-summary span{font-size:13px!important;line-height:1.3!important}
+body.deck-only .hero-diagram{
+  height:min(650px,72vh)!important;
+  padding:22px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:30px!important;
+}
+body.deck-only .hero-diagram img{height:100%!important;width:100%!important;object-fit:contain!important}
+
+/* Fill the vertical stage on content slides */
+body.deck-only .simple-cards,
+body.deck-only .portfolio-grid,
+body.deck-only .migration-grid,
+body.deck-only .architecture,
+body.deck-only .flow-steps,
+body.deck-only .screen-grid,
+body.deck-only .connector-stage,
+body.deck-only .payment-flow,
+body.deck-only .effort-matrix,
+body.deck-only .roadmap-cards,
+body.deck-only .pros-cons,
+body.deck-only .risk-grid,
+body.deck-only .decision-grid,
+body.deck-only .glossary-grid,
+body.deck-only .source-links{
+  flex:1 1 auto!important;
+  align-content:center!important;
+}
+body.deck-only .simple-cards article{min-height:225px!important}
+body.deck-only .simple-cards h3{font-size:27px!important}
+body.deck-only .simple-cards p{font-size:14px!important;line-height:1.4!important}
+body.deck-only .icon-box{width:50px!important;height:50px!important;font-size:17px!important}
+body.deck-only .explain-strip{
+  flex:0 0 auto!important;
+  padding:18px 22px!important;
+  border-radius:18px!important;
+  box-shadow:0 12px 26px rgba(9,31,47,.10)!important;
+}
+
+body.deck-only .portfolio-grid article{min-height:205px!important}
+body.deck-only .portfolio-grid b{font-size:27px!important}
+body.deck-only .portfolio-grid p{font-size:14px!important}
+body.deck-only .statement{
+  flex:0 0 auto!important;
+  padding:22px 28px!important;
+}
+body.deck-only .statement h3{font-size:36px!important;line-height:1!important}
+
+/* Slide 4 arrows: fixed alignment, no wobble */
+body.deck-only .migration-grid{
+  gap:12px!important;
+}
+body.deck-only .migration-card{
+  min-height:185px!important;
+  padding:18px 20px!important;
+}
+body.deck-only .migration-route{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 34px minmax(0,1.35fr)!important;
+  align-items:center!important;
+  column-gap:7px!important;
+  margin-top:10px!important;
+}
+body.deck-only .migration-route span{
+  text-align:right!important;
+  font-size:13px!important;
+  padding-right:2px!important;
+}
+body.deck-only .migration-route i{
+  width:30px!important;
+  height:30px!important;
+  display:grid!important;
+  place-items:center!important;
+  justify-self:center!important;
+  border-radius:50%!important;
+  background:var(--green-soft)!important;
+  color:var(--green)!important;
+  font-size:18px!important;
+  line-height:1!important;
+  animation:none!important;
+  transform:none!important;
+}
+body.deck-only .migration-route strong{
+  text-align:left!important;
+  font-size:14px!important;
+}
+body.deck-only .migration-card p{font-size:11px!important}
+body.deck-only .ownership-banner{
+  flex:0 0 auto!important;
+  min-height:74px!important;
+  padding:18px 22px!important;
+}
+body.deck-only .ownership-banner h3{font-size:23px!important}
+
+/* Give dense slides a balanced top / middle / bottom rhythm */
+body.deck-only #starter .slide-content,
+body.deck-only #target .slide-content,
+body.deck-only #callcenter .slide-content,
+body.deck-only #aggregators .slide-content,
+body.deck-only #offline .slide-content,
+body.deck-only #payments .slide-content,
+body.deck-only #erp .slide-content,
+body.deck-only #roadmap .slide-content,
+body.deck-only #franchise .slide-content,
+body.deck-only #risk .slide-content,
+body.deck-only #decision .slide-content,
+body.deck-only #glossary .slide-content{
+  justify-content:space-between!important;
+}
+body.deck-only .starter-flow article{min-height:205px!important}
+body.deck-only .starter-plan>div{min-height:124px!important}
+body.deck-only .starter-experience{padding:19px 23px!important}
+body.deck-only .architecture{min-height:340px!important}
+body.deck-only .arch-side,
+body.deck-only .arch-core{min-height:330px!important}
+body.deck-only .principles-grid article{min-height:125px!important}
+body.deck-only .wide-figure img{max-height:430px!important}
+body.deck-only .flow-steps article{min-height:132px!important}
+body.deck-only .pos-layout,
+body.deck-only .kds-layout{min-height:320px!important}
+body.deck-only .business-rule{padding:18px 22px!important}
+body.deck-only .connector-stage{min-height:360px!important}
+body.deck-only .connector-summary article{min-height:66px!important}
+body.deck-only .offline-table div{min-height:86px!important}
+body.deck-only .payment-flow article{min-height:190px!important}
+body.deck-only .effort-matrix article{min-height:58px!important}
+body.deck-only .strategy-callout{padding:21px 24px!important}
+body.deck-only .roadmap-cards article{min-height:150px!important}
+body.deck-only .franchise-core{min-height:245px!important}
+body.deck-only .franchise-points article{min-height:245px!important}
+body.deck-only .pros-cons>div{min-height:410px!important}
+body.deck-only .risk-grid article{min-height:165px!important}
+body.deck-only .decision-grid article{min-height:185px!important}
+body.deck-only .glossary-grid article{min-height:128px!important}
+body.deck-only .source-links a{min-height:110px!important}
+
+/* Make dark/light slides feel like designed canvases rather than centered web sections */
+body.deck-only .light,
+body.deck-only .starter-transition,
+body.deck-only .sources,
+body.deck-only .hero{
+  background:
+    radial-gradient(circle at 92% 8%,rgba(36,122,85,.085),transparent 24%),
+    radial-gradient(circle at 8% 92%,rgba(60,125,163,.065),transparent 22%),
+    #fbfdfe!important;
+}
+body.deck-only .dark,
+body.deck-only .blue,
+body.deck-only .decision{
+  background:
+    radial-gradient(circle at 90% 12%,rgba(57,148,102,.16),transparent 24%),
+    radial-gradient(circle at 8% 88%,rgba(58,104,145,.16),transparent 28%),
+    var(--navy)!important;
+}
+body.deck-only .franchise{
+  background:
+    radial-gradient(circle at 90% 15%,rgba(120,202,158,.15),transparent 25%),
+    #123d2d!important;
+}
+
+/* Home means up / first slide */
+body.deck-only .presentation-home{
+  font-size:27px!important;
+  line-height:1!important;
+}
+body.deck-only .presentation-home:hover{
+  transform:translateY(-3px)!important;
+}
+
+/* Keep typography readable instead of shrinking the whole slide */
+body.deck-only .slide-content{zoom:1!important}
+body.deck-only .presentation-active>.slide-content{transform-origin:center!important}
+
+/* Smaller-height laptop fallback */
+@media(max-height:850px){
+  body.deck-only main>.section>.slide-content{padding-top:20px!important;padding-bottom:62px!important;gap:9px!important}
+  body.deck-only .section-heading h2{font-size:44px!important}
+  body.deck-only .section-heading>p{font-size:13px!important}
+  body.deck-only .simple-cards article{min-height:170px!important}
+  body.deck-only .portfolio-grid article{min-height:155px!important}
+  body.deck-only .migration-card{min-height:150px!important}
+  body.deck-only .connector-stage{min-height:285px!important}
+  body.deck-only .hero-diagram{height:62vh!important}
+  body.deck-only .hero h1{font-size:62px!important}
+}
+
+/* Mobile stays usable, while desktop remains a 16:9 deck */
+@media(max-width:900px){
+  body.deck-only main>.section>.slide-content{
+    width:94vw!important;
+    padding:22px 0 72px!important;
+    overflow:auto!important;
+  }
+  body.deck-only main>.hero>.slide-content,
+  body.deck-only main>.closing>.slide-content{display:block!important}
+}
