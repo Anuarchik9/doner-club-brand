@@ -12,13 +12,13 @@
 <line x1="285" y1="360" x2="385" y2="360" stroke="#55748c" stroke-width="4" marker-end="url(#a)"/>
 <rect x="405" y="205" width="350" height="310" rx="18" fill="#0b1623"/>
 <text x="440" y="245" font-size="11" font-weight="700" fill="#8fb1c8">СОБСТВЕННОЕ ЯДРО</text>
-<text x="440" y="305" font-size="44" font-weight="800" fill="#ffffff">DONER OS</text>
+<text x="440" y="305" font-size="44" font-weight="800" fill="#ffffff">DC OS</text>
 <g fill="#173a5e"><rect x="440" y="345" width="130" height="42" rx="7"/><rect x="585" y="345" width="135" height="42" rx="7"/><rect x="440" y="400" width="130" height="42" rx="7"/><rect x="585" y="400" width="135" height="42" rx="7"/><rect x="440" y="455" width="280" height="42" rx="7"/></g>
 <g fill="#dce8f0" font-size="13" font-weight="700"><text x="475" y="371">Catalog</text><text x="627" y="371">Orders</text><text x="480" y="426">CRM</text><text x="616" y="426">Payments</text><text x="527" y="481">Status + Audit</text></g>
 <line x1="775" y1="360" x2="865" y2="360" stroke="#55748c" stroke-width="4" marker-end="url(#a)"/>
 <text x="890" y="145" font-size="11" font-weight="700" fill="#607b90">ТОЧКА / ИСПОЛНЕНИЕ</text>
 <g fill="#10243a"><rect x="885" y="165" width="250" height="68" rx="8"/><rect x="885" y="248" width="250" height="68" rx="8"/><rect x="885" y="331" width="250" height="68" rx="8"/><rect x="885" y="414" width="250" height="68" rx="8"/><rect x="885" y="497" width="250" height="68" rx="8"/></g>
-<g fill="#fff" font-size="16" font-weight="700"><text x="920" y="206">Doner POS</text><text x="920" y="289">Doner KDS</text><text x="920" y="372">Webkassa</text><text x="920" y="455">Telegram / Push</text><text x="920" y="538">Analytics</text></g>
+<g fill="#fff" font-size="16" font-weight="700"><text x="920" y="206">DC POS</text><text x="920" y="289">DC KDS</text><text x="920" y="372">Webkassa</text><text x="920" y="455">Telegram / Push</text><text x="920" y="538">Analytics</text></g>
 <rect x="405" y="585" width="730" height="52" rx="8" fill="#e5f2eb" stroke="#9fc9b2"/>
-<text x="435" y="617" font-size="14" font-weight="700" fill="#1d6747">Doner Edge: точка продолжает работать даже при проблемах с интернетом</text>
+<text x="435" y="617" font-size="14" font-weight="700" fill="#1d6747">DC Edge: точка продолжает работать даже при проблемах с интернетом</text>
 </g></svg>
