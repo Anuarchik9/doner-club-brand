@@ -40,10 +40,24 @@ function resetFit(slide){
 }
 
 function isMobileDeck(){
-  return window.matchMedia('(max-width: 950px)').matches || (navigator.maxTouchPoints||0)>0;
+  return document.documentElement.classList.contains('mobile-device') || (navigator.maxTouchPoints||0)>0;
 }
-function isLandscapeMobile(){
-  return isMobileDeck() && window.matchMedia('(orientation: landscape)').matches;
+function viewportBox(){
+  const vv=window.visualViewport;
+  return {
+    width: vv?vv.width:window.innerWidth,
+    height: vv?vv.height:window.innerHeight,
+    top: vv?vv.offsetTop:0
+  };
+}
+function updateMobileViewport(){
+  if(!isMobileDeck()) return;
+  const box=viewportBox();
+  document.documentElement.style.setProperty('--vvh',box.height+'px');
+  const landscape=box.width>box.height;
+  document.documentElement.classList.toggle('landscape-device',landscape);
+  const hiddenBottom=Math.max(0,window.innerHeight-(box.height+box.top));
+  document.documentElement.style.setProperty('--mobile-bottom',(hiddenBottom+8)+'px');
 }
 function fitSlide(){
   const slide=slides[presentationIndex];
@@ -55,16 +69,26 @@ function fitSlide(){
   content.style.width='';
   content.style.height='';
 
-  if(isLandscapeMobile()){
-    const vv=window.visualViewport;
-    const vw=vv?vv.width:window.innerWidth;
-    const vh=vv?vv.height:window.innerHeight;
-    const scale=Math.min((vw-8)/1280,(vh-8)/720,1);
-    document.documentElement.style.setProperty('--phone-slide-scale',String(Math.max(.35,scale)));
+  if(!isMobileDeck()) return;
+  updateMobileViewport();
+  const box=viewportBox();
+  const landscape=document.documentElement.classList.contains('landscape-device');
+
+  if(landscape){
+    const scale=Math.min((box.width-8)/1280,(box.height-8)/720,1);
     content.style.width='1280px';
     content.style.height='720px';
-    content.style.transform='scale('+Math.max(.35,scale)+')';
+    content.style.transform='scale('+Math.max(.32,scale)+')';
+    return;
   }
+
+  // Portrait: measure the natural 390px presentation canvas, then fit the whole slide to one screen.
+  content.style.width='390px';
+  content.style.height='auto';
+  const naturalHeight=Math.max(760,content.scrollHeight);
+  const availableHeight=Math.max(420,box.height-54);
+  const scale=Math.min((box.width-12)/390,availableHeight/naturalHeight,1);
+  content.style.transform='scale('+Math.max(.58,scale)+')';
 }
 
 function scheduleFit(){
@@ -136,8 +160,8 @@ document.addEventListener('keydown',e=>{
 });
 
 window.addEventListener('resize',scheduleFit);
-window.addEventListener('orientationchange',()=>{setTimeout(()=>{scheduleFit();showSlide(presentationIndex,false);},220);});
-if(window.visualViewport){window.visualViewport.addEventListener('resize',scheduleFit);}
+window.addEventListener('orientationchange',()=>{setTimeout(()=>{updateMobileViewport();scheduleFit();showSlide(presentationIndex,false);},220);});
+if(window.visualViewport){window.visualViewport.addEventListener('resize',()=>{updateMobileViewport();scheduleFit();});}
 
 function showTip(el){
   const text=el.dataset.tip;
@@ -164,6 +188,7 @@ document.querySelectorAll('.term').forEach(el=>{
 });
 
 document.body.classList.add('presentation-mode','deck-only');
+updateMobileViewport();
 progress.style.display='none';
 showSlide(slideIndexFromHash(),false);
 window.addEventListener('load',scheduleFit);

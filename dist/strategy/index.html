@@ -2,7 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <script>
+    (function(){
+      var ua=navigator.userAgent||'';
+      var touch=(navigator.maxTouchPoints||0)>0;
+      if(/iPhone|iPod|Android|Mobile/i.test(ua) || (touch && Math.min(screen.width||9999,screen.height||9999)<=1024)){
+        document.documentElement.classList.add('mobile-device');
+      }
+    })();
+  </script>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -11,7 +20,7 @@
   <title>Doner Club — стратегия собственной экосистемы</title>
   <link rel="shortcut icon" href="../favicon.ico?v=strategy-2" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png?v=strategy-2">
-  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="styles.css?v=16">
 <style id="critical-deck-v15">
 html,body{margin:0;width:100%;height:100%;overflow:hidden}
 body.deck-only{overflow:hidden}
@@ -67,6 +76,210 @@ body.deck-only .presentation-home{display:grid!important}
     width:1280px!important;min-width:1280px!important;height:720px!important;min-height:720px!important;
     padding:28px 42px 62px!important;overflow:hidden!important;transform-origin:center center!important
   }
+}
+</style>
+<style id="mobile-deck-v16">
+html.mobile-device,html.mobile-device body{
+  width:100%!important;height:100%!important;margin:0!important;overflow:hidden!important;background:#eef3f6!important;
+}
+html.mobile-device body.deck-only .topbar{
+  display:flex!important;position:fixed!important;z-index:100!important;
+  top:0!important;left:0!important;right:0!important;height:46px!important;min-height:46px!important;
+  padding:0 10px!important;align-items:center!important;background:rgba(255,255,255,.97)!important;
+}
+html.mobile-device body.deck-only .topbar .brand{width:68px!important;flex:0 0 68px!important}
+html.mobile-device body.deck-only .topbar .doc-title,
+html.mobile-device body.deck-only .topbar nav,
+html.mobile-device body.deck-only .topbar .deck-badge{display:none!important}
+html.mobile-device body.deck-only .header-actions{margin-left:auto!important}
+html.mobile-device body.deck-only .outline-btn{
+  height:30px!important;padding:0 10px!important;border-radius:11px!important;font-size:10px!important;white-space:nowrap!important
+}
+
+html.mobile-device body.deck-only main{
+  position:fixed!important;top:46px!important;left:0!important;right:0!important;bottom:0!important;
+  width:100%!important;height:calc(var(--vvh,100dvh) - 46px)!important;overflow:hidden!important;
+}
+html.mobile-device body.deck-only main>.section{
+  display:none!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  overflow:hidden!important;
+}
+html.mobile-device body.deck-only main>.section.presentation-active{
+  display:grid!important;place-items:center!important;
+}
+
+/* A real portrait presentation canvas. JS scales this entire canvas to the visible viewport. */
+html.mobile-device body.deck-only main>.section>.slide-content{
+  box-sizing:border-box!important;
+  width:390px!important;min-width:390px!important;
+  height:auto!important;min-height:760px!important;
+  max-width:none!important;margin:0!important;
+  padding:20px 18px 70px!important;
+  overflow:visible!important;
+  display:flex!important;flex-direction:column!important;justify-content:flex-start!important;gap:12px!important;
+  transform-origin:center center!important;zoom:1!important;
+}
+
+/* Compact portrait header hierarchy */
+html.mobile-device body.deck-only .section-heading{
+  display:grid!important;grid-template-columns:28px minmax(0,1fr)!important;grid-template-rows:auto auto!important;
+  gap:6px 8px!important;width:100%!important;margin:0 0 8px!important;
+}
+html.mobile-device body.deck-only .section-heading .section-no{
+  grid-column:1!important;grid-row:1!important;font-size:10px!important;padding-top:6px!important;
+}
+html.mobile-device body.deck-only .section-heading>div{grid-column:2!important;grid-row:1!important}
+html.mobile-device body.deck-only .section-heading>p{
+  grid-column:2!important;grid-row:2!important;margin:0!important;padding:0!important;
+  font-size:10.5px!important;line-height:1.35!important;max-width:none!important;
+}
+html.mobile-device body.deck-only .section-heading .kicker{
+  min-height:20px!important;padding:4px 7px!important;margin:0 0 6px!important;
+  font-size:7.5px!important;letter-spacing:.1em!important;border-radius:999px!important;
+}
+html.mobile-device body.deck-only .section-heading h2{
+  font-size:34px!important;line-height:.9!important;letter-spacing:-.045em!important;max-width:none!important;
+}
+
+/* Cover: 9:16 presentation instead of a long webpage */
+html.mobile-device body.deck-only main>.hero>.slide-content{
+  display:flex!important;flex-direction:column!important;justify-content:flex-start!important;gap:12px!important;
+}
+html.mobile-device body.deck-only .hero-copy{height:auto!important;display:flex!important;flex-direction:column!important}
+html.mobile-device body.deck-only .hero .kicker{
+  min-height:20px!important;padding:4px 7px!important;margin:0 0 6px!important;font-size:7.5px!important;
+}
+html.mobile-device body.deck-only .hero h1{
+  font-size:43px!important;line-height:.86!important;letter-spacing:-.052em!important;margin:3px 0 11px!important;max-width:none!important;
+}
+html.mobile-device body.deck-only .hero .lead{font-size:12px!important;line-height:1.38!important}
+html.mobile-device body.deck-only .hero-summary{
+  display:grid!important;grid-template-columns:1fr!important;gap:5px!important;margin-top:10px!important;
+}
+html.mobile-device body.deck-only .hero-summary div{
+  padding:8px 10px!important;border-radius:12px!important;display:grid!important;grid-template-columns:86px 1fr!important;gap:6px!important;align-items:start!important;
+}
+html.mobile-device body.deck-only .hero-summary b{font-size:8px!important}
+html.mobile-device body.deck-only .hero-summary span{font-size:10px!important;line-height:1.25!important;margin:0!important}
+html.mobile-device body.deck-only .hero-diagram{
+  height:210px!important;min-height:210px!important;padding:6px!important;margin-top:2px!important;border-radius:16px!important;
+}
+html.mobile-device body.deck-only .hero-svg-inline svg{
+  display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;
+}
+
+/* Portrait slide grids: dense but readable */
+html.mobile-device body.deck-only .simple-cards{grid-template-columns:1fr!important;gap:7px!important}
+html.mobile-device body.deck-only .portfolio-grid{grid-template-columns:1fr 1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .migration-grid{grid-template-columns:1fr 1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .principles-grid{grid-template-columns:1fr 1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .flow-steps{grid-template-columns:1fr 1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .screen-grid{grid-template-columns:1fr!important;gap:7px!important}
+html.mobile-device body.deck-only .offline-table{grid-template-columns:1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .pros-cons{grid-template-columns:1fr!important;gap:7px!important}
+html.mobile-device body.deck-only .risk-grid{grid-template-columns:1fr 1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .decision-grid{grid-template-columns:1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .glossary-grid{grid-template-columns:1fr 1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .source-links{grid-template-columns:1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .franchise-points{grid-template-columns:1fr!important;gap:6px!important}
+html.mobile-device body.deck-only .starter-plan{grid-template-columns:1fr 1fr!important;gap:6px!important}
+html.mobile-device body.deck-only #roadmap .roadmap-cards{grid-template-columns:1fr 1fr!important;gap:6px!important}
+html.mobile-device body.deck-only #decision .leadership-outcomes{grid-template-columns:1fr 1fr!important;gap:6px!important}
+
+html.mobile-device body.deck-only .simple-cards article,
+html.mobile-device body.deck-only .portfolio-grid article,
+html.mobile-device body.deck-only .migration-card,
+html.mobile-device body.deck-only .principles-grid article,
+html.mobile-device body.deck-only .flow-steps article,
+html.mobile-device body.deck-only .risk-grid article,
+html.mobile-device body.deck-only .glossary-grid article,
+html.mobile-device body.deck-only .roadmap-cards article,
+html.mobile-device body.deck-only .franchise-points article,
+html.mobile-device body.deck-only .pros-cons>div,
+html.mobile-device body.deck-only .payment-flow article,
+html.mobile-device body.deck-only .offline-table div,
+html.mobile-device body.deck-only .starter-flow article,
+html.mobile-device body.deck-only .starter-plan>div,
+html.mobile-device body.deck-only .decision-grid article,
+html.mobile-device body.deck-only #decision .leadership-outcomes article{
+  min-height:0!important;height:auto!important;padding:10px!important;border-radius:13px!important;
+}
+html.mobile-device body.deck-only .simple-cards h3,
+html.mobile-device body.deck-only .portfolio-grid b,
+html.mobile-device body.deck-only .principles-grid h3,
+html.mobile-device body.deck-only .flow-steps b,
+html.mobile-device body.deck-only .risk-grid b,
+html.mobile-device body.deck-only .glossary-grid b{font-size:13px!important;margin:8px 0 4px!important}
+html.mobile-device body.deck-only .simple-cards p,
+html.mobile-device body.deck-only .portfolio-grid p,
+html.mobile-device body.deck-only .principles-grid p,
+html.mobile-device body.deck-only .flow-steps p,
+html.mobile-device body.deck-only .risk-grid p,
+html.mobile-device body.deck-only .glossary-grid p{font-size:8.5px!important;line-height:1.25!important}
+
+html.mobile-device body.deck-only .statement,
+html.mobile-device body.deck-only .business-rule,
+html.mobile-device body.deck-only .strategy-callout,
+html.mobile-device body.deck-only .note,
+html.mobile-device body.deck-only .roadmap-parallel,
+html.mobile-device body.deck-only .starter-experience,
+html.mobile-device body.deck-only .starter-principle,
+html.mobile-device body.deck-only .ownership-banner,
+html.mobile-device body.deck-only .middleware-jobs{padding:10px!important;border-radius:13px!important}
+
+/* Special flows in portrait */
+html.mobile-device body.deck-only #starter .starter-flow{display:grid!important;grid-template-columns:1fr!important;gap:5px!important}
+html.mobile-device body.deck-only #starter .starter-arrow{height:20px!important;flex-direction:row!important;gap:6px!important}
+html.mobile-device body.deck-only #starter .starter-arrow i{transform:rotate(90deg)!important;margin:0!important;font-size:18px!important}
+html.mobile-device body.deck-only #starter .starter-experience{grid-template-columns:1fr!important}
+
+html.mobile-device body.deck-only #target .architecture{display:flex!important;flex-direction:column!important;gap:5px!important}
+html.mobile-device body.deck-only #target .arch-side,
+html.mobile-device body.deck-only #target .arch-core{min-height:0!important;height:auto!important;padding:10px!important}
+html.mobile-device body.deck-only #target .arch-arrow{height:20px!important;transform:rotate(90deg)!important}
+
+html.mobile-device body.deck-only .pos-layout,
+html.mobile-device body.deck-only .kds-layout{grid-template-columns:1fr!important;min-height:0!important}
+html.mobile-device body.deck-only .pos-layout aside{display:grid!important;grid-template-columns:repeat(2,1fr)!important}
+
+html.mobile-device body.deck-only #aggregators .connector-stage{
+  display:flex!important;flex-direction:column!important;min-height:0!important;padding:9px!important;gap:7px!important;border-radius:16px!important;
+}
+html.mobile-device body.deck-only #aggregators .connector-lines{display:none!important}
+html.mobile-device body.deck-only #aggregators .connector-hub{
+  width:150px!important;height:150px!important;min-height:150px!important;align-self:center!important;
+}
+html.mobile-device body.deck-only #aggregators .connector-main-arrow{height:20px!important}
+html.mobile-device body.deck-only #aggregators .connector-main-arrow span{transform:rotate(90deg)!important;width:30px!important;height:30px!important}
+html.mobile-device body.deck-only #aggregators .connector-os,
+html.mobile-device body.deck-only #aggregators .connector-point{width:100%!important;padding:10px!important}
+html.mobile-device body.deck-only #aggregators .connector-summary{grid-template-columns:1fr 1fr!important;gap:5px!important}
+
+html.mobile-device body.deck-only #payments .payment-flow{grid-template-columns:1fr!important}
+html.mobile-device body.deck-only #payments .payment-flow>i{transform:rotate(90deg)!important;min-height:18px!important}
+html.mobile-device body.deck-only #erp .effort-matrix article{grid-template-columns:1fr!important;gap:3px!important}
+html.mobile-device body.deck-only #franchise .franchise-flow{grid-template-columns:1fr!important}
+html.mobile-device body.deck-only #franchise .franchise-arrow{height:20px!important;transform:rotate(90deg)!important}
+html.mobile-device body.deck-only #decision .decision-copy h2{font-size:38px!important;line-height:.88!important}
+
+/* Controls always above browser chrome */
+html.mobile-device body.deck-only .presentation-home{
+  position:fixed!important;z-index:200!important;left:10px!important;bottom:var(--mobile-bottom,10px)!important;
+  width:42px!important;height:42px!important;border-radius:13px!important;font-size:22px!important;
+}
+html.mobile-device body.deck-only .presentation-controls{
+  position:fixed!important;z-index:200!important;right:10px!important;left:auto!important;bottom:var(--mobile-bottom,10px)!important;
+  padding:5px!important;gap:4px!important;border-radius:13px!important;
+}
+html.mobile-device body.deck-only .presentation-controls button{width:38px!important;min-width:38px!important;height:38px!important;border-radius:10px!important}
+html.mobile-device body.deck-only .presentation-controls span{min-width:46px!important;font-size:10px!important}
+
+/* Landscape uses a true 1280x720 slide and scales it to visible viewport */
+html.mobile-device.landscape-device body.deck-only .topbar{display:none!important}
+html.mobile-device.landscape-device body.deck-only main{top:0!important;height:var(--vvh,100dvh)!important}
+html.mobile-device.landscape-device body.deck-only main>.section>.slide-content{
+  width:1280px!important;min-width:1280px!important;height:720px!important;min-height:720px!important;
+  padding:28px 42px 60px!important;overflow:hidden!important;transform-origin:center center!important;
 }
 </style>
 </head>
@@ -747,7 +960,7 @@ body.deck-only .presentation-home{display:grid!important}
   </aside>
   <div class="backdrop" id="backdrop"></div>
   <div class="tooltip" id="tooltip" role="tooltip"></div>
-  <script id="deck-script-v15">
+  <script id="deck-script-v16">
 const progress=document.getElementById('progressBar');
 const drawer=document.getElementById('drawer');
 const backdrop=document.getElementById('backdrop');
@@ -790,10 +1003,24 @@ function resetFit(slide){
 }
 
 function isMobileDeck(){
-  return window.matchMedia('(max-width: 950px)').matches || (navigator.maxTouchPoints||0)>0;
+  return document.documentElement.classList.contains('mobile-device') || (navigator.maxTouchPoints||0)>0;
 }
-function isLandscapeMobile(){
-  return isMobileDeck() && window.matchMedia('(orientation: landscape)').matches;
+function viewportBox(){
+  const vv=window.visualViewport;
+  return {
+    width: vv?vv.width:window.innerWidth,
+    height: vv?vv.height:window.innerHeight,
+    top: vv?vv.offsetTop:0
+  };
+}
+function updateMobileViewport(){
+  if(!isMobileDeck()) return;
+  const box=viewportBox();
+  document.documentElement.style.setProperty('--vvh',box.height+'px');
+  const landscape=box.width>box.height;
+  document.documentElement.classList.toggle('landscape-device',landscape);
+  const hiddenBottom=Math.max(0,window.innerHeight-(box.height+box.top));
+  document.documentElement.style.setProperty('--mobile-bottom',(hiddenBottom+8)+'px');
 }
 function fitSlide(){
   const slide=slides[presentationIndex];
@@ -805,16 +1032,26 @@ function fitSlide(){
   content.style.width='';
   content.style.height='';
 
-  if(isLandscapeMobile()){
-    const vv=window.visualViewport;
-    const vw=vv?vv.width:window.innerWidth;
-    const vh=vv?vv.height:window.innerHeight;
-    const scale=Math.min((vw-8)/1280,(vh-8)/720,1);
-    document.documentElement.style.setProperty('--phone-slide-scale',String(Math.max(.35,scale)));
+  if(!isMobileDeck()) return;
+  updateMobileViewport();
+  const box=viewportBox();
+  const landscape=document.documentElement.classList.contains('landscape-device');
+
+  if(landscape){
+    const scale=Math.min((box.width-8)/1280,(box.height-8)/720,1);
     content.style.width='1280px';
     content.style.height='720px';
-    content.style.transform='scale('+Math.max(.35,scale)+')';
+    content.style.transform='scale('+Math.max(.32,scale)+')';
+    return;
   }
+
+  // Portrait: measure the natural 390px presentation canvas, then fit the whole slide to one screen.
+  content.style.width='390px';
+  content.style.height='auto';
+  const naturalHeight=Math.max(760,content.scrollHeight);
+  const availableHeight=Math.max(420,box.height-54);
+  const scale=Math.min((box.width-12)/390,availableHeight/naturalHeight,1);
+  content.style.transform='scale('+Math.max(.58,scale)+')';
 }
 
 function scheduleFit(){
@@ -886,8 +1123,8 @@ document.addEventListener('keydown',e=>{
 });
 
 window.addEventListener('resize',scheduleFit);
-window.addEventListener('orientationchange',()=>{setTimeout(()=>{scheduleFit();showSlide(presentationIndex,false);},220);});
-if(window.visualViewport){window.visualViewport.addEventListener('resize',scheduleFit);}
+window.addEventListener('orientationchange',()=>{setTimeout(()=>{updateMobileViewport();scheduleFit();showSlide(presentationIndex,false);},220);});
+if(window.visualViewport){window.visualViewport.addEventListener('resize',()=>{updateMobileViewport();scheduleFit();});}
 
 function showTip(el){
   const text=el.dataset.tip;
@@ -914,11 +1151,12 @@ document.querySelectorAll('.term').forEach(el=>{
 });
 
 document.body.classList.add('presentation-mode','deck-only');
+updateMobileViewport();
 progress.style.display='none';
 showSlide(slideIndexFromHash(),false);
 window.addEventListener('load',scheduleFit);
 
 </script>
-<div id="buildVersion" hidden>strategy-v15</div>
+<div id="buildVersion" hidden>strategy-v16</div>
 </body>
 </html>
