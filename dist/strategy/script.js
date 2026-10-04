@@ -117,6 +117,7 @@ document.addEventListener('keydown',e=>{
 });
 
 window.addEventListener('resize',scheduleFit);
+window.addEventListener('orientationchange',()=>setTimeout(scheduleFit,180));
 
 function showTip(el){
   const text=el.dataset.tip;
