@@ -14,6 +14,7 @@ const presentationCounter=document.getElementById('presentationCounter');
 const slides=[...document.querySelectorAll('main > .section')];
 let presentationIndex=0;
 let scrollBeforePresentation=0;
+let fitTimer=null;
 
 function updateProgress(){
   if(document.body.classList.contains('presentation-mode')) return;
@@ -22,7 +23,6 @@ function updateProgress(){
   progress.style.width=Math.max(0,Math.min(100,pct))+'%';
 }
 window.addEventListener('scroll',updateProgress,{passive:true});
-window.addEventListener('resize',updateProgress);
 updateProgress();
 
 function openDrawer(){
@@ -45,7 +45,60 @@ function nearestSlideIndex(){
   slides.forEach((slide,i)=>{if(slide.offsetTop<=y) idx=i;});
   return idx;
 }
+
+function resetSlideFit(slide){
+  if(!slide) return;
+  slide.classList.remove('slide-fit');
+  slide.style.zoom='';
+  slide.style.width='';
+  slide.style.height='';
+}
+
+function fitActiveSlide(){
+  if(!document.body.classList.contains('presentation-mode')) return;
+  const slide=slides[presentationIndex];
+  if(!slide) return;
+  resetSlideFit(slide);
+
+  const header=document.querySelector('.topbar');
+  const headerHeight=header ? header.getBoundingClientRect().height : 64;
+  const availableHeight=Math.max(420,window.innerHeight-headerHeight);
+  const availableWidth=window.innerWidth;
+
+  // Presentation CSS first makes the layout compact. Only if a slide is still
+  // taller than the viewport do we scale that slide as one 16:9-style canvas.
+  slide.style.height='auto';
+  slide.style.width='100%';
+  slide.style.zoom='1';
+
+  let scale=1;
+  for(let pass=0;pass<4;pass++){
+    slide.style.width=(100/scale)+'%';
+    slide.style.height='auto';
+    const naturalHeight=slide.scrollHeight;
+    const naturalWidth=slide.scrollWidth;
+    const byHeight=availableHeight/Math.max(naturalHeight,1);
+    const byWidth=availableWidth/Math.max(naturalWidth*scale,1);
+    const next=Math.min(1,scale*byHeight,scale*byWidth);
+    if(Math.abs(next-scale)<0.005){scale=next;break;}
+    scale=Math.max(.62,next);
+  }
+
+  scale=Math.min(1,Math.max(.62,scale));
+  slide.style.zoom=String(scale);
+  slide.style.width=(100/scale)+'%';
+  slide.style.height=(availableHeight/scale)+'px';
+  slide.classList.add('slide-fit');
+  slide.scrollTop=0;
+}
+
+function scheduleFit(){
+  clearTimeout(fitTimer);
+  fitTimer=setTimeout(fitActiveSlide,30);
+}
+
 function showSlide(index){
+  resetSlideFit(slides[presentationIndex]);
   presentationIndex=Math.max(0,Math.min(slides.length-1,index));
   slides.forEach((slide,i)=>{
     slide.classList.toggle('presentation-active',i===presentationIndex);
@@ -54,24 +107,31 @@ function showSlide(index){
   presentationCounter.textContent=(presentationIndex+1)+' / '+slides.length;
   presentationPrev.disabled=presentationIndex===0;
   presentationNext.disabled=presentationIndex===slides.length-1;
+  requestAnimationFrame(()=>requestAnimationFrame(fitActiveSlide));
 }
+
 function enterPresentation(){
   scrollBeforePresentation=window.scrollY;
   presentationIndex=nearestSlideIndex();
   document.body.classList.add('presentation-mode');
   presentationControls.setAttribute('aria-hidden','false');
   presentationBtn.textContent='Режим презентации включён';
-  showSlide(presentationIndex);
   window.scrollTo(0,0);
+  showSlide(presentationIndex);
 }
+
 function exitPresentation(){
   document.body.classList.remove('presentation-mode');
-  slides.forEach(s=>s.classList.remove('presentation-active'));
+  slides.forEach(s=>{
+    s.classList.remove('presentation-active');
+    resetSlideFit(s);
+  });
   presentationControls.setAttribute('aria-hidden','true');
   presentationBtn.textContent='Войти в режим презентации';
   requestAnimationFrame(()=>window.scrollTo(0,scrollBeforePresentation));
   updateProgress();
 }
+
 presentationBtn.addEventListener('click',()=>{
   if(document.body.classList.contains('presentation-mode')) exitPresentation();
   else enterPresentation();
@@ -79,6 +139,11 @@ presentationBtn.addEventListener('click',()=>{
 presentationPrev.addEventListener('click',()=>showSlide(presentationIndex-1));
 presentationNext.addEventListener('click',()=>showSlide(presentationIndex+1));
 presentationExit.addEventListener('click',exitPresentation);
+
+window.addEventListener('resize',()=>{
+  updateProgress();
+  if(document.body.classList.contains('presentation-mode')) scheduleFit();
+});
 
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
@@ -113,4 +178,8 @@ document.querySelectorAll('.term').forEach(el=>{
   el.addEventListener('focus',()=>showTip(el));
   el.addEventListener('blur',hideTip);
   el.addEventListener('click',()=>tooltip.classList.contains('show')?hideTip():showTip(el));
+});
+
+window.addEventListener('load',()=>{
+  if(document.body.classList.contains('presentation-mode')) scheduleFit();
 });
