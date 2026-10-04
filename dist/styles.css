@@ -267,3 +267,6 @@ body{overflow-x:clip}.brand-logo-link{width:108px;height:58px;flex:0 0 auto}.bra
 @media(max-width:560px){
   .tunnel-city{object-fit:contain;object-position:center;background:transparent;filter:saturate(.92) contrast(1.05) brightness(.76)}
 }
+
+/* Keep long gallery headings and punctuation together on phones. */
+@media(max-width:560px){.gallery-hero h1,.all-gallery-callout h2{font-size:clamp(40px,12vw,50px);line-height:.92;overflow-wrap:normal}}

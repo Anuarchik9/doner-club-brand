@@ -15,7 +15,8 @@ let presentationIndex=0;
 let fitTimer=null;
 
 // Convert the page into a real slide deck: every section gets one centered canvas.
-slides.forEach(slide=>{
+slides.forEach((slide,index)=>{
+  if(!slide.id)slide.id=index===0?'top':'slide-'+(index+1);
   const first=slide.firstElementChild;
   if(first && first.classList && first.classList.contains('slide-content')) return;
   const wrapper=document.createElement('div');
@@ -31,63 +32,12 @@ function slideIndexFromHash(){
   return index>=0?index:0;
 }
 
-function resetFit(slide){
-  if(!slide) return;
-  const content=slide.querySelector('.slide-content');
-  if(!content) return;
-  content.style.zoom='';
-  content.style.width='';
-}
-
-function isMobileDeck(){
-  return document.documentElement.classList.contains('mobile-device') || (navigator.maxTouchPoints||0)>0;
-}
-function viewportBox(){
-  const vv=window.visualViewport;
-  return {
-    width: vv?vv.width:window.innerWidth,
-    height: vv?vv.height:window.innerHeight,
-    top: vv?vv.offsetTop:0
-  };
-}
+// Let CSS lay out content at its real size in either orientation. Never
+// shrink a 1280px canvas onto a phone or rely on user-agent detection.
 function updateMobileViewport(){
-  if(!isMobileDeck()) return;
-  const box=viewportBox();
-  document.documentElement.style.setProperty('--vvh',box.height+'px');
-  const landscape=box.width>box.height;
-  document.documentElement.classList.toggle('landscape-device',landscape);
-  document.documentElement.classList.toggle('mobile-device',!landscape);
-  const hiddenBottom=Math.max(0,window.innerHeight-(box.height+box.top));
-  document.documentElement.style.setProperty('--mobile-bottom',(hiddenBottom+8)+'px');
+  document.documentElement.style.setProperty('--deck-height',window.innerHeight+'px');
 }
-function fitSlide(){
-  const slide=slides[presentationIndex];
-  if(!slide) return;
-  const content=slide.querySelector('.slide-content');
-  if(!content) return;
-  resetFit(slide);
-  content.style.transform='';
-  content.style.width='';
-  content.style.height='';
-
-  if(!isMobileDeck()) return;
-  updateMobileViewport();
-  const box=viewportBox();
-  const landscape=document.documentElement.classList.contains('landscape-device');
-
-  if(landscape){
-    const scale=Math.min((box.width-8)/1280,(box.height-8)/720,1);
-    content.style.width='1280px';
-    content.style.height='720px';
-    content.style.transform='scale('+Math.max(.30,scale)+')';
-    return;
-  }
-
-  // Portrait uses native responsive CSS; no shrinking the whole slide.
-  content.style.transform='none';
-  content.style.width='';
-  content.style.height='';
-}
+function fitSlide(){ updateMobileViewport(); }
 
 function scheduleFit(){
   clearTimeout(fitTimer);
@@ -102,6 +52,8 @@ function showSlide(index,updateHash=true){
   const activeSlide=slides[presentationIndex];
   void activeSlide.offsetWidth;
   activeSlide.classList.add('presentation-active');
+  activeSlide.querySelector('.slide-content').scrollTop=0;
+  hideTip();
   presentationCounter.textContent=(presentationIndex+1)+' / '+slides.length;
   presentationPrev.disabled=presentationIndex===0;
   presentationNext.disabled=presentationIndex===slides.length-1;
@@ -118,11 +70,13 @@ function openDrawer(){
   drawer.classList.add('open');
   backdrop.classList.add('open');
   drawer.setAttribute('aria-hidden','false');
+  drawer.inert=false;drawerClose.focus();
 }
 function closeDrawer(){
   drawer.classList.remove('open');
   backdrop.classList.remove('open');
   drawer.setAttribute('aria-hidden','true');
+  drawer.inert=true;glossaryBtn.focus();
 }
 glossaryBtn.addEventListener('click',openDrawer);
 drawerClose.addEventListener('click',closeDrawer);
@@ -150,7 +104,14 @@ document.addEventListener('keydown',e=>{
     closeDrawer();
     return;
   }
-  if(drawer.classList.contains('open')) return;
+  if(drawer.classList.contains('open')){
+    if(e.key==='Tab'){
+      const items=[...drawer.querySelectorAll('button,a[href],[tabindex="0"]')];
+      if(items.length===1){e.preventDefault();items[0].focus()}
+    }
+    return;
+  }
+  if(e.target.closest('button,a,input,textarea,select,[contenteditable="true"]'))return;
   if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();showSlide(presentationIndex+1);}
   if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();showSlide(presentationIndex-1);}
   if(e.key==='Home'){e.preventDefault();showSlide(0);}
@@ -182,7 +143,7 @@ document.querySelectorAll('.term').forEach(el=>{
   el.addEventListener('mouseleave',hideTip);
   el.addEventListener('focus',()=>showTip(el));
   el.addEventListener('blur',hideTip);
-  el.addEventListener('click',()=>tooltip.classList.contains('show')?hideTip():showTip(el));
+  el.addEventListener('click',()=>showTip(el));
 });
 
 document.body.classList.add('presentation-mode','deck-only');
@@ -190,3 +151,5 @@ updateMobileViewport();
 progress.style.display='none';
 showSlide(slideIndexFromHash(),false);
 window.addEventListener('load',scheduleFit);
+
+window.addEventListener('hashchange',()=>showSlide(slideIndexFromHash(),false));
