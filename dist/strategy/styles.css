@@ -99,3 +99,94 @@ footer{background:#050b12;color:#fff;padding:28px 5vw;display:flex;justify-conte
   .targets{grid-template-columns:1fr 1fr}.closing h2{font-size:60px}.closing>p{margin-top:40px}
   footer{flex-direction:column}
 }
+
+/* Strategy v3: transition, ownership, franchise and presentation */
+:root{--green:#247a55;--green-soft:#e5f2eb;--green-line:#9fc9b2}
+.header-actions{display:flex;gap:8px;align-items:center}
+.presentation-btn{border:1px solid var(--green);background:var(--green);color:#fff;padding:9px 13px;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer}
+.presentation-btn:hover{background:#1d6747}
+.transition-table{min-width:1080px}
+.transition-table th.move-head{text-align:center;color:var(--green)}
+.transition-table tbody tr{transition:background .16s ease}
+.transition-table tbody tr:hover{background:#f7fbf8}
+.transition-cell{width:170px;text-align:center!important}
+.transition-cell span{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:8px 12px;border:1px solid var(--green-line);background:var(--green-soft);color:#165c3d;border-radius:999px;font-size:11px;font-weight:900;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
+.transition-cell i{font-style:normal;font-size:20px;line-height:1}
+.ownership{margin-top:18px;border:1px solid var(--green-line);background:#f8fcfa}
+.ownership-intro{padding:34px 36px;background:var(--green);color:#fff}
+.ownership-intro small{font-size:10px;font-weight:900;letter-spacing:.13em;color:#d7eee2}
+.ownership-intro h3{font-size:clamp(32px,3.8vw,56px);line-height:1;letter-spacing:-.035em;max-width:1100px;margin:26px 0 0}
+.ownership-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.ownership-grid article{padding:26px;border-right:1px solid var(--green-line);min-height:230px}
+.ownership-grid article:last-child{border-right:0}
+.ownership-grid span{font-size:11px;font-weight:900;color:var(--green)}
+.ownership-grid b{display:block;font-size:22px;margin:46px 0 10px}
+.ownership-grid p{margin:0;color:#5d6d64}
+
+.roadmap-cards{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;border:0!important}
+.roadmap-cards article{display:grid!important;grid-template-columns:1fr 64px!important;grid-template-rows:auto auto 1fr!important;gap:10px 20px!important;padding:28px!important;border:1px solid var(--line)!important;background:#f7fafb;min-height:240px}
+.roadmap-cards article>span{grid-column:1;font-size:11px!important;color:var(--green)!important;letter-spacing:.1em}
+.roadmap-cards article>b{grid-column:1;font-size:27px!important;line-height:1.1}
+.roadmap-cards article>p{grid-column:1;margin:0!important;max-width:620px}
+.roadmap-cards article>em{grid-column:2;grid-row:1/4;align-self:start;font-size:50px!important;color:#d8e4de!important}
+.roadmap-cards article:nth-child(7){border-color:var(--green-line)!important;background:var(--green-soft)}
+
+.franchise{background:#123d2d;color:#fff}
+.franchise .section-heading>p{color:#c3dbcf}
+.franchise-flow{display:grid;grid-template-columns:.9fr 90px 1.5fr;gap:14px;align-items:stretch}
+.franchise-core{padding:34px;background:#fff;color:#123d2d;display:flex;flex-direction:column;justify-content:center;min-height:330px}
+.franchise-core small{font-size:10px;font-weight:900;letter-spacing:.13em;color:#4d8069}
+.franchise-core strong{font-size:clamp(48px,5vw,78px);letter-spacing:-.05em;margin:35px 0 8px}
+.franchise-core p{color:#5c7167;margin:0}
+.franchise-arrow{display:grid;place-items:center;font-size:44px;color:#9fd0b7}
+.franchise-points{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.franchise-points article{padding:24px;background:#184d39;border:1px solid #2b684f}
+.franchise-points span{font-size:11px;font-weight:900;color:#a6d4bc}
+.franchise-points b{display:block;font-size:22px;margin:55px 0 10px}
+.franchise-points p{color:#c9ddd2;margin:0}
+.franchise-benefits{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.franchise-benefits span{padding:9px 13px;border:1px solid #4d7d68;border-radius:999px;color:#dcebe3;background:#174634}
+
+.portfolio-grid article:nth-child(-n+3) em{color:#92d2ae}
+.statement{border-left:5px solid var(--green)}
+.principles-grid article:nth-child(2),.principles-grid article:nth-child(4){border-top:3px solid var(--green)}
+.business-rule{border-left-color:var(--green)}
+.badge.good{background:var(--green-soft);color:#185f40}
+.pros-cons>div:first-child{border-top:5px solid var(--green)}
+.targets div:nth-child(4){border-top:4px solid var(--green)}
+
+.presentation-controls{display:none}
+body.presentation-mode{overflow:hidden;background:#0a1320}
+body.presentation-mode .topbar{position:fixed;left:0;right:0;top:0}
+body.presentation-mode main{padding-top:76px}
+body.presentation-mode main>.section{display:none!important}
+body.presentation-mode main>.section.presentation-active{display:block!important;height:calc(100vh - 76px);overflow-y:auto;overflow-x:hidden;padding-top:54px;padding-bottom:100px}
+body.presentation-mode main>.hero.presentation-active,
+body.presentation-mode main>.closing.presentation-active{display:grid!important}
+body.presentation-mode footer{display:none}
+body.presentation-mode .page-progress{display:none}
+body.presentation-mode .presentation-controls{display:flex;position:fixed;right:28px;bottom:22px;z-index:95;align-items:center;gap:8px;background:#08131e;color:#fff;padding:8px;border:1px solid #385168;border-radius:9px;box-shadow:0 12px 35px rgba(0,0,0,.28)}
+.presentation-controls button{border:1px solid #48647b;background:#13283b;color:#fff;min-width:42px;height:38px;border-radius:6px;font-weight:900;cursor:pointer}
+.presentation-controls span{min-width:72px;text-align:center;font-size:12px;font-weight:800}
+.presentation-controls .presentation-exit{padding:0 13px;min-width:auto;background:#fff;color:#10243a;border-color:#fff}
+body.presentation-mode .hero h1{font-size:clamp(46px,6vw,92px)}
+body.presentation-mode .section-heading{margin-bottom:42px}
+body.presentation-mode .wide-figure img{max-height:52vh;object-fit:contain}
+body.presentation-mode .roadmap-cards article{min-height:190px}
+
+@media(max-width:1100px){
+  .ownership-grid{grid-template-columns:1fr 1fr}
+  .ownership-grid article:nth-child(2){border-right:0}
+  .ownership-grid article:nth-child(-n+2){border-bottom:1px solid var(--green-line)}
+  .franchise-flow{grid-template-columns:1fr}.franchise-arrow{transform:rotate(90deg);height:50px}.franchise-points{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:700px){
+  .header-actions{gap:5px}.presentation-btn{font-size:11px;padding:8px 9px}.outline-btn{font-size:11px}
+  .ownership-grid,.franchise-points,.roadmap-cards{grid-template-columns:1fr!important}
+  .ownership-grid article{border-right:0;border-bottom:1px solid var(--green-line)}.ownership-grid article:last-child{border-bottom:0}
+  .roadmap-cards article{min-height:210px}
+  body.presentation-mode main{padding-top:66px}
+  body.presentation-mode main>.section.presentation-active{height:calc(100vh - 66px);padding:42px 20px 90px}
+  body.presentation-mode main>.hero.presentation-active,body.presentation-mode main>.closing.presentation-active{display:block!important}
+  .presentation-controls{right:12px!important;left:12px;bottom:12px;justify-content:center}
+}

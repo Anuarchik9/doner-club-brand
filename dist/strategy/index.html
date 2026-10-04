@@ -8,7 +8,7 @@
   <title>Doner Club — стратегия собственной экосистемы</title>
   <link rel="shortcut icon" href="../favicon.ico?v=strategy-2" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png?v=strategy-2">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
   <div class="page-progress"><span id="progressBar"></span></div>
@@ -27,7 +27,7 @@
       <a href="#roadmap">План</a>
       <a href="#decision">Решение</a>
     </nav>
-    <button class="outline-btn" id="glossaryBtn" type="button">Словарь терминов</button>
+    <div class="header-actions"><button class="presentation-btn" id="presentationBtn" type="button">Войти в режим презентации</button><button class="outline-btn" id="glossaryBtn" type="button">Словарь терминов</button></div>
   </header>
 
   <main id="top">
@@ -102,26 +102,36 @@
       </div>
     </section>
 
-    <section class="section light">
+    <section class="section light" id="transition">
       <div class="section-heading">
         <span class="section-no">03</span>
-        <div><p class="kicker dark">СЕЙЧАС VS ЦЕЛЬ</p><h2>Что именно меняется</h2></div>
-        <p>Не интерфейс ради интерфейса. Меняется владелец логики и данных.</p>
+        <div><p class="kicker dark">СЕЙЧАС → СВОЯ СИСТЕМА</p><h2>Что именно меняется</h2></div>
+        <p>Мы поэтапно переводим ключевые процессы Doner Club из внешних систем в собственную экосистему — не ради нового интерфейса, а ради контроля над логикой, данными и развитием.</p>
       </div>
 
-      <div class="compare-table-wrap">
-        <table class="compare-table">
-          <thead><tr><th>Область</th><th>Сейчас</th><th>Целевая модель</th><th>Эффект</th></tr></thead>
+      <div class="compare-table-wrap transition-table-wrap">
+        <table class="compare-table transition-table">
+          <thead><tr><th>Область</th><th>Сейчас</th><th class="move-head">Переход</th><th>Целевая модель</th><th>Эффект</th></tr></thead>
           <tbody>
-            <tr><td>Центр заказа</td><td>iiko</td><td><strong>Doner Order Hub</strong></td><td>Один формат для всех каналов</td></tr>
-            <tr><td>Касса</td><td>iiko POS</td><td><strong>Doner POS</strong></td><td>Логика под наш формат</td></tr>
-            <tr><td>Кухня</td><td>iiko KDS</td><td><strong>Doner KDS</strong></td><td>Простой поток: новый → готовится → готов → выдан</td></tr>
-            <tr><td>Агрегаторы</td><td>Kwaaka</td><td><strong>Прямые connectors</strong></td><td>Меньше посредников</td></tr>
-            <tr><td>Клиент</td><td>Данные размазаны</td><td><strong>Doner CRM</strong></td><td>Единая история гостя</td></tr>
-            <tr><td>Уведомления</td><td>Ручной вызов гостя</td><td><strong>Telegram / Push</strong></td><td>Гость подходит только когда заказ готов</td></tr>
-            <tr><td>Аналитика</td><td>Несколько источников</td><td><strong>Doner Analytics</strong></td><td>Свой единый слой данных</td></tr>
+            <tr><td>Центр заказа</td><td>iiko</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner Order Hub</strong></td><td>Один формат заказа для всех каналов</td></tr>
+            <tr><td>Касса</td><td>iiko POS</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner POS</strong></td><td>Касса полностью под наш формат работы</td></tr>
+            <tr><td>Кухня</td><td>iiko KDS</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner KDS</strong></td><td>Новый → готовится → готов → выдан</td></tr>
+            <tr><td>Агрегаторы</td><td>Kwaaka</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Прямые connectors</strong></td><td>Меньше посредников и внешней зависимости</td></tr>
+            <tr><td>Клиент</td><td>Данные разрознены</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner CRM</strong></td><td>Единая история гостя в одном месте</td></tr>
+            <tr><td>Уведомления</td><td>Ручной вызов гостя</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Telegram / Push</strong></td><td>Гость подходит только когда заказ готов</td></tr>
+            <tr><td>Аналитика</td><td>Несколько источников</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner Analytics</strong></td><td>Свой единый слой данных и отчётности</td></tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="ownership">
+        <div class="ownership-intro"><small>ПОЧЕМУ ЭТО ВАЖНО</small><h3>Система будет подстроена под Doner Club, а не Doner Club — под чужую систему.</h3></div>
+        <div class="ownership-grid">
+          <article><span>01</span><b>Под наши привычки</b><p>Самообслуживание, единая выдача чека, работа 24/7, наши модификаторы и наша логика кухни становятся базовыми правилами системы.</p></article>
+          <article><span>02</span><b>Меняем сами</b><p>Новая функция появляется тогда, когда нужна бизнесу, а не когда попадёт в roadmap стороннего поставщика.</p></article>
+          <article><span>03</span><b>Меньше зависимости</b><p>Мы не привязаны к ограничениям чужих API, интерфейсов и тарифов в критичных операционных процессах.</p></article>
+          <article><span>04</span><b>Свой стандарт сети</b><p>Каждая новая точка получает одинаковые процессы, роли, меню, статусы и аналитику из единого ядра.</p></article>
+        </div>
       </div>
     </section>
 
@@ -304,26 +314,47 @@
     <section class="section light" id="roadmap">
       <div class="section-heading">
         <span class="section-no">11</span>
-        <div><p class="kicker dark">ROADMAP</p><h2>Как переходить без риска для ресторанов</h2></div>
-        <p>Каждый новый слой сначала работает рядом со старым. Только после стабильного пилота он становится основным.</p>
+        <div><p class="kicker dark">ROADMAP</p><h2>Переход шаг за шагом</h2></div>
+        <p>Без календарных обещаний: следующий шаг начинается только после того, как предыдущий стабильно работает на реальной точке.</p>
       </div>
 
-      <div class="roadmap">
-        <article><span>0–1 мес.</span><b>Order Hub foundation</b><p>Единая модель заказа, события, idempotency, audit log, связь с CRM.</p><em>01</em></article>
-        <article><span>1–3 мес.</span><b>Doner POS + KDS</b><p>Пилот на одной точке. iiko остаётся системой сверки.</p><em>02</em></article>
-        <article><span>2–4 мес.</span><b>Call Centre + Webkassa</b><p>Оператор отправляет заказ прямо в точку, фискализация уходит из iiko.</p><em>03</em></article>
-        <article><span>3–6 мес.</span><b>Doner Edge</b><p>Операционная работа точки не зависит от постоянного облака.</p><em>04</em></article>
-        <article><span>4–9 мес.</span><b>Wolt + Яндекс</b><p>Прямые connectors после sandbox и pilot.</p><em>05</em></article>
-        <article><span>6–12 мес.</span><b>Масштабирование</b><p>Единая система на Арай, Республике и новых точках.</p><em>06</em></article>
-        <article><span>9–18+ мес.</span><b>Doner ERP</b><p>Склад, закупки, техкарты, себестоимость и ревизии.</p><em>07</em></article>
+      <div class="roadmap roadmap-cards">
+        <article><span>ШАГ 1</span><b>Единое ядро заказов</b><p>Единая модель заказа, события, защита от дублей, журнал действий и связь с CRM.</p><em>01</em></article>
+        <article><span>ШАГ 2</span><b>Doner POS + KDS</b><p>Собственная касса и кухня сначала работают на одной точке параллельно с iiko.</p><em>02</em></article>
+        <article><span>ШАГ 3</span><b>Call Centre + уведомления</b><p>Оператор отправляет заказ прямо на точку, а гость получает автоматический статус готовности.</p><em>03</em></article>
+        <article><span>ШАГ 4</span><b>Оплата + Webkassa</b><p>Платёж и фискализация становятся отдельным контролируемым слоем Doner OS.</p><em>04</em></article>
+        <article><span>ШАГ 5</span><b>Прямые агрегаторы</b><p>Wolt и Яндекс подключаются напрямую; Kwaaka остаётся только там, где ещё нужна.</p><em>05</em></article>
+        <article><span>ШАГ 6</span><b>Doner Edge</b><p>Точка продолжает работать даже при временной потере связи с облаком.</p><em>06</em></article>
+        <article><span>ШАГ 7</span><b>Сеть + франшиза</b><p>Новая точка или франчайзи получает готовую цифровую модель Doner Club, а не набор разрозненных сервисов.</p><em>07</em></article>
+        <article><span>ШАГ 8</span><b>Doner ERP</b><p>Склад, закупки, техкарты, себестоимость, ревизии и полный выход из операционной зависимости от iiko.</p><em>08</em></article>
+      </div>
+    </section>
+
+    <section class="section franchise" id="franchise">
+      <div class="section-heading invert">
+        <span class="section-no">12</span>
+        <div><p class="kicker">МАСШТАБИРОВАНИЕ</p><h2>Doner OS как часть франшизы</h2></div>
+        <p>В будущем франчайзи сможет получать не только бренд и рецептуры, но и готовую цифровую операционную систему сети.</p>
       </div>
 
-      <p class="small-note">Сроки — ориентир для планирования. Реальная скорость зависит от команды, доступов агрегаторов, платёжных и фискальных согласований.</p>
+      <div class="franchise-flow">
+        <div class="franchise-core"><small>ГОЛОВНАЯ КОМПАНИЯ</small><strong>DONER OS</strong><p>стандарты · меню · роли · аналитика · обновления</p></div>
+        <div class="franchise-arrow">→</div>
+        <div class="franchise-points">
+          <article><span>01</span><b>Новая своя точка</b><p>Подключается по единому шаблону.</p></article>
+          <article><span>02</span><b>Франчайзи</b><p>Получает POS, KDS, CRM, отчёты и правила сети.</p></article>
+          <article><span>03</span><b>Головной офис</b><p>Видит качество, продажи и соблюдение стандартов в одном контуре.</p></article>
+        </div>
+      </div>
+
+      <div class="franchise-benefits">
+        <span>быстрее запускать точки</span><span>единые стандарты</span><span>централизованные обновления</span><span>прозрачная аналитика франчайзи</span><span>контроль меню и цен</span><span>собственная технологическая ценность франшизы</span>
+      </div>
     </section>
 
     <section class="section blue">
       <div class="section-heading invert">
-        <span class="section-no">12</span>
+        <span class="section-no">13</span>
         <div><p class="kicker">ПЛЮСЫ И МИНУСЫ</p><h2>Цена независимости</h2></div>
         <p>Контроль над системой автоматически означает ответственность за её доступность.</p>
       </div>
@@ -338,7 +369,7 @@
             <li>единые Kiosk, Site, App и Call Centre;</li>
             <li>новые функции без ожидания чужой разработки;</li>
             <li>аналитика без ограничений чужого API;</li>
-            <li>возможность масштабировать сеть и франшизу.</li>
+            <li>система развивается под привычки и правила Doner Club, а не наоборот;</li><li>возможность масштабировать сеть и продавать франшизу вместе с готовой цифровой экосистемой.</li>
           </ul>
         </div>
         <div class="negative">
@@ -358,7 +389,7 @@
 
     <section class="section light" id="risk">
       <div class="section-heading">
-        <span class="section-no">13</span>
+        <span class="section-no">14</span>
         <div><p class="kicker dark">КОНТРОЛЬ РИСКА</p><h2>Шесть правил безопасного перехода</h2></div>
         <p>Новая система получает ответственность только после того, как докажет стабильность на реальных заказах.</p>
       </div>
@@ -395,7 +426,7 @@
 
     <section class="section light" id="glossary">
       <div class="section-heading">
-        <span class="section-no">14</span>
+        <span class="section-no">15</span>
         <div><p class="kicker dark">СЛОВАРЬ</p><h2>IT-язык без IT-языка</h2></div>
         <p>Чтобы стратегию одинаково понимали операционный директор, управляющий, кассир и разработчик.</p>
       </div>
@@ -418,7 +449,7 @@
 
     <section class="section sources">
       <div class="section-heading">
-        <span class="section-no">15</span>
+        <span class="section-no">16</span>
         <div><p class="kicker dark">ОСНОВАНИЕ СТРАТЕГИИ</p><h2>Что подтверждено уже сейчас</h2></div>
         <p>Внутренняя часть основана на уже работающих проектах Doner Club. Внешние интеграции — на публичных документациях платформ.</p>
       </div>
@@ -445,6 +476,13 @@
     <a href="../index.html">Visual Guide ↗</a>
   </footer>
 
+  <div class="presentation-controls" id="presentationControls" aria-hidden="true">
+    <button id="presentationPrev" type="button" aria-label="Предыдущий слайд">←</button>
+    <span id="presentationCounter">1 / 1</span>
+    <button id="presentationNext" type="button" aria-label="Следующий слайд">→</button>
+    <button class="presentation-exit" id="presentationExit" type="button">Выйти</button>
+  </div>
+
   <aside class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-head">
       <div><small>БЫСТРЫЙ СЛОВАРЬ</small><h2>Термины простыми словами</h2></div>
@@ -463,6 +501,6 @@
   </aside>
   <div class="backdrop" id="backdrop"></div>
   <div class="tooltip" id="tooltip" role="tooltip"></div>
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
