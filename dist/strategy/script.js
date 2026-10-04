@@ -16,7 +16,8 @@ let fitTimer=null;
 
 // Convert the page into a real slide deck: every section gets one centered canvas.
 slides.forEach(slide=>{
-  if(slide.querySelector(':scope > .slide-content')) return;
+  const first=slide.firstElementChild;
+  if(first && first.classList && first.classList.contains('slide-content')) return;
   const wrapper=document.createElement('div');
   wrapper.className='slide-content';
   while(slide.firstChild) wrapper.appendChild(slide.firstChild);
@@ -39,7 +40,7 @@ function resetFit(slide){
 }
 
 function isMobileDeck(){
-  return document.documentElement.classList.contains('mobile-device');
+  return window.matchMedia('(max-width: 950px)').matches || (navigator.maxTouchPoints||0)>0;
 }
 function isLandscapeMobile(){
   return isMobileDeck() && window.matchMedia('(orientation: landscape)').matches;

@@ -6,23 +6,71 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <script>
-    (function(){
-      var ua=navigator.userAgent||'';
-      var touch=(navigator.maxTouchPoints||0)>0;
-      var mobileUA=/iPhone|iPod|Android|Mobile/i.test(ua);
-      var tabletTouch=touch && Math.min(screen.width||9999,screen.height||9999)<=1024;
-      if(mobileUA||tabletTouch){document.documentElement.classList.add('mobile-device');}
-    })();
-  </script>
   <meta name="theme-color" content="#0B1623">
   <meta name="description" content="Стратегия создания собственной цифровой экосистемы Doner Club — DC OS.">
   <title>Doner Club — стратегия собственной экосистемы</title>
   <link rel="shortcut icon" href="../favicon.ico?v=strategy-2" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png?v=strategy-2">
-  <link rel="stylesheet" href="styles.css?v=14">
+  <link rel="stylesheet" href="styles.css?v=15">
+<style id="critical-deck-v15">
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body.deck-only{overflow:hidden}
+body.deck-only .page-progress,body.deck-only footer{display:none!important}
+body.deck-only .topbar{position:fixed;z-index:80;top:0;left:0;right:0;height:64px}
+body.deck-only main{position:fixed;top:64px;left:0;right:0;bottom:0;overflow:hidden}
+body.deck-only main>.section{display:none!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important}
+body.deck-only main>.section.presentation-active{display:block!important}
+body.deck-only main>.section>.slide-content{height:100%;overflow:hidden}
+body.deck-only .presentation-controls{display:flex!important}
+body.deck-only .presentation-home{display:grid!important}
+.hero-svg-inline svg{display:block;width:100%;height:100%;max-width:100%}
+
+@media(max-width:950px){
+  body.deck-only .topbar{height:50px!important;min-height:50px!important;padding:0 10px!important;display:flex!important;align-items:center!important}
+  body.deck-only .topbar .brand{width:72px!important;flex:0 0 72px!important}
+  body.deck-only .topbar .doc-title,body.deck-only .topbar nav,body.deck-only .topbar .deck-badge{display:none!important}
+  body.deck-only .header-actions{margin-left:auto!important}
+  body.deck-only .outline-btn{height:32px!important;padding:0 10px!important;font-size:10px!important;white-space:nowrap!important}
+  body.deck-only main{top:50px!important;height:calc(100dvh - 50px)!important}
+  body.deck-only main>.section>.slide-content{
+    width:100%!important;max-width:none!important;height:100%!important;margin:0!important;
+    padding:16px 15px 76px!important;box-sizing:border-box!important;
+    overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch!important;
+    display:flex!important;flex-direction:column!important;justify-content:flex-start!important;gap:12px!important;
+    transform:none!important;zoom:1!important
+  }
+  body.deck-only .section-heading{display:grid!important;grid-template-columns:30px minmax(0,1fr)!important;grid-template-rows:auto auto!important;gap:7px 8px!important;margin:0 0 8px!important}
+  body.deck-only .section-heading .section-no{grid-column:1!important;grid-row:1!important;font-size:11px!important}
+  body.deck-only .section-heading>div{grid-column:2!important;grid-row:1!important}
+  body.deck-only .section-heading>p{grid-column:2!important;grid-row:2!important;margin:0!important;padding:0!important;font-size:12px!important;line-height:1.4!important}
+  body.deck-only .section-heading .kicker{font-size:8.5px!important;min-height:22px!important;padding:4px 7px!important;margin-bottom:7px!important}
+  body.deck-only .section-heading h2{font-size:clamp(34px,10.5vw,48px)!important;line-height:.9!important;max-width:none!important}
+  body.deck-only main>.hero>.slide-content{display:flex!important;flex-direction:column!important;gap:14px!important}
+  body.deck-only .hero-copy{height:auto!important}
+  body.deck-only .hero h1{font-size:clamp(38px,11vw,55px)!important;line-height:.88!important;margin:4px 0 14px!important;max-width:none!important}
+  body.deck-only .hero .lead{font-size:14px!important;line-height:1.45!important}
+  body.deck-only .hero-summary{grid-template-columns:1fr!important;gap:7px!important;margin-top:14px!important}
+  body.deck-only .hero-diagram{height:auto!important;min-height:0!important;padding:8px!important}
+  body.deck-only .hero-svg-inline svg{height:auto!important;aspect-ratio:12/7!important}
+  body.deck-only .simple-cards,body.deck-only .portfolio-grid,body.deck-only .migration-grid,body.deck-only .principles-grid,
+  body.deck-only .flow-steps,body.deck-only .screen-grid,body.deck-only .offline-table,body.deck-only .pros-cons,
+  body.deck-only .risk-grid,body.deck-only .decision-grid,body.deck-only .leadership-outcomes,body.deck-only .glossary-grid,
+  body.deck-only .source-links,body.deck-only .franchise-points,body.deck-only .starter-plan,body.deck-only #roadmap .roadmap-cards{grid-template-columns:1fr!important}
+  body.deck-only .presentation-home{left:10px!important;bottom:10px!important;width:44px!important;height:44px!important}
+  body.deck-only .presentation-controls{right:10px!important;left:auto!important;bottom:10px!important}
+}
+@media(max-width:950px) and (orientation:landscape){
+  body.deck-only .topbar{display:none!important}
+  body.deck-only main{top:0!important;height:100dvh!important}
+  body.deck-only main>.section.presentation-active{display:grid!important;place-items:center!important}
+  body.deck-only main>.section>.slide-content{
+    width:1280px!important;min-width:1280px!important;height:720px!important;min-height:720px!important;
+    padding:28px 42px 62px!important;overflow:hidden!important;transform-origin:center center!important
+  }
+}
+</style>
 </head>
-<body>
+<body class="presentation-mode deck-only">
   <div class="page-progress"><span id="progressBar"></span></div>
 
   <header class="topbar">
@@ -43,7 +91,9 @@
   </header>
 
   <main id="top">
-    <section class="hero section">
+    <section class="hero section presentation-active">
+      <div class="slide-content">
+
       <div class="hero-copy">
         <p class="kicker">DONER CLUB · DIGITAL STRATEGY</p>
         <h1>Стратегия создания собственной экосистемы Doner Club</h1>
@@ -57,9 +107,13 @@
       <figure class="hero-diagram">
         <img src="assets/overview.svg" alt="Схема: каналы заказов поступают в DC OS и далее в кассу, кухню, оплату и аналитику">
       </figure>
+    
+      </div>
     </section>
 
     <section class="section light" id="context">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">01</span>
         <div><p class="kicker dark">СНАЧАЛА ПРОСТО</p><h2>Что мы вообще хотим изменить?</h2></div>
@@ -90,9 +144,13 @@
         <i>→</i>
         <span>завтра центр управления принадлежит Doner Club</span>
       </div>
+    
+      </div>
     </section>
 
     <section class="section dark portfolio-slide">
+      <div class="slide-content">
+
       <div class="section-heading invert">
         <span class="section-no">02</span>
         <div><p class="kicker">ЧТО УЖЕ ЕСТЬ</p><h2>Мы начинаем не с нуля</h2></div>
@@ -112,9 +170,13 @@
         <span>КЛЮЧЕВАЯ МЫСЛЬ</span>
         <h3>DC OS уже начала формироваться. Сейчас iiko просто всё ещё стоит в центре исполнения.</h3>
       </div>
+    
+      </div>
     </section>
 
     <section class="section light transition-slide" id="transition">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">03</span>
         <div><p class="kicker dark">СЕЙЧАС → СВОЯ СИСТЕМА</p><h2>Что именно меняется</h2></div>
@@ -177,9 +239,13 @@
         <h3>Система подстраивается под Doner Club — не Doner Club под систему.</h3>
         <div class="ownership-pills"><span>наши привычки</span><span>наша логика кухни</span><span>наши правила</span><span>наши данные</span><span>наша скорость изменений</span></div>
       </div>
+    
+      </div>
     </section>
 
     <section class="section starter-transition" id="starter">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">04</span>
         <div><p class="kicker dark">STARTER → DONER SITE + APP</p><h2>Переход без резкого отключения</h2></div>
@@ -224,9 +290,13 @@
         <strong>Принцип перехода:</strong>
         <span>не «отключить Starter и надеяться», а сначала создать лучшее своё решение → проверить → перевести гостей → только потом отказаться от старого.</span>
       </div>
+    
+      </div>
     </section>
 
     <section class="section blue" id="target">
+      <div class="slide-content">
+
       <div class="section-heading invert">
         <span class="section-no">05</span>
         <div><p class="kicker">ЦЕЛЕВАЯ АРХИТЕКТУРА</p><h2>Одна DC OS для всех каналов</h2></div>
@@ -257,9 +327,13 @@
         <article><b>03</b><h3>Один клиент</h3><p>Телефон, адреса, история и предпочтения хранятся в DC CRM.</p></article>
         <article><b>04</b><h3>Один журнал</h3><p>Любое действие можно восстановить: кто, когда и что изменил.</p></article>
       </div>
+    
+      </div>
     </section>
 
     <section class="section light" id="callcenter">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">06</span>
         <div><p class="kicker dark">CALL CENTRE</p><h2>Как оператор отправит заказ прямо на точку</h2></div>
@@ -277,9 +351,13 @@
         <article><span>4</span><b>Кухня</b><p>Заказ появляется в POS/KDS без ручного дубля.</p></article>
         <article><span>5</span><b>Готово</b><p>Telegram или приложение сообщает гостю о готовности.</p></article>
       </div>
+    
+      </div>
     </section>
 
     <section class="section dark poskds-slide">
+      <div class="slide-content">
+
       <div class="section-heading invert">
         <span class="section-no">07</span>
         <div><p class="kicker">POS + KDS</p><h2>Свой кассовый и кухонный контур</h2></div>
@@ -309,9 +387,13 @@
         <b>Бизнес-правило Doner Club</b>
         <p>Если в чеке донер + Pepsi + соус, весь заказ считается одной единицей выдачи. Гость получает уведомление только когда весь чек готов к выдаче.</p>
       </div>
+    
+      </div>
     </section>
 
     <section class="section light aggregators-slide" id="aggregators">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">08</span>
         <div><p class="kicker dark">ЗАМЕНА KWAAKA</p><h2>Как забрать роль посредника себе</h2></div>
@@ -362,9 +444,13 @@
         <article><span class="status-dot amber"></span><div><b>Chocofood / Freedom Food</b><p>подключать после получения технического доступа</p></div></article>
         <article class="connector-why"><b>Что берём под контроль</b><div><span>retry</span><span>антидубли</span><span>отмены</span><span>стоп-лист</span><span>логи</span></div></article>
       </div>
+    
+      </div>
     </section>
 
     <section class="section blue" id="offline">
+      <div class="slide-content">
+
       <div class="section-heading invert">
         <span class="section-no">09</span>
         <div><p class="kicker">24/7 И OFFLINE</p><h2>Точка не должна останавливаться из-за облака</h2></div>
@@ -380,9 +466,13 @@
         <div><b>Интернет пропал</b><span>POS и KDS продолжают работать через DC Edge</span></div>
         <div><b>Интернет вернулся</b><span>Edge досылает очередь событий и синхронизирует точку</span></div>
       </div>
+    
+      </div>
     </section>
 
     <section class="section light" id="payments">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">10</span>
         <div><p class="kicker dark">ОПЛАТА И ФИСКАЛИЗАЦИЯ</p><h2>iiko не обязана стоять между оплатой и чеком</h2></div>
@@ -400,9 +490,13 @@
       </div>
 
       <div class="note"><strong>Важно:</strong> финансовый контур запускается только после отдельного теста возвратов, повторных запросов, двойной оплаты и восстановления после ошибок.</div>
+    
+      </div>
     </section>
 
     <section class="section dark" id="erp">
+      <div class="slide-content">
+
       <div class="section-heading invert">
         <span class="section-no">11</span>
         <div><p class="kicker">ГДЕ НАСТОЯЩАЯ СЛОЖНОСТЬ</p><h2>Самое трудное — не касса</h2></div>
@@ -425,9 +519,13 @@
         <small>ПОЭТОМУ</small>
         <h3>Не начинать с попытки «переписать весь iiko». Сначала забрать под себя операционное ядро заказов.</h3>
       </div>
+    
+      </div>
     </section>
 
     <section class="section light" id="roadmap">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">12</span>
         <div><p class="kicker dark">ROADMAP</p><h2>Переход шаг за шагом</h2></div>
@@ -444,9 +542,13 @@
         <article><span>ШАГ 7</span><b>Сеть + франшиза</b><p>Новая точка или франчайзи получает готовую цифровую модель Doner Club, а не набор разрозненных сервисов.</p><em>07</em></article>
         <article><span>ШАГ 8</span><b>DC ERP</b><p>Склад, закупки, техкарты, себестоимость, ревизии и полный выход из операционной зависимости от iiko.</p><em>08</em></article>
       </div>
+    
+      </div>
     </section>
 
     <section class="section franchise" id="franchise">
+      <div class="slide-content">
+
       <div class="section-heading invert">
         <span class="section-no">13</span>
         <div><p class="kicker">МАСШТАБИРОВАНИЕ</p><h2>DC OS как часть франшизы</h2></div>
@@ -466,9 +568,13 @@
       <div class="franchise-benefits">
         <span>быстрее запускать точки</span><span>единые стандарты</span><span>централизованные обновления</span><span>прозрачная аналитика франчайзи</span><span>контроль меню и цен</span><span>собственная технологическая ценность франшизы</span>
       </div>
+    
+      </div>
     </section>
 
     <section class="section blue tradeoff-slide">
+      <div class="slide-content">
+
       <div class="section-heading invert">
         <span class="section-no">14</span>
         <div><p class="kicker">ПЛЮСЫ И МИНУСЫ</p><h2>Цена независимости</h2></div>
@@ -501,9 +607,13 @@
           </ul>
         </div>
       </div>
+    
+      </div>
     </section>
 
     <section class="section light" id="risk">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">15</span>
         <div><p class="kicker dark">КОНТРОЛЬ РИСКА</p><h2>Шесть правил безопасного перехода</h2></div>
@@ -517,9 +627,13 @@
         <article><span>05</span><b>Fallback</b><p>Для критичного процесса всегда есть резервный сценарий.</p></article>
         <article><span>06</span><b>Backups</b><p>База и конфигурации должны восстанавливаться.</p></article>
       </div>
+    
+      </div>
     </section>
 
     <section class="section decision" id="decision">
+      <div class="slide-content">
+
       <div class="decision-copy">
         <p class="kicker">РЕКОМЕНДАЦИЯ ДЛЯ РУКОВОДСТВА</p>
         <h2>Не строить «копию iiko». Строить DC OS.</h2>
@@ -538,9 +652,13 @@
         <article><small>НЕЗАВИСИМОСТЬ</small><b>Меняем систему сами</b><p>Не ждём чужой roadmap, тариф или ограничение API, чтобы внедрить нужную бизнесу функцию.</p></article>
         <article><small>МАСШТАБ</small><b>Основа для франшизы</b><p>Новая точка получает готовую цифровую операционную модель Doner Club.</p></article>
       </div>
+    
+      </div>
     </section>
 
     <section class="section light" id="glossary">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">16</span>
         <div><p class="kicker dark">СЛОВАРЬ</p><h2>IT-язык без IT-языка</h2></div>
@@ -561,9 +679,13 @@
         <article><b>Shadow mode</b><p>Новая система работает рядом со старой, но пока не принимает критические решения.</p></article>
         <article><b>Webkassa</b><p>Сервис, который формирует фискальный чек и передаёт данные по правилам онлайн-кассы.</p></article>
       </div>
+    
+      </div>
     </section>
 
     <section class="section sources evidence-slide">
+      <div class="slide-content">
+
       <div class="section-heading">
         <span class="section-no">17</span>
         <div><p class="kicker dark">ОСНОВАНИЕ СТРАТЕГИИ</p><h2>Что подтверждено уже сейчас</h2></div>
@@ -576,14 +698,20 @@
         <div class="source-card source-choco"><b>Chocofood / Freedom Food</b><span>Канал доставки / будущий connector</span></div>
         <a href="../index.html"><b>Doner Club Visual Guide</b><span>Основной бренд-сайт →</span></a>
       </div>
+    
+      </div>
     </section>
 
     <section class="closing section">
+      <div class="slide-content">
+
       <div>
         <p class="kicker">DONER CLUB · STRATEGIC DIRECTION</p>
         <h2>Одна сеть.<br>Одна система.<br>Свои данные.</h2>
       </div>
       <p>DC OS — не IT-проект ради IT. Это инфраструктура, которая делает скорость развития, качество сервиса и масштабирование сети внутренней компетенцией Doner Club.</p>
+    
+      </div>
     </section>
   </main>
 
@@ -619,6 +747,178 @@
   </aside>
   <div class="backdrop" id="backdrop"></div>
   <div class="tooltip" id="tooltip" role="tooltip"></div>
-  <script src="script.js?v=14"></script>
+  <script id="deck-script-v15">
+const progress=document.getElementById('progressBar');
+const drawer=document.getElementById('drawer');
+const backdrop=document.getElementById('backdrop');
+const glossaryBtn=document.getElementById('glossaryBtn');
+const drawerClose=document.getElementById('drawerClose');
+const tooltip=document.getElementById('tooltip');
+const presentationControls=document.getElementById('presentationControls');
+const presentationPrev=document.getElementById('presentationPrev');
+const presentationNext=document.getElementById('presentationNext');
+const presentationCounter=document.getElementById('presentationCounter');
+const presentationHome=document.getElementById('presentationHome');
+
+const slides=[...document.querySelectorAll('main > .section')];
+let presentationIndex=0;
+let fitTimer=null;
+
+// Convert the page into a real slide deck: every section gets one centered canvas.
+slides.forEach(slide=>{
+  const first=slide.firstElementChild;
+  if(first && first.classList && first.classList.contains('slide-content')) return;
+  const wrapper=document.createElement('div');
+  wrapper.className='slide-content';
+  while(slide.firstChild) wrapper.appendChild(slide.firstChild);
+  slide.appendChild(wrapper);
+});
+
+function slideIndexFromHash(){
+  const id=(location.hash||'').replace('#','');
+  if(!id || id==='top') return 0;
+  const index=slides.findIndex(slide=>slide.id===id);
+  return index>=0?index:0;
+}
+
+function resetFit(slide){
+  if(!slide) return;
+  const content=slide.querySelector('.slide-content');
+  if(!content) return;
+  content.style.zoom='';
+  content.style.width='';
+}
+
+function isMobileDeck(){
+  return window.matchMedia('(max-width: 950px)').matches || (navigator.maxTouchPoints||0)>0;
+}
+function isLandscapeMobile(){
+  return isMobileDeck() && window.matchMedia('(orientation: landscape)').matches;
+}
+function fitSlide(){
+  const slide=slides[presentationIndex];
+  if(!slide) return;
+  const content=slide.querySelector('.slide-content');
+  if(!content) return;
+  resetFit(slide);
+  content.style.transform='';
+  content.style.width='';
+  content.style.height='';
+
+  if(isLandscapeMobile()){
+    const vv=window.visualViewport;
+    const vw=vv?vv.width:window.innerWidth;
+    const vh=vv?vv.height:window.innerHeight;
+    const scale=Math.min((vw-8)/1280,(vh-8)/720,1);
+    document.documentElement.style.setProperty('--phone-slide-scale',String(Math.max(.35,scale)));
+    content.style.width='1280px';
+    content.style.height='720px';
+    content.style.transform='scale('+Math.max(.35,scale)+')';
+  }
+}
+
+function scheduleFit(){
+  clearTimeout(fitTimer);
+  fitTimer=setTimeout(()=>requestAnimationFrame(fitSlide),30);
+}
+
+function showSlide(index,updateHash=true){
+  const previous=slides[presentationIndex];
+  if(previous) previous.classList.remove('presentation-active');
+  presentationIndex=Math.max(0,Math.min(slides.length-1,index));
+  slides.forEach((slide,i)=>slide.classList.remove('presentation-active'));
+  const activeSlide=slides[presentationIndex];
+  void activeSlide.offsetWidth;
+  activeSlide.classList.add('presentation-active');
+  presentationCounter.textContent=(presentationIndex+1)+' / '+slides.length;
+  presentationPrev.disabled=presentationIndex===0;
+  presentationNext.disabled=presentationIndex===slides.length-1;
+
+  const active=slides[presentationIndex];
+  if(updateHash){
+    const hash=active.id?'#'+active.id:(presentationIndex===0?'#top':'#slide-'+(presentationIndex+1));
+    history.replaceState(null,'',hash);
+  }
+  requestAnimationFrame(()=>requestAnimationFrame(fitSlide));
+}
+
+function openDrawer(){
+  drawer.classList.add('open');
+  backdrop.classList.add('open');
+  drawer.setAttribute('aria-hidden','false');
+}
+function closeDrawer(){
+  drawer.classList.remove('open');
+  backdrop.classList.remove('open');
+  drawer.setAttribute('aria-hidden','true');
+}
+glossaryBtn.addEventListener('click',openDrawer);
+drawerClose.addEventListener('click',closeDrawer);
+backdrop.addEventListener('click',closeDrawer);
+
+presentationHome.addEventListener('click',()=>showSlide(0));
+presentationPrev.addEventListener('click',()=>showSlide(presentationIndex-1));
+presentationNext.addEventListener('click',()=>showSlide(presentationIndex+1));
+
+document.querySelectorAll('.topbar a[href^="#"]').forEach(link=>{
+  link.addEventListener('click',e=>{
+    const hash=link.getAttribute('href');
+    if(!hash) return;
+    const id=hash.replace('#','');
+    const targetIndex=id==='top'?0:slides.findIndex(slide=>slide.id===id);
+    if(targetIndex>=0){
+      e.preventDefault();
+      showSlide(targetIndex);
+    }
+  });
+});
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && drawer.classList.contains('open')){
+    closeDrawer();
+    return;
+  }
+  if(drawer.classList.contains('open')) return;
+  if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();showSlide(presentationIndex+1);}
+  if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();showSlide(presentationIndex-1);}
+  if(e.key==='Home'){e.preventDefault();showSlide(0);}
+  if(e.key==='End'){e.preventDefault();showSlide(slides.length-1);}
+});
+
+window.addEventListener('resize',scheduleFit);
+window.addEventListener('orientationchange',()=>{setTimeout(()=>{scheduleFit();showSlide(presentationIndex,false);},220);});
+if(window.visualViewport){window.visualViewport.addEventListener('resize',scheduleFit);}
+
+function showTip(el){
+  const text=el.dataset.tip;
+  if(!text) return;
+  tooltip.textContent=text;
+  tooltip.classList.add('show');
+  const r=el.getBoundingClientRect();
+  requestAnimationFrame(()=>{
+    const t=tooltip.getBoundingClientRect();
+    const left=Math.min(window.innerWidth-t.width-12,Math.max(12,r.left+r.width/2-t.width/2));
+    let top=r.bottom+9;
+    if(top+t.height>window.innerHeight-12) top=r.top-t.height-9;
+    tooltip.style.left=left+'px';
+    tooltip.style.top=Math.max(12,top)+'px';
+  });
+}
+function hideTip(){tooltip.classList.remove('show');}
+document.querySelectorAll('.term').forEach(el=>{
+  el.addEventListener('mouseenter',()=>showTip(el));
+  el.addEventListener('mouseleave',hideTip);
+  el.addEventListener('focus',()=>showTip(el));
+  el.addEventListener('blur',hideTip);
+  el.addEventListener('click',()=>tooltip.classList.contains('show')?hideTip():showTip(el));
+});
+
+document.body.classList.add('presentation-mode','deck-only');
+progress.style.display='none';
+showSlide(slideIndexFromHash(),false);
+window.addEventListener('load',scheduleFit);
+
+</script>
+<div id="buildVersion" hidden>strategy-v15</div>
 </body>
 </html>
