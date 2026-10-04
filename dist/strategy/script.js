@@ -71,10 +71,13 @@ function scheduleFit(){
 }
 
 function showSlide(index,updateHash=true){
+  const previous=slides[presentationIndex];
+  if(previous) previous.classList.remove('presentation-active');
   presentationIndex=Math.max(0,Math.min(slides.length-1,index));
-  slides.forEach((slide,i)=>{
-    slide.classList.toggle('presentation-active',i===presentationIndex);
-  });
+  slides.forEach((slide,i)=>slide.classList.remove('presentation-active'));
+  const activeSlide=slides[presentationIndex];
+  void activeSlide.offsetWidth;
+  activeSlide.classList.add('presentation-active');
   presentationCounter.textContent=(presentationIndex+1)+' / '+slides.length;
   presentationPrev.disabled=presentationIndex===0;
   presentationNext.disabled=presentationIndex===slides.length-1;

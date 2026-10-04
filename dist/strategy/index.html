@@ -8,7 +8,7 @@
   <title>Doner Club — стратегия собственной экосистемы</title>
   <link rel="shortcut icon" href="../favicon.ico?v=strategy-2" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png?v=strategy-2">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <div class="page-progress"><span id="progressBar"></span></div>
@@ -102,37 +102,68 @@
       </div>
     </section>
 
-    <section class="section light" id="transition">
+    <section class="section light transition-slide" id="transition">
       <div class="section-heading">
         <span class="section-no">03</span>
         <div><p class="kicker dark">СЕЙЧАС → СВОЯ СИСТЕМА</p><h2>Что именно меняется</h2></div>
-        <p>Мы поэтапно переводим ключевые процессы Doner Club из внешних систем в собственную экосистему — не ради нового интерфейса, а ради контроля над логикой, данными и развитием.</p>
+        <p>Не просто меняем названия программ. Мы переносим ключевые процессы в контур, который работает по правилам Doner Club.</p>
       </div>
 
-      <div class="compare-table-wrap transition-table-wrap">
-        <table class="compare-table transition-table">
-          <thead><tr><th>Область</th><th>Сейчас</th><th class="move-head">Переход</th><th>Целевая модель</th><th>Эффект</th></tr></thead>
-          <tbody>
-            <tr><td>Центр заказа</td><td>iiko</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner Order Hub</strong></td><td>Один формат заказа для всех каналов</td></tr>
-            <tr><td>Касса</td><td>iiko POS</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner POS</strong></td><td>Касса полностью под наш формат работы</td></tr>
-            <tr><td>Кухня</td><td>iiko KDS</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner KDS</strong></td><td>Новый → готовится → готов → выдан</td></tr>
-            <tr><td>Агрегаторы</td><td>Kwaaka</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Прямые connectors</strong></td><td>Меньше посредников и внешней зависимости</td></tr>
-            <tr><td>Клиент</td><td>Данные разрознены</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner CRM</strong></td><td>Единая история гостя в одном месте</td></tr>
-            <tr><td>Уведомления</td><td>Ручной вызов гостя</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Telegram / Push</strong></td><td>Гость подходит только когда заказ готов</td></tr>
-            <tr><td>Сайт и приложение</td><td>Starter</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner Site + App</strong></td><td>Свой клиентский канал, свои данные и своя логика продукта</td></tr>
-            <tr><td>Аналитика</td><td>Несколько источников</td><td class="transition-cell"><span>Переходим <i>→</i></span></td><td><strong>Doner Analytics</strong></td><td>Свой единый слой данных и отчётности</td></tr>
-          </tbody>
-        </table>
+      <div class="migration-grid">
+        <article class="migration-card">
+          <div class="migration-icon">◎</div>
+          <small>ЦЕНТР ЗАКАЗА</small>
+          <div class="migration-route"><span>iiko</span><i>→</i><strong>Doner Order Hub</strong></div>
+          <p>Один формат заказа для всех каналов.</p>
+        </article>
+        <article class="migration-card">
+          <div class="migration-icon">▣</div>
+          <small>КАССА</small>
+          <div class="migration-route"><span>iiko POS</span><i>→</i><strong>Doner POS</strong></div>
+          <p>Интерфейс и правила полностью под наш формат.</p>
+        </article>
+        <article class="migration-card">
+          <div class="migration-icon">◫</div>
+          <small>КУХНЯ</small>
+          <div class="migration-route"><span>iiko KDS</span><i>→</i><strong>Doner KDS</strong></div>
+          <p>Новый → готовится → готов → выдан.</p>
+        </article>
+        <article class="migration-card">
+          <div class="migration-icon">⇄</div>
+          <small>АГРЕГАТОРЫ</small>
+          <div class="migration-route"><span>Kwaaka</span><i>→</i><strong>Direct Connectors</strong></div>
+          <p>Меньше посредников и внешних ограничений.</p>
+        </article>
+        <article class="migration-card">
+          <div class="migration-icon">◉</div>
+          <small>КЛИЕНТ</small>
+          <div class="migration-route"><span>Разрозненно</span><i>→</i><strong>Doner CRM</strong></div>
+          <p>Единая история и профиль гостя.</p>
+        </article>
+        <article class="migration-card">
+          <div class="migration-icon">✦</div>
+          <small>УВЕДОМЛЕНИЯ</small>
+          <div class="migration-route"><span>Ручной вызов</span><i>→</i><strong>Telegram / Push</strong></div>
+          <p>Гость подходит только когда всё готово.</p>
+        </article>
+        <article class="migration-card">
+          <div class="migration-icon">◌</div>
+          <small>САЙТ И APP</small>
+          <div class="migration-route"><span>Starter</span><i>→</i><strong>Doner Site + App</strong></div>
+          <p>Свой клиентский канал и свои данные.</p>
+        </article>
+        <article class="migration-card">
+          <div class="migration-icon">↗</div>
+          <small>АНАЛИТИКА</small>
+          <div class="migration-route"><span>Несколько источников</span><i>→</i><strong>Doner Analytics</strong></div>
+          <p>Один слой данных для всей сети.</p>
+        </article>
       </div>
 
-      <div class="ownership">
-        <div class="ownership-intro"><small>ПОЧЕМУ ЭТО ВАЖНО</small><h3>Система будет подстроена под Doner Club, а не Doner Club — под чужую систему.</h3></div>
-        <div class="ownership-grid">
-          <article><span>01</span><b>Под наши привычки</b><p>Самообслуживание, единая выдача чека, работа 24/7, наши модификаторы и наша логика кухни становятся базовыми правилами системы.</p></article>
-          <article><span>02</span><b>Меняем сами</b><p>Новая функция появляется тогда, когда нужна бизнесу, а не когда попадёт в roadmap стороннего поставщика.</p></article>
-          <article><span>03</span><b>Меньше зависимости</b><p>Мы не привязаны к ограничениям чужих API, интерфейсов и тарифов в критичных операционных процессах.</p></article>
-          <article><span>04</span><b>Свой стандарт сети</b><p>Каждая новая точка получает одинаковые процессы, роли, меню, статусы и аналитику из единого ядра.</p></article>
-        </div>
+      <div class="ownership-banner">
+        <div class="ownership-badge">НАШЕ ГЛАВНОЕ ПРЕИМУЩЕСТВО</div>
+        <h3>Система подстраивается под Doner Club — не Doner Club под систему.</h3>
+        <div class="ownership-pills"><span>наши привычки</span><span>наша логика кухни</span><span>наши правила</span><span>наши данные</span><span>наша скорость изменений</span></div>
       </div>
     </section>
 
@@ -268,31 +299,54 @@
       </div>
     </section>
 
-    <section class="section light" id="aggregators">
+    <section class="section light aggregators-slide" id="aggregators">
       <div class="section-heading">
         <span class="section-no">08</span>
-        <div><p class="kicker dark">ЗАМЕНА KWAAKA</p><h2>Что делает посредник и как забрать эту роль себе</h2></div>
-        <p>Сложность не в «получить JSON». Нужно безопасно обрабатывать повторы, отмены, ошибки, стоп-листы и изменения API.</p>
+        <div><p class="kicker dark">ЗАМЕНА KWAAKA</p><h2>Как забрать роль посредника себе</h2></div>
+        <p>Каждый агрегатор остаётся отдельным внешним каналом. Мы пишем для него небольшой «переводчик», а внутри Doner OS всё становится одинаковым.</p>
       </div>
 
-      <figure class="wide-figure framed">
-        <img src="assets/aggregators.svg" alt="Схема интеграции Wolt, Яндекс и Glovo через собственные адаптеры Doner Club">
-      </figure>
+      <div class="connector-stage">
+        <div class="connector-sources">
+          <article class="source-pill wolt-card"><span>W</span><div><b>Wolt</b><small>официальный POS / middleware API</small></div></article>
+          <article class="source-pill yandex-card"><span>Я</span><div><b>Яндекс Еда</b><small>меню · заказ · статус · курьер</small></div></article>
+          <article class="source-pill glovo-card"><span>G</span><div><b>Glovo</b><small>подключаем после production-доступа</small></div></article>
+        </div>
 
-      <div class="aggregator-table-wrap">
-        <table class="compare-table compact">
-          <thead><tr><th>Канал</th><th>Что реально сделать</th><th>Что нужно до запуска</th><th>Стратегия</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Wolt</strong></td><td>Прямой POS/Middleware connector</td><td>Credentials, sandbox, demo/pilot</td><td><span class="badge good">Забирать напрямую</span></td></tr>
-            <tr><td><strong>Яндекс Еда</strong></td><td>Меню, стопы, заказ, статус, курьер</td><td>Onboarding и production-доступ</td><td><span class="badge good">Забирать напрямую</span></td></tr>
-            <tr><td><strong>Glovo</strong></td><td>Адаптер технически возможен</td><td>Подтвердить доступ для Казахстана</td><td><span class="badge wait">Kwaaka пока оставить</span></td></tr>
-          </tbody>
-        </table>
+        <div class="connector-lines" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </div>
+
+        <div class="connector-hub">
+          <div class="hub-orbit orbit-one"></div>
+          <div class="hub-orbit orbit-two"></div>
+          <small>НАШ «ПЕРЕВОДЧИК»</small>
+          <strong>Doner<br>Connectors</strong>
+          <p>каждый канал → единый формат заказа</p>
+        </div>
+
+        <div class="connector-main-arrow"><span>→</span></div>
+
+        <div class="connector-os">
+          <small>ЕДИНОЕ ЯДРО</small>
+          <strong>DONER OS</strong>
+          <div><span>заказ</span><span>меню</span><span>стоп-лист</span><span>статус</span></div>
+        </div>
+
+        <div class="connector-main-arrow"><span>→</span></div>
+
+        <div class="connector-point">
+          <small>ТОЧКА</small>
+          <b>POS</b><b>KDS</b>
+          <p>Кухне уже не важно, откуда пришёл заказ</p>
+        </div>
       </div>
 
-      <div class="middleware-jobs">
-        <h3>Что должен уметь наш аналог Kwaaka</h3>
-        <div><span>Retry при сбое</span><span>Защита от дублей</span><span>Menu mapping</span><span>Отмены</span><span>Стоп-лист</span><span>Изменение заказа</span><span>Логи ошибок</span><span>Версии API</span></div>
+      <div class="connector-summary">
+        <article><span class="status-dot green"></span><div><b>Wolt</b><p>забирать напрямую после onboarding и pilot</p></div></article>
+        <article><span class="status-dot green"></span><div><b>Яндекс Еда</b><p>забирать напрямую после production-доступа</p></div></article>
+        <article><span class="status-dot amber"></span><div><b>Glovo</b><p>Kwaaka оставить до подтверждения прямого доступа</p></div></article>
+        <article class="connector-why"><b>Что берём под контроль</b><div><span>retry</span><span>антидубли</span><span>отмены</span><span>стоп-лист</span><span>логи</span></div></article>
       </div>
     </section>
 
@@ -548,6 +602,6 @@
   </aside>
   <div class="backdrop" id="backdrop"></div>
   <div class="tooltip" id="tooltip" role="tooltip"></div>
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>
