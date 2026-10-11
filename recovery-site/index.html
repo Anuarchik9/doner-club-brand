@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ff5a12" />
+  <meta name="description" content="Doner Club — доставка и самовывоз напрямую." />
+  <link rel="icon" type="image/png" sizes="128x128" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <title>Doner Club — доставка и самовывоз</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbarInner">
+      <a class="brand" href="#top" aria-label="Doner Club">
+        <span class="brandMark">DC</span>
+        <span class="brandName">Doner Club</span>
+      </a>
+
+      <div class="topActions">
+        <button class="locationBtn" id="locationBtn" type="button">
+          <span class="pin">●</span>
+          <span id="locationText">Астана · Доставка</span>
+          <span class="chev">⌄</span>
+        </button>
+        <button class="langBtn" id="langBtn" type="button">RU</button>
+        <button class="profileBtn" id="profileBtn" type="button">
+          <span class="personDot">●</span>
+          <span id="profileLabel">Войти</span>
+        </button>
+        <button class="cartTopBtn" id="cartTopBtn" type="button" aria-label="Корзина">
+          <span>Корзина</span>
+          <b id="cartTopCount">0</b>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="heroPattern"></div>
+      <div class="shell heroInner">
+        <div class="heroCopy">
+          <span class="eyebrow">Doner Club · Астана</span>
+          <h1>Вкусно. Быстро. Напрямую.</h1>
+          <p>Выбирайте любимые блюда и удобную точку самовывоза.</p>
+          <button class="heroAction" id="heroOrderBtn" type="button">Выбрать блюда</button>
+        </div>
+        <div class="heroHours" aria-label="Работаем круглосуточно, каждый день"><strong>24/7</strong><span>Готовим круглосуточно</span><small>Каждый день. В любое время.</small></div>
+        <button class="heroBadge" id="directOrderBtn" type="button" aria-label="Прямой заказ — перейти к меню">
+          <span>HALAL</span>
+          <strong>Прямой заказ</strong>
+          <small>без лишних посредников</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="fulfillment shell">
+      <button class="fulfillmentMain" id="fulfillmentMain" type="button">
+        <span class="fulIcon">⌖</span>
+        <span class="fulText">
+          <small id="fulfillmentLabel">Доставка</small>
+          <strong id="fulfillmentValue">Укажите адрес доставки</strong>
+        </span>
+        <span class="arrow">›</span>
+      </button>
+    </section>
+
+    <section class="menuSection shell" id="menu">
+      <div class="sectionHead">
+        <div>
+          <span class="eyebrow">Меню</span>
+          <h2>Выберите, что хочется сегодня</h2>
+        </div>
+        <div class="menuSource" id="menuStatus" role="status">Загружаем меню…</div>
+      </div>
+
+      <div class="categoriesWrap">
+        <div class="categories" id="categories"></div>
+      </div>
+
+      <div class="menuRoot" id="menuRoot">
+        <div class="menuLoading">
+          <div class="spinner"></div>
+          <b>Загружаем меню Doner Club</b>
+          <span>Собираем для вас доступные блюда</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <span>© Doner Club</span>
+    <a class="callCentre" href="tel:+77774005090" aria-label="Call Centre круглосуточно: +7 777 400 50 90"><span class="callIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-7-7l2-2-2-5Z"/></svg></span><span><span class="callTitle">CALL CENTRE <b>24/7</b></span><strong>+7 (777) 400-50-90</strong></span></a>
+  </footer>
+
+  <div class="drawerBackdrop" id="drawerBackdrop"></div>
+
+  <aside class="cartDrawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawerHead">
+      <h3>КОРЗИНА</h3>
+      <button class="roundClose" id="cartClose" type="button">×</button>
+    </div>
+
+    <button class="drawerChoice" id="cartFulfillment" type="button">
+      <span class="choiceIcon">▣</span>
+      <span>
+        <small id="cartModeLabel">Доставка</small>
+        <strong id="cartModeValue">Укажите адрес</strong>
+      </span>
+      <span class="arrow">›</span>
+    </button>
+
+    <button class="drawerChoice" id="etaButton" type="button">
+      <span class="choiceIcon">◷</span>
+      <span>
+        <strong>Как можно скорее</strong>
+        <small>Время уточним перед оформлением</small>
+      </span>
+      <span class="arrow">›</span>
+    </button>
+
+    <div class="cartMeta">
+      <span id="cartCountText">0 позиций</span>
+      <button id="clearCart" type="button">Очистить</button>
+    </div>
+
+    <div class="cartLines" id="cartLines">
+      <div class="emptyCart">
+        <b>Корзина пока пустая</b>
+        <span>Добавьте блюда из меню</span>
+      </div>
+    </div>
+
+    <section class="recommendBlock" id="recommendBlock">
+      <h4>ДОБАВИТЬ ЕЩЁ</h4>
+      <div class="recommendRail" id="recommendRail"></div>
+    </section>
+
+    <button class="drawerChoice compact" id="commentBtn" type="button">
+      <span class="choiceIcon">•••</span>
+      <span><strong>Комментарий к заказу</strong><small id="commentPreview"></small></span>
+      <span class="arrow">›</span>
+    </button>
+
+    <button class="drawerChoice compact" id="promoBtn" type="button">
+      <span class="choiceIcon">◆</span>
+      <span><strong>Добавить промокод</strong><small id="promoPreview"></small></span>
+      <span class="arrow">›</span>
+    </button>
+
+    <div class="cartSummary">
+      <div><span>Сумма корзины</span><b id="cartSubtotal">0 ₸</b></div>
+      <div><span>Получение</span><b id="deliveryPrice">Самовывоз · бесплатно</b></div>
+      <div class="grand"><span>К оплате</span><b id="cartTotal">0 ₸</b></div>
+    </div>
+
+    <div class="drawerFooter">
+      <div class="payTotal"><small>К оплате</small><strong id="footerTotal">0 ₸</strong></div>
+      <button class="checkoutBtn" id="checkoutBtn" type="button" disabled>Оформить заказ</button>
+    </div>
+  </aside>
+
+  <div class="profilePopover" id="profilePopover" aria-hidden="true">
+    <div class="profileIntro" id="profileIntro">
+      <strong id="profileName">Гость</strong>
+      <span id="profilePhone">Войдите по номеру телефона</span>
+    </div>
+    <button class="profileMenuItem" data-profile-action="orders" type="button"><span>▣</span>Мои заказы</button>
+    <button class="profileMenuItem" data-profile-action="addresses" type="button"><span>⌖</span>Мои адреса</button>
+    <button class="profileMenuItem" data-profile-action="data" type="button"><span>●</span>Мои данные</button>
+    <button class="profileMenuItem" data-profile-action="cards" type="button"><span>▰</span>Банковские карты</button>
+    <div class="profileDivider"></div>
+    <button class="profileMenuItem muted" id="logoutBtn" type="button"><span>↪</span>Выйти</button>
+  </div>
+
+  <div class="modalRoot" id="modalRoot"></div>
+  <button id="mobileCart" class="mobileCart" type="button" hidden><span>Мой заказ · <b id="mobileCartCount">0</b></span><strong id="mobileCartTotal">0 ₸</strong></button>
+  <div id="cartNotice" class="cartNotice" role="status" aria-live="polite"></div>
+  <script src="account.js?v=telegram-approval-2"></script>
+  <script src="app.js?v=telegram-approval-2"></script>
+</body>
+</html>

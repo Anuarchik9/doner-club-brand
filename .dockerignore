@@ -1,0 +1,7 @@
+.git
+.openai
+content
+.private
+.env
+tests
+__pycache__
